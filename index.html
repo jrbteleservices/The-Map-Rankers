@@ -17,7 +17,7 @@
 *{font-family:Inter,sans-serif}.serif{font-family:'Instrument Serif',serif}
 body{background:var(--bg);color:#fff;overflow-x:hidden}
 .gold{background:linear-gradient(135deg,var(--gold2),var(--gold))}
-.gold-text{background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.gold-text{background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .grid-pattern{background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);background-size:24px 24px}
 .card{background:var(--card);border:1px solid rgba(255,255,255,0.08)}
 .shimmer{position:relative;overflow:hidden}.shimmer:after{content:'';position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);animation:s 2.2s infinite}@keyframes s{100%{transform:translateX(100%)}}
@@ -59,7 +59,6 @@ input,select:focus{outline:none!important;border-color:#facc15!important;box-sha
 <p class="text-[10px] text-zinc-500 text-center">Free scan $0 • Detailed scan $9.99 • Sheet 1EjzWZ7X...</p>
 </form></div></div></section>
 
-<!-- MODAL WITH STRIPE UNLOCK -->
 <div id="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);z-index:9999;align-items:center;justify-content:center;padding:16px">
 <div class="bg-zinc-900 border border-white/10 rounded-[28px] p-8 max-w-[480px] w-full text-center">
 <div class="logo mx-auto w-14 h-14 text-[22px]">T</div>
@@ -72,7 +71,7 @@ input,select:focus{outline:none!important;border-color:#facc15!important;box-sha
 </div>
 <div class="mt-5 bg-[#facc15]/10 border border-[#facc15]/20 rounded-2xl p-4">
 <p class="text-[11px] font-bold text-yellow-400">🔒 FULL 9-GRID + COMPETITORS LOCKED</p>
-<p class="text-[12px] text-zinc-300 mt-1">Free scan shows approximate rank. Pay $9.99 for REAL Google Places API live data (costs us $0.34).</p>
+<p class="text-[12px] text-zinc-300 mt-1">Free scan shows approximate rank. Pay $9.99 for REAL Google Places API live data.</p>
 </div>
 <div class="mt-5 grid grid-cols-1 gap-3">
 <button id="unlockBtn" onclick="unlockDetailedScan()" class="gold text-black py-4 rounded-full font-black text-[14px] shimmer">UNLOCK FULL 9-GRID - $9.99 →</button>
@@ -85,11 +84,9 @@ input,select:focus{outline:none!important;border-color:#facc15!important;box-sha
 <script>
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbyGydgXqs_4uRiSnIYISlmnM1EdBjqIsowURbvzgYa2w4zQqXqvioDmJS8O24_342E9/exec";
 const FORMSPREE_URL = "https://formspree.io/f/mljeedqk";
-function calc(){const searches=parseInt(document.getElementById('calcSearch')?.value||1200);const rank=parseInt(document.getElementById('calcRank')?.value||8);const value=parseInt(document.getElementById('calcValue')?.value||400);const ctrTop3=0.62,ctrCurrent=rank<=3?0.22:rank<=10?0.08:0.02;const missed=Math.max(0,Math.round(searches*(ctrTop3-ctrCurrent)));const calls=Math.round(missed*0.15);const cust=Math.round(calls*0.35);const rev=cust*value;const set=(id,t)=>{const e=document.getElementById(id);if(e)e.innerText=t;};set('calcSearchVal',searches.toLocaleString());set('outCalls','+'+calls.toLocaleString());set('outCust','+'+cust.toLocaleString());set('outRev','$'+rev.toLocaleString()+' / mo');set('liveMissed',missed+'');document.getElementById('payCta').innerText=`WORTH $${rev.toLocaleString()}/mo? PAY $497 TO FIX →`;}
-async function preciseDetect(){let ip=null;try{const r=await fetch('https://ipapi.co/json/');const j=await r.json();ip={country:(j.country_code||'US').toUpperCase(),city:j.city||'Thane'};}catch(e){ip={country:'IN',city:'Thane'};}document.getElementById('ipcity').value=ip.city;document.getElementById('detectedCountry').value=ip.country;document.getElementById('preciseSuburb').value=ip.city;document.getElementById('geoText').innerText=`🎯 ${ip.city} • ${ip.country}`;document.getElementById('heroLoc').innerText=ip.city;document.getElementById('formLoc').innerText=ip.city;document.getElementById('dashLoc').innerText=ip.city;document.getElementById('city').value=ip.city;
-const isIndia=ip.country==='IN'; const priceText=isIndia?'₹299':'$9.99'; const btn=document.getElementById('unlockBtn'); if(btn) btn.innerText=`UNLOCK FULL 9-GRID - ${priceText} →`;
-}
-function buildEmptyGrid(){const grid=document.getElementById('mapGrid');const vals=Array(25).fill(0).map(()=>({n:'-',c:'bg-white/[0.04] border border-white/10 text-zinc-600'}));grid.innerHTML=vals.map(v=>`<div class="map-cell ${v.c}">${v.n}</div>`).join('');}
+function calc(){const searches=parseInt(document.getElementById('calcSearch')?.value||1200);const rank=parseInt(document.getElementById('calcRank')?.value||8);const value=parseInt(document.getElementById('calcValue')?.value||400);const ctrTop3=0.62,ctrCurrent=rank<=3?0.22:rank<=10?0.08:0.02;const missed=Math.max(0,Math.round(searches*(ctrTop3-ctrCurrent)));const calls=Math.round(missed*0.15);const cust=Math.round(calls*0.35);const rev=cust*value;const safe=(id,t)=>{const e=document.getElementById(id);if(e)e.innerText=t;};safe('calcSearchVal',searches.toLocaleString());safe('outCalls','+'+calls.toLocaleString());safe('outCust','+'+cust.toLocaleString());safe('outRev','$'+rev.toLocaleString()+' / mo');safe('liveMissed',missed+'');const pc=document.getElementById('payCta');if(pc)pc.innerText=`WORTH $${rev.toLocaleString()}/mo? PAY $497 TO FIX →`;}
+async function preciseDetect(){let ip=null;try{const r=await fetch('https://ipapi.co/json/');const j=await r.json();ip={country:(j.country_code||'US').toUpperCase(),city:j.city||'Thane'};}catch(e){ip={country:'IN',city:'Thane'};}const s=(id,v)=>{const e=document.getElementById(id);if(e)e.value=v;};const st=(id,v)=>{const e=document.getElementById(id);if(e)e.innerText=v;};s('ipcity',ip.city);s('detectedCountry',ip.country);s('preciseSuburb',ip.city);st('geoText',`🎯 ${ip.city} • ${ip.country}`);st('heroLoc',ip.city);st('formLoc',ip.city);st('dashLoc',ip.city);const ce=document.getElementById('city');if(ce&&!ce.value) ce.value=ip.city;const isIndia=ip.country==='IN'; const priceText=isIndia?'₹299':'$9.99'; const btn=document.getElementById('unlockBtn'); if(btn) btn.innerText=`UNLOCK FULL 9-GRID - ${priceText} →`;}
+function buildEmptyGrid(){const grid=document.getElementById('mapGrid');if(!grid) return;const vals=Array(25).fill(0).map(()=>({n:'-',c:'bg-white/[0.04] border border-white/10 text-zinc-600'}));grid.innerHTML=vals.map(v=>`<div class="map-cell ${v.c}">${v.n}</div>`).join('');}
 preciseDetect();buildEmptyGrid();
 ['calcSearch','calcRank','calcValue'].forEach(id=>{const el=document.getElementById(id);if(el){el.addEventListener('input',calc);el.addEventListener('change',calc);}});
 calc();
@@ -100,55 +97,60 @@ async function submitLiveScan(e){
   const original=btn.innerHTML;
   btn.innerHTML='🔍 LIVE SCANNING GOOGLE MAPS... (10 sec)';
   btn.disabled=true;
-  document.getElementById('statusBadge').innerText='SCANNING LIVE...';
+  const sb=document.getElementById('statusBadge'); if(sb){sb.innerText='SCANNING LIVE...';}
   const get=id=>document.getElementById(id)?.value||'';
   const payload={businessName:get('biz'),location:get('city'),service:get('service'),mapsLink:get('website'),email:get('email'),phone:get('phone')};
   window.lastBusinessName=payload.businessName; window.lastLocation=payload.location; window.lastService=payload.service;
   localStorage.setItem('bizName',payload.businessName); localStorage.setItem('loc',payload.location); localStorage.setItem('service',payload.service);
+  const safeSet=(id,val)=>{const el=document.getElementById(id); if(el) el.innerText=val;};
+  const safeHtml=(id,val)=>{const el=document.getElementById(id); if(el) el.innerHTML=val;};
   try{
     const res=await fetch('/api/scan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     const data=await res.json();
-    if(!data.success) throw new Error(data.error);
-    document.getElementById('liveVis').innerHTML=data.scan.visibility_score+`<span class="text-[16px] text-zinc-500">/100</span>`;
-    document.getElementById('visBar').style.width=data.scan.visibility_score+'%';
-    document.getElementById('livePos').innerText='#'+data.scan.avg_rank;
-    document.getElementById('liveMissed').innerText=data.opportunity.missed_monthly+'';
-    document.getElementById('liveAdv').innerText='+'+data.opportunity.competitor_advantage+' reviews';
-    document.getElementById('liveRec').innerText=data.scan.visibility_score<50?'High - Fix now':'Medium';
-    document.getElementById('statusBadge').innerText='LIVE • '+data.business.name;
-    document.getElementById('dashSub').innerText=`Live scan • ${data.business.name} • ${data.scan.keyword}`;
-    document.getElementById('dashLoc').innerText=data.business.name;
+    if(!data.success) throw new Error(data.error||'Scan failed');
+    safeHtml('liveVis',data.scan.visibility_score+`<span class="text-[16px] text-zinc-500">/100</span>`);
+    const vb=document.getElementById('visBar'); if(vb) vb.style.width=data.scan.visibility_score+'%';
+    safeSet('livePos','#'+data.scan.avg_rank);
+    safeSet('liveMissed',data.opportunity.missed_monthly+'');
+    safeSet('liveAdv','+'+data.opportunity.competitor_advantage+' reviews');
+    safeSet('liveRec',data.scan.visibility_score<50?'High - Fix now':'Medium');
+    if(sb){sb.innerText='LIVE • '+data.business.name; sb.className='text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 rounded-full px-2.5 py-1';}
+    safeSet('dashSub',`Live scan • ${data.business.name} • ${data.scan.keyword}`);
+    safeSet('dashLoc',data.business.name);
     const grid=document.getElementById('mapGrid');
-    grid.innerHTML=data.scan.grid.map(g=>{
-      let cls='bg-white/[0.06] border border-white/10 text-zinc-400';
-      if(g.rank<=3) cls='bg-[#facc15] text-black font-black';
-      else if(g.rank<=10) cls='bg-white/[0.08] border border-white/10 text-white';
-      else if(g.rank>=21) cls='bg-red-500/15 border border-red-500/20 text-red-400';
-      return `<div class="map-cell ${cls}">${g.rank>=21?'21+':'#'+g.rank}</div>`;
-    }).join('');
-    document.getElementById('calcRank').value=data.scan.avg_rank;
-    document.getElementById('calcSearch').value=data.opportunity.monthly_searches;
-    calc();
-    const leadData={business:payload.businessName,city:payload.location,preciseSuburb:payload.location,service:payload.service,email:payload.email,phone:payload.phone,country:document.getElementById('detectedCountry').value,lat:data.business.lat,lng:data.business.lng,live_visibility:data.scan.visibility_score,live_rank:data.scan.avg_rank,live_missed:data.opportunity.missed_monthly,competitor_advantage:data.opportunity.competitor_advantage,place_id:data.business.place_id,source:`FREE_${data.scan.visibility_score}_${data.scan.avg_rank}`,timestamp:new Date().toISOString(),page:location.href};
-    fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(leadData)});
+    if(grid){
+      grid.innerHTML=data.scan.grid.map(g=>{
+        let cls='bg-white/[0.06] border border-white/10 text-zinc-400';
+        if(g.rank<=3) cls='bg-[#facc15] text-black font-black';
+        else if(g.rank<=10) cls='bg-white/[0.08] border border-white/10 text-white';
+        else if(g.rank>=21) cls='bg-red-500/15 border border-red-500/20 text-red-400';
+        return `<div class="map-cell ${cls}">${g.rank>=21?'21+':'#'+g.rank}</div>`;
+      }).join('');
+    }
+    const cr=document.getElementById('calcRank'); if(cr) cr.value=data.scan.avg_rank;
+    const cs=document.getElementById('calcSearch'); if(cs) cs.value=data.opportunity.monthly_searches;
+    if(typeof calc==='function') calc();
+    const leadData={business:payload.businessName,city:payload.location,preciseSuburb:payload.location,service:payload.service,email:payload.email,phone:payload.phone,country:document.getElementById('detectedCountry')?.value||'IN',lat:data.business.lat,lng:data.business.lng,live_visibility:data.scan.visibility_score,live_rank:data.scan.avg_rank,live_missed:data.opportunity.missed_monthly,competitor_advantage:data.opportunity.competitor_advantage,place_id:data.business.place_id,source:`FREE_${data.scan.visibility_score}_${data.scan.avg_rank}`,timestamp:new Date().toISOString(),page:location.href};
+    fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(leadData)}).catch(()=>{});
     fetch(FORMSPREE_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(leadData)}).catch(()=>{});
-    document.getElementById('modalLoc').innerText=data.business.name;
-    document.getElementById('modalVis').innerText=data.scan.visibility_score+'/100';
-    document.getElementById('modalRank').innerText='#'+data.scan.avg_rank;
-    document.getElementById('modalMissed').innerText=data.opportunity.missed_monthly+'/mo';
-    document.getElementById('modalAdv').innerText='+'+data.opportunity.competitor_advantage+' reviews';
+    safeSet('modalLoc',data.business.name);
+    safeSet('modalVis',data.scan.visibility_score+'/100');
+    safeSet('modalRank','#'+data.scan.avg_rank);
+    safeSet('modalMissed',data.opportunity.missed_monthly+'/mo');
+    safeSet('modalAdv','+'+data.opportunity.competitor_advantage+' reviews');
     document.getElementById('modal').style.display='flex';
   }catch(err){
     alert('Scan failed: '+err.message);
-    document.getElementById('statusBadge').innerText='FAILED';
+    const sb2=document.getElementById('statusBadge'); if(sb2) sb2.innerText='FAILED';
+    console.error(err);
   }finally{
     btn.innerHTML=original; btn.disabled=false;
   }
 }
 
-// STRIPE UNLOCK - THIS IS THE MONEY FUNCTION
 async function unlockDetailedScan(){
   const btn=document.getElementById('unlockBtn');
+  const orig=btn.innerText;
   btn.innerText='Creating secure checkout...';
   btn.disabled=true;
   try{
@@ -156,21 +158,21 @@ async function unlockDetailedScan(){
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body:JSON.stringify({
-        businessName: window.lastBusinessName || localStorage.getItem('bizName'),
-        location: window.lastLocation || localStorage.getItem('loc'),
-        service: window.lastService || localStorage.getItem('service')
+        businessName: window.lastBusinessName || localStorage.getItem('bizName') || document.getElementById('biz')?.value,
+        location: window.lastLocation || localStorage.getItem('loc') || document.getElementById('city')?.value,
+        service: window.lastService || localStorage.getItem('service') || document.getElementById('service')?.value
       })
     }).then(r=>r.json());
     if(res.url){
-      window.location=res.url; // Redirect to Stripe
+      window.location=res.url;
     } else {
       alert('Add STRIPE_SECRET_KEY in Vercel: '+JSON.stringify(res));
-      btn.innerText='UNLOCK FULL 9-GRID - $9.99 →';
+      btn.innerText=orig;
       btn.disabled=false;
     }
   }catch(e){
     alert('Checkout error: '+e.message);
-    btn.innerText='UNLOCK FULL 9-GRID - $9.99 →';
+    btn.innerText=orig;
     btn.disabled=false;
   }
 }
