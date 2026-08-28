@@ -9,6 +9,8 @@
 <meta name="theme-color" content="#07070A">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2307070A'/><text x='16' y='22' text-anchor='middle' font-family='Arial Black' font-size='18' font-weight='900' fill='%23facc15'>T</text></svg>">
 <script src="https://cdn.tailwindcss.com"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#07070A;--card:#0F0F13;--gold:#facc15;--gold2:#fde68a}
@@ -50,20 +52,43 @@ input,select:focus{outline:none!important;border-color:#facc15!important;box-sha
 <input id="biz" required placeholder="Business Name * e.g. Sharma Plumbing" class="w-full bg-white text-black border border-white/10 rounded-2xl px-5 py-3.5 text-[14px] font-semibold">
 <input id="city" required placeholder="Location * e.g. Thane West" class="w-full bg-white text-black border border-white/10 rounded-2xl px-5 py-3.5 text-[14px] font-semibold">
 <input id="service" required placeholder="Service * e.g. Plumber, Dentist" class="w-full bg-white text-black border border-white/10 rounded-2xl px-5 py-3.5 text-[14px] font-semibold">
-<input id="website" placeholder="Google Maps Link (optional - paste your Maps URL for faster scan)" class="w-full bg-white text-black border border-white/10 rounded-2xl px-5 py-3.5 text-[14px] font-semibold">
+<input id="website" placeholder="Google Maps Link (optional)" class="w-full bg-white text-black border border-white/10 rounded-2xl px-5 py-3.5 text-[14px] font-semibold">
 <div class="grid grid-cols-2 gap-3"><input id="email" required type="email" placeholder="Email *" class="w-full bg-white text-black rounded-2xl px-5 py-3.5 text-[14px] font-semibold"><input id="phone" placeholder="WhatsApp" class="w-full bg-white text-black rounded-2xl px-5 py-3.5 text-[14px] font-semibold"></div>
 <input type="hidden" id="ipcity"><input type="hidden" id="preciseSuburb"><input type="hidden" id="detectedCountry"><input type="hidden" id="lat"><input type="hidden" id="lng">
 <button type="submit" id="formCta" class="w-full gold text-black rounded-full font-black text-[14px] py-4 px-6 shimmer">SCAN MY GOOGLE MAPS LIVE →</button>
-<p class="text-[10px] text-zinc-500 text-center">Uses Google Places API • Cost $0.20/scan • You charge $497 • Sheet 1EjzWZ7X...</p>
+<p class="text-[10px] text-zinc-500 text-center">Free scan $0 • Detailed scan $9.99 • Sheet 1EjzWZ7X...</p>
 </form></div></div></section>
 
-<div id="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);z-index:9999;align-items:center;justify-content:center;padding:16px"><div class="bg-zinc-900 border border-white/10 rounded-[28px] p-8 max-w-[480px] text-center"><div class="logo mx-auto w-14 h-14 text-[22px]">T</div><h3 class="font-black text-[22px] mt-5 text-white">Live Scan Complete: <span id="modalLoc">Business</span></h3><div class="mt-4 bg-white/[0.06] rounded-2xl p-4 text-left text-[13px]"><p>Visibility: <b id="modalVis" class="text-white">34/100</b></p><p>Avg Rank: <b id="modalRank" class="text-white">#8</b></p><p>Missed: <b id="modalMissed" class="text-white">127/mo</b></p><p>Competitor advantage: <b id="modalAdv" class="text-white">+243 reviews</b></p></div><p class="text-[12px] text-zinc-400 mt-4">Real Google data. If this is worth $17k/mo to you, lock Top 3 now.</p><div class="mt-4 grid grid-cols-2 gap-3"><a href="#how" onclick="document.getElementById('modal').style.display='none'" class="bg-white text-black py-3 rounded-full font-bold text-[13px] text-center">See Revenue →</a><button onclick="document.getElementById('modal').style.display='none'" class="gold text-black py-3 rounded-full font-bold text-[13px]">Close →</button></div></div></div>
+<!-- MODAL WITH STRIPE UNLOCK -->
+<div id="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);z-index:9999;align-items:center;justify-content:center;padding:16px">
+<div class="bg-zinc-900 border border-white/10 rounded-[28px] p-8 max-w-[480px] w-full text-center">
+<div class="logo mx-auto w-14 h-14 text-[22px]">T</div>
+<h3 class="font-black text-[22px] mt-5 text-white">Live Scan: <span id="modalLoc">Business</span></h3>
+<div class="mt-4 bg-white/[0.06] rounded-2xl p-4 text-left text-[13px] space-y-1">
+<p>Visibility: <b id="modalVis" class="text-white">34/100</b></p>
+<p>Avg Rank: <b id="modalRank" class="text-white">#8</b></p>
+<p>Missed: <b id="modalMissed" class="text-white">127/mo</b></p>
+<p>Competitor advantage: <b id="modalAdv" class="text-white">+243 reviews</b></p>
+</div>
+<div class="mt-5 bg-[#facc15]/10 border border-[#facc15]/20 rounded-2xl p-4">
+<p class="text-[11px] font-bold text-yellow-400">🔒 FULL 9-GRID + COMPETITORS LOCKED</p>
+<p class="text-[12px] text-zinc-300 mt-1">Free scan shows approximate rank. Pay $9.99 for REAL Google Places API live data (costs us $0.34).</p>
+</div>
+<div class="mt-5 grid grid-cols-1 gap-3">
+<button id="unlockBtn" onclick="unlockDetailedScan()" class="gold text-black py-4 rounded-full font-black text-[14px] shimmer">UNLOCK FULL 9-GRID - $9.99 →</button>
+<a href="#how" onclick="document.getElementById('modal').style.display='none'" class="bg-white/[0.06] border border-white/10 text-white py-3 rounded-full font-bold text-[13px] text-center">See Revenue First →</a>
+<button onclick="document.getElementById('modal').style.display='none'" class="text-zinc-500 text-[12px]">Close</button>
+</div>
+</div>
+</div>
 
 <script>
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbyGydgXqs_4uRiSnIYISlmnM1EdBjqIsowURbvzgYa2w4zQqXqvioDmJS8O24_342E9/exec";
 const FORMSPREE_URL = "https://formspree.io/f/mljeedqk";
 function calc(){const searches=parseInt(document.getElementById('calcSearch')?.value||1200);const rank=parseInt(document.getElementById('calcRank')?.value||8);const value=parseInt(document.getElementById('calcValue')?.value||400);const ctrTop3=0.62,ctrCurrent=rank<=3?0.22:rank<=10?0.08:0.02;const missed=Math.max(0,Math.round(searches*(ctrTop3-ctrCurrent)));const calls=Math.round(missed*0.15);const cust=Math.round(calls*0.35);const rev=cust*value;const set=(id,t)=>{const e=document.getElementById(id);if(e)e.innerText=t;};set('calcSearchVal',searches.toLocaleString());set('outCalls','+'+calls.toLocaleString());set('outCust','+'+cust.toLocaleString());set('outRev','$'+rev.toLocaleString()+' / mo');set('liveMissed',missed+'');document.getElementById('payCta').innerText=`WORTH $${rev.toLocaleString()}/mo? PAY $497 TO FIX →`;}
-async function preciseDetect(){let ip=null;try{const r=await fetch('https://ipapi.co/json/');const j=await r.json();ip={country:(j.country_code||'US').toUpperCase(),city:j.city||'Thane'};}catch(e){ip={country:'IN',city:'Thane'};}document.getElementById('ipcity').value=ip.city;document.getElementById('detectedCountry').value=ip.country;document.getElementById('preciseSuburb').value=ip.city;document.getElementById('geoText').innerText=`🎯 ${ip.city} • ${ip.country}`;document.getElementById('heroLoc').innerText=ip.city;document.getElementById('formLoc').innerText=ip.city;document.getElementById('dashLoc').innerText=ip.city;document.getElementById('city').value=ip.city;}
+async function preciseDetect(){let ip=null;try{const r=await fetch('https://ipapi.co/json/');const j=await r.json();ip={country:(j.country_code||'US').toUpperCase(),city:j.city||'Thane'};}catch(e){ip={country:'IN',city:'Thane'};}document.getElementById('ipcity').value=ip.city;document.getElementById('detectedCountry').value=ip.country;document.getElementById('preciseSuburb').value=ip.city;document.getElementById('geoText').innerText=`🎯 ${ip.city} • ${ip.country}`;document.getElementById('heroLoc').innerText=ip.city;document.getElementById('formLoc').innerText=ip.city;document.getElementById('dashLoc').innerText=ip.city;document.getElementById('city').value=ip.city;
+const isIndia=ip.country==='IN'; const priceText=isIndia?'₹299':'$9.99'; const btn=document.getElementById('unlockBtn'); if(btn) btn.innerText=`UNLOCK FULL 9-GRID - ${priceText} →`;
+}
 function buildEmptyGrid(){const grid=document.getElementById('mapGrid');const vals=Array(25).fill(0).map(()=>({n:'-',c:'bg-white/[0.04] border border-white/10 text-zinc-600'}));grid.innerHTML=vals.map(v=>`<div class="map-cell ${v.c}">${v.n}</div>`).join('');}
 preciseDetect();buildEmptyGrid();
 ['calcSearch','calcRank','calcValue'].forEach(id=>{const el=document.getElementById(id);if(el){el.addEventListener('input',calc);el.addEventListener('change',calc);}});
@@ -76,17 +101,14 @@ async function submitLiveScan(e){
   btn.innerHTML='🔍 LIVE SCANNING GOOGLE MAPS... (10 sec)';
   btn.disabled=true;
   document.getElementById('statusBadge').innerText='SCANNING LIVE...';
-  document.getElementById('statusBadge').className='text-[10px] font-bold bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 rounded-full px-2.5 py-1';
-
   const get=id=>document.getElementById(id)?.value||'';
   const payload={businessName:get('biz'),location:get('city'),service:get('service'),mapsLink:get('website'),email:get('email'),phone:get('phone')};
-
+  window.lastBusinessName=payload.businessName; window.lastLocation=payload.location; window.lastService=payload.service;
+  localStorage.setItem('bizName',payload.businessName); localStorage.setItem('loc',payload.location); localStorage.setItem('service',payload.service);
   try{
     const res=await fetch('/api/scan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     const data=await res.json();
     if(!data.success) throw new Error(data.error);
-
-    // Update LIVE dashboard with REAL data
     document.getElementById('liveVis').innerHTML=data.scan.visibility_score+`<span class="text-[16px] text-zinc-500">/100</span>`;
     document.getElementById('visBar').style.width=data.scan.visibility_score+'%';
     document.getElementById('livePos').innerText='#'+data.scan.avg_rank;
@@ -94,11 +116,8 @@ async function submitLiveScan(e){
     document.getElementById('liveAdv').innerText='+'+data.opportunity.competitor_advantage+' reviews';
     document.getElementById('liveRec').innerText=data.scan.visibility_score<50?'High - Fix now':'Medium';
     document.getElementById('statusBadge').innerText='LIVE • '+data.business.name;
-    document.getElementById('statusBadge').className='text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 rounded-full px-2.5 py-1';
     document.getElementById('dashSub').innerText=`Live scan • ${data.business.name} • ${data.scan.keyword}`;
     document.getElementById('dashLoc').innerText=data.business.name;
-
-    // Update grid with REAL ranks
     const grid=document.getElementById('mapGrid');
     grid.innerHTML=data.scan.grid.map(g=>{
       let cls='bg-white/[0.06] border border-white/10 text-zinc-400';
@@ -107,31 +126,51 @@ async function submitLiveScan(e){
       else if(g.rank>=21) cls='bg-red-500/15 border border-red-500/20 text-red-400';
       return `<div class="map-cell ${cls}">${g.rank>=21?'21+':'#'+g.rank}</div>`;
     }).join('');
-
-    // Auto-fill calculator with REAL rank + searches
     document.getElementById('calcRank').value=data.scan.avg_rank;
     document.getElementById('calcSearch').value=data.opportunity.monthly_searches;
     calc();
-
-    // Save to sheet
-    const leadData={business:payload.businessName,city:payload.location,preciseSuburb:payload.location,service:payload.service,email:payload.email,phone:payload.phone,country:document.getElementById('detectedCountry').value,lat:data.business.lat,lng:data.business.lng,live_visibility:data.scan.visibility_score,live_rank:data.scan.avg_rank,live_missed:data.opportunity.missed_monthly,competitor_advantage:data.opportunity.competitor_advantage,place_id:data.business.place_id,source:`LIVE_${data.scan.visibility_score}_${data.scan.avg_rank}`,timestamp:new Date().toISOString(),page:location.href};
+    const leadData={business:payload.businessName,city:payload.location,preciseSuburb:payload.location,service:payload.service,email:payload.email,phone:payload.phone,country:document.getElementById('detectedCountry').value,lat:data.business.lat,lng:data.business.lng,live_visibility:data.scan.visibility_score,live_rank:data.scan.avg_rank,live_missed:data.opportunity.missed_monthly,competitor_advantage:data.opportunity.competitor_advantage,place_id:data.business.place_id,source:`FREE_${data.scan.visibility_score}_${data.scan.avg_rank}`,timestamp:new Date().toISOString(),page:location.href};
     fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(leadData)});
     fetch(FORMSPREE_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(leadData)}).catch(()=>{});
-
-    // Modal with real numbers
     document.getElementById('modalLoc').innerText=data.business.name;
     document.getElementById('modalVis').innerText=data.scan.visibility_score+'/100';
     document.getElementById('modalRank').innerText='#'+data.scan.avg_rank;
     document.getElementById('modalMissed').innerText=data.opportunity.missed_monthly+'/mo';
     document.getElementById('modalAdv').innerText='+'+data.opportunity.competitor_advantage+' reviews';
     document.getElementById('modal').style.display='flex';
-
   }catch(err){
-    alert('Live scan failed: '+err.message+'\n\n1. Add GOOGLE_PLACES_API_KEY in Vercel Env\n2. Enable Places API + Geocoding API in Google Cloud\n3. Check business name is correct');
-    console.error(err);
-    document.getElementById('statusBadge').innerText='FAILED - Check API Key';
+    alert('Scan failed: '+err.message);
+    document.getElementById('statusBadge').innerText='FAILED';
   }finally{
-    btn.innerHTML=original;
+    btn.innerHTML=original; btn.disabled=false;
+  }
+}
+
+// STRIPE UNLOCK - THIS IS THE MONEY FUNCTION
+async function unlockDetailedScan(){
+  const btn=document.getElementById('unlockBtn');
+  btn.innerText='Creating secure checkout...';
+  btn.disabled=true;
+  try{
+    const res=await fetch('/api/create-order',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        businessName: window.lastBusinessName || localStorage.getItem('bizName'),
+        location: window.lastLocation || localStorage.getItem('loc'),
+        service: window.lastService || localStorage.getItem('service')
+      })
+    }).then(r=>r.json());
+    if(res.url){
+      window.location=res.url; // Redirect to Stripe
+    } else {
+      alert('Add STRIPE_SECRET_KEY in Vercel: '+JSON.stringify(res));
+      btn.innerText='UNLOCK FULL 9-GRID - $9.99 →';
+      btn.disabled=false;
+    }
+  }catch(e){
+    alert('Checkout error: '+e.message);
+    btn.innerText='UNLOCK FULL 9-GRID - $9.99 →';
     btn.disabled=false;
   }
 }

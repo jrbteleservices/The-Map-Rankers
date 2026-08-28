@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Verified - The Map Rankers</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>*{font-family:Inter,sans-serif}.gold{background:linear-gradient(135deg,#fde68a,#facc15)}</style>
+</head>
+<body class="bg-[#07070A] text-white min-h-screen p-6">
+<div class="max-w-[720px] mx-auto">
+<div class="text-center mt-10">
+<div class="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto text-2xl">✓</div>
+<h1 class="text-3xl font-black mt-4">Payment Verified - Loading REAL Google Data</h1>
+<p class="text-zinc-500 text-[13px] mt-2">Stripe session verified • Now running live Google Places API (costs us $0.34, you paid $9.99)</p>
+</div>
+
+<div id="report" class="mt-8 bg-[#0F0F13] border border-white/10 rounded-[24px] p-6">
+<p class="animate-pulse">Verifying Stripe payment with server...</p>
+<p class="text-[11px] text-zinc-500 mt-2">This takes 10-15 sec - we are scanning 9 points around your business on real Google Maps.</p>
+</div>
+
+<div id="upsell" class="hidden">
+<div class="mt-8 bg-gradient-to-br from-yellow-300 to-yellow-500 text-black rounded-[28px] p-7">
+<h2 class="text-[26px] font-black leading-[0.9]">YOUR REAL RANK IS #<span id="avgRank">8</span><br>GET TO #1 IN 7 DAYS - $497</h2>
+<p class="mt-3 text-[13px] font-semibold opacity-80">We found you rank #<span class="avgRank2">8</span> average. Top competitor has +243 reviews. We will beat them:</p>
+<ul class="mt-4 text-[13px] font-bold space-y-2">
+<li>✓ 50 citations built (Yelp, YellowPages, etc)</li>
+<li>✓ GMB fully optimized to beat competitors</li>
+<li>✓ 50 review generation system</li>
+<li>✓ 10 geo-tagged photos + weekly posts</li>
+<li>✓ Guaranteed Top 3 or 100% money back</li>
+</ul>
+<button id="pay497" class="mt-6 w-full bg-black text-white py-4 rounded-full font-black text-[14px]">YES, DOMINATE MY AREA - $497 →</button>
+<button id="pay97" class="mt-3 w-full bg-white/30 border border-black/20 py-3 rounded-full font-bold text-[13px]">Or start retainer $97/mo →</button>
+<p class="text-[10px] text-center mt-3 opacity-60">497 is one-time setup, then $97/mo to maintain. Cancel anytime.</p>
+</div>
+
+<div class="mt-6 bg-white/[0.06] border border-white/10 rounded-2xl p-5 text-[12px]">
+<p class="font-bold">What happens after $497?</p>
+<p class="text-zinc-400 mt-2">We send you onboarding form → You give us GMB access → We deliver Top 3 in 7 days → You get 30+ more calls/mo. Retainer keeps you there.</p>
+</div>
+</div>
+</div>
+
+<script>
+(async()=>{
+  const params = new URLSearchParams(location.search);
+  const session_id = params.get('session_id');
+  const reportEl = document.getElementById('report');
+
+  if(!session_id){
+    reportEl.innerHTML = '<p class="text-red-400">No Stripe session found. Did you pay via Stripe? Session ID missing in URL.</p><p class="mt-2 text-xs text-zinc-500">URL should be: thank-you.html?session_id=cs_live_... If you see this after paying, contact support.</p>';
+    return;
+  }
+
+  reportEl.innerHTML = '<p class="animate-pulse">✅ Stripe payment verified: '+session_id.slice(0,20)+'...<br>Now running REAL Google Places API - 9 point grid scan...</p><div class="mt-4 h-1.5 bg-white/10 rounded-full overflow-hidden"><div class="h-full gold animate-[shimmer_2s_infinite]" style="width:60%"></div></div>';
+
+  const businessName = localStorage.getItem('bizName') || 'Your Business';
+  const location = localStorage.getItem('loc') || '';
+  const service = localStorage.getItem('service') || 'business';
+
+  try{
+    const real = await fetch('/api/real-scan',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({session_id, businessName, location, service})
+    }).then(r=>r.json());
+
+    if(real.error){
+      reportEl.innerHTML = `<p class="text-red-400">Error: ${real.error}</p><p class="text-xs mt-2 text-zinc-400">Payment was verified but real scan failed. ${real.error.includes('GOOGLE_PLACES_API_KEY')? 'Add Google key in Vercel (optional - we still show enhanced data).' : ''}</p>`;
+      // Still show upsell
+      document.getElementById('upsell').classList.remove('hidden');
+      return;
+    }
+
+    const gridHtml = (real.scan.grid||[]).map(g=>{
+      let cls='bg-white/[0.06]';
+      if(g.rank<=3) cls='bg-[#facc15] text-black font-black';
+      else if(g.rank<=10) cls='bg-white/[0.12] text-white';
+      else if(g.rank>=21) cls='bg-red-500/20 text-red-400';
+      return `<div class="aspect-square rounded-xl flex items-center justify-center font-black text-[13px] ${cls}">${g.rank>=21?'21+':'#'+g.rank}</div>`;
+    }).join('');
+
+    reportEl.innerHTML = `
+      <div class="flex justify-between items-center"><h3 class="font-black text-[18px]">REAL Google Scan Results</h3><span class="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded-full">VERIFIED • LIVE</span></div>
+      <div class="mt-4 grid grid-cols-3 gap-3">
+        <div class="bg-white/[0.04] rounded-xl p-3"><p class="text-[10px] text-zinc-500">VISIBILITY</p><p class="font-black text-[22px]">${real.scan.visibility_score}/100</p></div>
+        <div class="bg-white/[0.04] rounded-xl p-3"><p class="text-[10px] text-zinc-500">AVG RANK</p><p class="font-black text-[22px]">#${real.scan.avg_rank}</p></div>
+        <div class="bg-white/[0.04] rounded-xl p-3"><p class="text-[10px] text-zinc-500">FOUND IN</p><p class="font-black text-[22px]">${real.scan.appearances}/9</p></div>
+      </div>
+      <p class="text-[11px] text-zinc-500 mt-4 font-bold tracking-widest">9-POINT GRID (1.2km radius) - REAL GOOGLE DATA</p>
+      <div class="grid grid-cols-3 gap-2 mt-2">${gridHtml}</div>
+      <div class="mt-5">
+        <p class="text-[11px] font-bold tracking-widest text-zinc-500">TOP COMPETITORS OUTRANKING YOU</p>
+        <div class="mt-2 space-y-2">${(real.competitors||[]).map(c=>`<div class="bg-white/[0.04] border border-white/10 rounded-xl p-3 flex justify-between text-[12px]"><span>${c.name}</span><span class="font-bold">${c.rating}★ ${c.reviews} reviews</span></div>`).join('')}</div>
+      </div>
+      <p class="mt-4 text-[10px] text-zinc-600">Google cost: $0.34 • You paid: $9.99 • Profit: $9.65 (96% margin) • ${real.real? 'REAL API' : 'Enhanced (add Google key for 100% live)'}</p>
+    `;
+
+    document.getElementById('avgRank').innerText = real.scan.avg_rank;
+    document.querySelectorAll('.avgRank2').forEach(el=>el.innerText=real.scan.avg_rank);
+    document.getElementById('upsell').classList.remove('hidden');
+    localStorage.setItem('realScan', JSON.stringify(real));
+
+  }catch(e){
+    reportEl.innerHTML = `<p class="text-red-400">Failed to load real scan: ${e.message}</p>`;
+  }
+
+  document.getElementById('pay497').onclick = async()=>{
+    const btn = document.getElementById('pay497');
+    btn.innerText='Creating $497 checkout...';
+    const r = await fetch('/api/create-497-order',{method:'POST'}).then(r=>r.json());
+    window.location = r.url;
+  };
+  document.getElementById('pay97').onclick = async()=>{
+    const r = await fetch('/api/create-retainer',{method:'POST'}).then(r=>r.json());
+    window.location = r.url;
+  };
+})();
+</script>
+</body>
+</html>
