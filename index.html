@@ -1,115 +1,138 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Map Rankers - Top 3 in 24H or $0 | Hyper-Local Maps SEO</title>
+<title>The Map Rankers - Top 3 in 24H or $0 | Hyper-Local</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Fraunces:opsz,wght@9..144,900&display=swap" rel="stylesheet">
-<style>*{font-family:Inter,sans-serif}.serif{font-family:Fraunces,serif}body{background:#07070A;color:#fff}.gold{background:linear-gradient(135deg,#fde68a,#facc15,#eab308)}.gold-text{background:linear-gradient(135deg,#fde68a,#facc15);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.glass{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(20px)}.shimmer{position:relative;overflow:hidden}.shimmer:after{content:'';position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);animation:s 2.5s infinite}@keyframes s{100%{transform:translateX(100%)}}input,select{background:#fff!important;color:#111!important;border-radius:16px!important;font-size:16px!important}#modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);z-index:9999;align-items:center;justify-content:center;padding:16px}#modal.active{display:flex}.pulse-dot{animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}</style>
+<style>*{font-family:Inter,sans-serif}.serif{font-family:Fraunces,serif}body{background:#07070A;color:#fff}.gold{background:linear-gradient(135deg,#fde68a,#facc15,#eab308)}.gold-text{background:linear-gradient(135deg,#fde68a,#facc15);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.glass{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(20px)}.shimmer{position:relative;overflow:hidden}.shimmer:after{content:'';position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);animation:s 2.5s infinite}@keyframes s{100%{transform:translateX(100%)}}input,select{background:#fff!important;color:#111!important;border-radius:16px!important;font-size:16px!important}#modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);z-index:9999;align-items:center;justify-content:center;padding:16px}#modal.active{display:flex}.pulse{animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}</style>
 </head><body>
-<div id="geoChip" class="fixed bottom-3 left-3 right-3 md:left-6 md:right-auto bg-black/90 border border-white/10 rounded-full px-4 py-2.5 text-[10px] font-bold z-[70] flex items-center gap-2"><span class="w-2 h-2 bg-green-500 rounded-full pulse-dot"></span><span id="geoText">🎯 Requesting precise location for hyper-local pricing...</span></div>
-<header class="sticky top-0 z-50 bg-[#07070A]/80 backdrop-blur-2xl border-b border-white/10"><div class="max-w-[1280px] mx-auto px-5 h-[64px] flex justify-between items-center"><div class="flex gap-3 items-center"><div class="w-9 h-9 gold rounded-xl flex items-center justify-center font-black text-black">T</div><div><p class="font-black text-[12px] tracking-widest">THE MAP RANKERS</p><p class="text-[8px] text-zinc-500 tracking-widest mt-1 font-bold">HYPER-LOCAL • <span id="headerLoc">VASAI WEST</span> • 500+ RANKED</p></div></div><a href="#audit" class="gold text-black px-5 py-2.5 rounded-full font-black text-[11px] shimmer">BOOK FREE AUDIT</a></div></header>
+<div id="geoChip" class="fixed bottom-3 left-3 right-3 md:left-6 md:right-auto bg-black/90 border border-white/10 rounded-full px-4 py-2.5 text-[10px] font-bold z-[70] flex items-center gap-2"><span class="w-2 h-2 bg-green-500 rounded-full pulse"></span><span id="geoText">🎯 Detecting precise suburb...</span></div>
+<header class="sticky top-0 z-50 bg-[#07070A]/80 backdrop-blur-2xl border-b border-white/10"><div class="max-w-[1280px] mx-auto px-5 h-[64px] flex justify-between items-center"><div class="flex gap-3 items-center"><div class="w-9 h-9 gold rounded-xl flex items-center justify-center font-black text-black">T</div><div><p class="font-black text-[12px] tracking-widest">THE MAP RANKERS</p><p class="text-[8px] text-zinc-500 tracking-widest mt-1 font-bold">HYPER-LOCAL • <span id="headerLoc">DETECTING</span> • 500+ RANKED</p></div></div><a href="#audit" class="gold text-black px-5 py-2.5 rounded-full font-black text-[11px] shimmer">BOOK FREE AUDIT</a></div></header>
 <section class="max-w-[1280px] mx-auto px-5 lg:px-10 py-10 lg:py-24">
 <div class="grid lg:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
 <div>
-<div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-2"><span class="w-2 h-2 bg-green-500 rounded-full pulse-dot"></span><span class="text-[11px] font-bold tracking-widest text-green-400" id="liveTop">LIVE: PRECISE LOCATION DETECTION • <span id="liveCityTop">Vasai West</span></span></div>
+<div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-2"><span class="w-2 h-2 bg-green-500 rounded-full pulse"></span><span class="text-[11px] font-bold tracking-widest text-green-400" id="liveTop">LIVE: DETECTING YOUR SUBURB • <span id="liveCityTop">...</span></span></div>
 <h1 class="font-black text-[42px] lg:text-[72px] leading-[0.85] mt-6 tracking-tight"><span class="serif">We get you to</span><br><span class="gold-text serif">Top 3 on Google Maps</span><br>in <span class="text-yellow-400">24 Hours</span><br><span class="text-[18px] lg:text-[22px] font-bold text-zinc-300 mt-4 block">Or you pay $0. Hyper-local domination.</span></h1>
-<p class="text-[16px] text-zinc-400 mt-6 max-w-[55ch] leading-relaxed">Not just <span id="cityGeneric">Mumbai</span>. We rank you in <span class="text-white font-bold" id="cityPrecise">Vasai West</span> - your exact suburb. When someone searches "<span id="searchExample">plumber in Vasai West</span>", you are Top 3.</p>
+<p class="text-[16px] text-zinc-400 mt-6 max-w-[55ch] leading-relaxed">Not just <span id="cityGeneric">your city</span>. We rank you in <span class="text-white font-bold" id="cityPrecise">your exact suburb</span> - your exact suburb. When someone searches "<span id="searchExample">plumber near me</span>", you are Top 3 in <span id="cityPrecise2">your suburb</span>.</p>
 <div class="mt-8 flex gap-3"><a href="#pricing" class="gold text-black px-8 py-4 rounded-full font-black shimmer">See Hyper-Local Pricing →</a></div>
 </div>
-<div class="glass rounded-[28px] p-6 border border-white/10"><div class="flex justify-between items-center"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-black">G</div><div><p class="font-bold text-[14px]">Google Business Profile</p><p class="text-[11px] text-zinc-500" id="cardLoc">Vasai West, Mumbai • Precise tracker</p></div></div><div class="gold text-black text-[10px] font-black px-3 py-1.5 rounded-full">Top 3 Locked</div></div><div class="mt-5 bg-black rounded-2xl p-5 border border-white/5"><p class="font-black text-[16px]" id="cardName">Business in Vasai West</p><p class="text-[12px] text-zinc-400 mt-1" id="cardMeta">Now ranking #1 for "near me" in Vasai West • +27 calls/day</p></div><div class="mt-3 text-[11px] text-zinc-600"><span id="preciseNote">🎯 Detected: Vasai West (exact suburb via GPS) • Not just Mumbai</span></div></div>
+<div class="glass rounded-[28px] p-6 border border-white/10"><div class="flex justify-between items-center"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-black font-black">G</div><div><p class="font-bold text-[14px]">Google Business Profile</p><p class="text-[11px] text-zinc-500" id="cardLoc">Detecting... • Precise tracker</p></div></div><div class="gold text-black text-[10px] font-black px-3 py-1.5 rounded-full">Top 3 Locked</div></div><div class="mt-5 bg-black rounded-2xl p-5 border border-white/5"><p class="font-black text-[16px]" id="cardName">Business in your suburb</p><p class="text-[12px] text-zinc-400 mt-1" id="cardMeta">Now ranking #1 for "near me" • +27 calls/day</p></div><div class="mt-3 text-[11px] text-zinc-500"><span id="preciseNote">🎯 Detecting exact suburb...</span></div></div>
 </div>
 </section>
 <section id="pricing" class="bg-[#facc15] text-black py-14 lg:py-24"><div class="max-w-[1200px] mx-auto px-5 lg:px-10">
-<div class="text-center max-w-[800px] mx-auto"><div class="inline-flex bg-black text-[#facc15] rounded-full px-5 py-2 text-[11px] font-black tracking-widest">🎯 HYPER-LOCAL PRICING FOR <span id="pricingCity">VASAI WEST</span> • <span id="countdown">14:59</span> LEFT</div><h2 class="font-black text-[36px] lg:text-[60px] leading-[0.85] mt-6 tracking-tight">Top 3 in <span id="pricingSuburb">Vasai West</span><br>in 24H or $0</h2><p class="mt-4 text-[14px] opacity-70">One-time blitz to get you Top 3. Monthly to KEEP you Top 3. Research-backed pricing.</p></div>
+<div class="text-center max-w-[800px] mx-auto"><div class="inline-flex bg-black text-[#facc15] rounded-full px-5 py-2 text-[11px] font-black tracking-widest">🎯 HYPER-LOCAL PRICING FOR <span id="pricingCity">YOUR SUBURB</span> • <span id="countdown">14:59</span> LEFT</div><h2 class="font-black text-[36px] lg:text-[60px] leading-[0.85] mt-6 tracking-tight">Top 3 in <span id="pricingSuburb">Your Suburb</span><br>in 24H or $0</h2></div>
 <div class="mt-12 grid lg:grid-cols-2 gap-6 max-w-[900px] mx-auto">
 <div class="bg-black text-white rounded-[32px] p-8 lg:p-10 relative border-2 border-black">
 <div class="bg-[#facc15] text-black text-[11px] font-black px-4 py-1.5 rounded-full inline-flex">⚡ ONE-TIME • TOP 3 IN 24H</div>
-<h3 class="font-black text-[24px] mt-4">Top 3 Blitz - <span id="otLoc">Vasai West</span></h3>
-<div class="mt-6 flex items-baseline gap-3"><p class="line-through text-zinc-500 text-[16px]" id="otOld">Rs 34,999</p><p class="font-black text-[44px]" id="otNow">Rs 24,999</p></div>
-<p class="text-[11px] text-zinc-500 mt-2" id="otNote">One-time for Vasai West • Top 3 or $0 • 47 Signals</p>
-<ul class="mt-8 space-y-3 text-[14px]"><li class="flex gap-2"><span class="text-green-400">✓</span> Rank in <span id="otLoc2">Vasai West</span> (not just Mumbai)</li><li class="flex gap-2"><span class="text-green-400">✓</span> Top 3 in 24H or $0 Guaranteed</li><li class="flex gap-2"><span class="text-green-400">✓</span> 47 Signals Blitz • No Login Needed</li><li class="flex gap-2"><span class="text-green-400">✓</span> Citations + Reviews Velocity Stack</li></ul>
-<a href="#audit" class="mt-8 gold text-black w-full py-4 rounded-full font-black text-center block shimmer text-[15px]" id="otCta">Lock Top 3 in Vasai West for Rs 24,999 →</a>
+<h3 class="font-black text-[24px] mt-4">Top 3 Blitz - <span class="otLoc">Your Suburb</span></h3>
+<div class="mt-6 flex items-baseline gap-3"><p class="line-through text-zinc-500 text-[16px]" id="otOld">$997</p><p class="font-black text-[44px]" id="otNow">$497</p></div>
+<p class="text-[11px] text-zinc-500 mt-2" id="otNote">One-time • Top 3 or $0 • 47 Signals</p>
+<ul class="mt-8 space-y-3 text-[14px]"><li class="flex gap-2"><span class="text-green-400">✓</span> Rank in <span class="otLoc">your suburb</span> (not just city)</li><li class="flex gap-2"><span class="text-green-400">✓</span> Top 3 in 24H or $0 Guaranteed</li><li class="flex gap-2"><span class="text-green-400">✓</span> 47 Signals Blitz • No Login Needed</li><li class="flex gap-2"><span class="text-green-400">✓</span> Citations + Reviews Velocity</li></ul>
+<a href="#audit" class="mt-8 gold text-black w-full py-4 rounded-full font-black text-center block shimmer text-[15px]" id="otCta">Lock Top 3 →</a>
 </div>
 <div class="bg-white text-black rounded-[32px] p-8 lg:p-10 border-2 border-black/10 relative lg:mt-8">
-<div class="bg-black text-white text-[11px] font-black px-4 py-1.5 rounded-full inline-flex">🔁 MONTHLY RECURRING • KEEP TOP 3</div>
+<div class="bg-black text-white text-[11px] font-black px-4 py-1.5 rounded-full inline-flex">🔁 MONTHLY • KEEP TOP 3</div>
 <h3 class="font-black text-[24px] mt-4">Keep Top 3 Club</h3>
-<div class="mt-6 flex items-baseline gap-2"><p class="font-black text-[44px]" id="moNow">Rs 4,999</p><p class="text-[16px] font-bold">/mo</p></div>
-<p class="text-[11px] text-zinc-500 mt-2" id="moNote">For Vasai West • Cancel anytime • 100% profit model</p>
+<div class="mt-6 flex items-baseline gap-2"><p class="font-black text-[44px]" id="moNow">$149</p><p class="text-[16px] font-bold">/mo</p></div>
+<p class="text-[11px] text-zinc-500 mt-2" id="moNote">Cancel anytime • 100% profit model</p>
 <ul class="mt-8 space-y-3 text-[14px] text-zinc-700">
-<li class="flex gap-2"><span>✓</span> <span id="moLoc">Vasai West</span> Top 3 Lock - Never drop</li>
-<li class="flex gap-2"><span>✓</span> 2 Hyper-Local GBP Posts / Week (Vasai West keywords)</li>
+<li class="flex gap-2"><span>✓</span> <span class="moLoc">Your suburb</span> Top 3 Lock</li>
+<li class="flex gap-2"><span>✓</span> 2 Hyper-Local GBP Posts / Week</li>
 <li class="flex gap-2"><span>✓</span> Review Velocity + Reply Management</li>
-<li class="flex gap-2"><span>✓</span> Competitor Watch - Auto Re-Blitz if you drop to #4</li>
-<li class="flex gap-2"><span>✓</span> Monthly Ranking Report (grid tracking 9 points in <span id="moLoc2">Vasai West</span>)</li>
-<li class="flex gap-2"><span>✓</span> 3 New Photos + Q&A Management</li>
+<li class="flex gap-2"><span>✓</span> Auto Re-Blitz if drop to #4</li>
+<li class="flex gap-2"><span>✓</span> Monthly Ranking Report</li>
 </ul>
-<a href="#audit" class="mt-6 bg-black text-white w-full py-4 rounded-full font-black text-center block" id="moCta">Keep Top 3 for Rs 4,999/mo →</a>
+<a href="#audit" class="mt-6 bg-black text-white w-full py-4 rounded-full font-black text-center block" id="moCta">Keep Top 3 →</a>
 </div>
 </div>
+<div class="mt-12 bg-white rounded-[24px] p-6 text-black"><h3 class="font-black text-[16px]">🌍 7 Markets - Research-Backed Pricing</h3><div class="mt-4 grid grid-cols-2 lg:grid-cols-4 gap-3 text-[12px]"><div class="bg-black text-white rounded-2xl p-4"><p class="font-bold">🇮🇳 India</p><p class="mt-1">One-time: <b>Rs 24,999</b></p><p>Monthly: <b>Rs 4,999/mo</b></p></div><div class="bg-[#facc15] rounded-2xl p-4"><p class="font-bold">🇺🇸 USA</p><p class="mt-1">One-time: <b>$497</b></p><p>Monthly: <b>$149/mo</b></p></div><div class="border rounded-2xl p-4"><p class="font-bold">🇬🇧 UK</p><p class="mt-1"><b>£397</b> + <b>£129/mo</b></p></div><div class="border rounded-2xl p-4"><p class="font-bold">🇦🇺 AU</p><p class="mt-1"><b>A$697</b> + <b>A$199/mo</b></p></div><div class="border rounded-2xl p-4"><p class="font-bold">🇨🇦 CA</p><p class="mt-1"><b>C$697</b> + <b>C$199/mo</b></p></div><div class="border rounded-2xl p-4"><p class="font-bold">🇳🇿 NZ</p><p class="mt-1"><b>NZ$747</b> + <b>NZ$219/mo</b></p></div><div class="border rounded-2xl p-4"><p class="font-bold">🇦🇪 UAE</p><p class="mt-1"><b>AED 1,499</b> + <b>AED 399/mo</b></p></div><div class="bg-black text-white rounded-2xl p-4"><p class="font-bold">MRR = Real Business</p><p class="mt-1 text-[11px]">One-time gets in. Monthly keeps for years. 100% profit.</p></div></div></div>
 </div></section>
-<section id="audit" class="bg-white text-black py-12 lg:py-24"><div class="max-w-[1280px] mx-auto px-5 lg:px-10 grid lg:grid-cols-2 gap-12"><div><h2 class="font-black text-[36px] lg:text-[56px] leading-[0.85]">Ready to own Top 3 in <span id="finalPrecise">Vasai West</span>?</h2><p class="mt-4 opacity-60" id="finalSub">Not Mumbai. <span id="finalPrecise2">Vasai West</span>. Your exact suburb. Hyper-local audit worth $299.</p></div><div class="bg-black rounded-[32px] p-6 lg:p-8"><h3 class="text-white font-black text-[20px]">Get Hyper-Local Audit for <span id="formLoc">Vasai West</span></h3><form onsubmit="submitLead(event)" class="mt-6 space-y-4"><input id="biz" required placeholder="Business Name *" class="w-full px-5 py-4 font-semibold rounded-2xl"><div class="grid grid-cols-2 gap-3"><input id="city" required placeholder="Precise Suburb (auto-detected) *" class="w-full px-5 py-4 font-semibold rounded-2xl"><input id="phone" required placeholder="WhatsApp *" class="w-full px-5 py-4 font-semibold rounded-2xl"></div><div class="grid grid-cols-2 gap-3"><input id="email" required type="email" placeholder="Email *" class="w-full px-5 py-4 font-semibold rounded-2xl"><select id="country" class="w-full px-5 py-4 font-semibold rounded-2xl"><option value="IN">India - Rs 24,999 / Rs 4,999mo</option><option value="US">USA - $497 / $149mo</option><option value="GB">UK - £397 / £129mo</option><option value="AU">Australia - A$697 / A$199mo</option><option value="CA">Canada - C$697 / C$199mo</option><option value="NZ">NZ - NZ$747 / NZ$219mo</option><option value="AE">UAE - AED 1,499 / AED 399mo</option></select></div><input type="hidden" id="ipcity"><input type="hidden" id="preciseSuburb"><input type="hidden" id="detectedCountry"><input type="hidden" id="lat"><input type="hidden" id="lng"><button type="submit" class="w-full gold text-black py-4 rounded-full font-black shimmer" id="formCta">Get FREE Audit for Vasai West → Worth $299</button><p class="text-[10px] text-zinc-500 text-center">Lead → Google Sheet 1EjzWZ7XgMntqNno8QaXq9N27MDEn_DLtrQREgMr__Xk</p></form></div></div></section>
-<div id="modal"><div class="bg-zinc-900 rounded-[28px] p-8 max-w-[420px] text-center border border-yellow-500/20"><div class="w-16 h-16 bg-green-500 rounded-full mx-auto flex items-center justify-center font-black text-black text-[28px]">✓</div><h3 class="font-black text-[24px] mt-5 text-white">Audit Booked for <span id="modalLoc">Vasai West</span>!</h3><p class="text-[14px] text-zinc-400 mt-3">Hyper-local audit coming on WhatsApp in 2H. Lead saved to Sheet.</p><button onclick="document.getElementById('modal').classList.remove('active')" class="w-full mt-6 gold text-black py-4 rounded-xl font-black">Perfect →</button></div></div>
+<section id="audit" class="bg-white text-black py-12 lg:py-24"><div class="max-w-[1280px] mx-auto px-5 lg:px-10 grid lg:grid-cols-2 gap-12"><div><h2 class="font-black text-[36px] lg:text-[56px] leading-[0.85]">Ready to own Top 3 in <span id="finalPrecise">your suburb</span>?</h2><p class="mt-4 opacity-60">Hyper-local audit for <span id="finalPrecise2">your exact area</span> worth $299.</p><div class="mt-6 bg-[#facc15] rounded-2xl p-4 text-black"><p class="text-[12px] font-bold">🎯 Precise Detection:</p><p class="text-[12px] mt-1" id="detectExplain">Detecting exact suburb via GPS + IP with country consistency check.</p></div></div><div class="bg-black rounded-[32px] p-6 lg:p-8"><h3 class="text-white font-black text-[20px]">Get Audit for <span id="formLoc">your suburb</span></h3><form onsubmit="submitLead(event)" class="mt-6 space-y-4"><input id="biz" required placeholder="Business Name *" class="w-full px-5 py-4 font-semibold rounded-2xl"><div class="grid grid-cols-2 gap-3"><input id="city" required placeholder="Precise Suburb *" class="w-full px-5 py-4 font-semibold rounded-2xl"><input id="phone" required placeholder="WhatsApp *" class="w-full px-5 py-4 font-semibold rounded-2xl"></div><div class="grid grid-cols-2 gap-3"><input id="email" required type="email" placeholder="Email *" class="w-full px-5 py-4 font-semibold rounded-2xl"><select id="country" class="w-full px-5 py-4 font-semibold rounded-2xl"><option value="IN">India - Rs 24,999 / Rs 4,999mo</option><option value="US">USA - $497 / $149mo</option><option value="GB">UK - £397 / £129mo</option><option value="AU">Australia - A$697 / A$199mo</option><option value="CA">Canada - C$697 / C$199mo</option><option value="NZ">NZ - NZ$747 / NZ$219mo</option><option value="AE">UAE - AED 1,499 / AED 399mo</option></select></div><input type="hidden" id="ipcity"><input type="hidden" id="preciseSuburb"><input type="hidden" id="detectedCountry"><input type="hidden" id="lat"><input type="hidden" id="lng"><button type="submit" class="w-full gold text-black py-4 rounded-full font-black shimmer" id="formCta">Get FREE Audit → Worth $299</button><p class="text-[10px] text-zinc-500 text-center">Lead → Sheet 1EjzWZ7XgMntqNno8QaXq9N27MDEn_DLtrQREgMr__Xk</p></form></div></div></section>
+<div id="modal"><div class="bg-zinc-900 rounded-[28px] p-8 max-w-[420px] text-center border border-yellow-500/20"><div class="w-16 h-16 bg-green-500 rounded-full mx-auto flex items-center justify-center font-black text-black text-[28px]">✓</div><h3 class="font-black text-[24px] mt-5 text-white">Audit Booked for <span id="modalLoc">your suburb</span>!</h3><p class="text-[14px] text-zinc-400 mt-3">Lead saved to Sheet. Hyper-local audit coming in 2H.</p><button onclick="document.getElementById('modal').classList.remove('active')" class="w-full mt-6 gold text-black py-4 rounded-xl font-black">Perfect →</button></div></div>
 <script>
 const SHEET_URL = "https://script.google.com/macros/s/AKfycbyGydgXqs_4uRiSnIYISlmnM1EdBjqIsowURbvzgYa2w4zQqXqvioDmJS8O24_342E9/exec";
 const FORMSPREE_URL = "https://formspree.io/f/mljeedqk";
 const MARKET_DATA = {
-  IN: {country:"India", old:"Rs 34,999", now:"Rs 24,999", mo:"Rs 4,999", cta:"Lock Top 3 for Rs 24,999 →", moCta:"Keep Top 3 for Rs 4,999/mo →"},
-  US: {country:"USA", old:"$997", now:"$497", mo:"$149", cta:"Lock Top 3 for $497 →", moCta:"Keep Top 3 for $149/mo →"},
-  GB: {country:"UK", old:"£797", now:"£397", mo:"£129", cta:"Lock Top 3 for £397 →", moCta:"Keep Top 3 for £129/mo →"},
-  AU: {country:"Australia", old:"A$1,297", now:"A$697", mo:"A$199", cta:"Lock Top 3 for A$697 →", moCta:"Keep Top 3 for A$199/mo →"},
-  CA: {country:"Canada", old:"C$1,297", now:"C$697", mo:"C$199", cta:"Lock Top 3 for C$697 →", moCta:"Keep Top 3 for C$199/mo →"},
-  NZ: {country:"NZ", old:"NZ$1,197", now:"NZ$747", mo:"NZ$219", cta:"Lock Top 3 for NZ$747 →", moCta:"Keep Top 3 for NZ$219/mo →"},
-  AE: {country:"UAE", old:"AED 3,499", now:"AED 1,499", mo:"AED 399", cta:"Lock Top 3 for AED 1,499 →", moCta:"Keep Top 3 for AED 399/mo →"}
+  IN: {country:"India", old:"Rs 34,999", now:"Rs 24,999", mo:"Rs 4,999"},
+  US: {country:"USA", old:"$997", now:"$497", mo:"$149"},
+  GB: {country:"UK", old:"£797", now:"£397", mo:"£129"},
+  AU: {country:"Australia", old:"A$1,297", now:"A$697", mo:"A$199"},
+  CA: {country:"Canada", old:"C$1,297", now:"C$697", mo:"C$199"},
+  NZ: {country:"NZ", old:"NZ$1,197", now:"NZ$747", mo:"NZ$219"},
+  AE: {country:"UAE", old:"AED 3,499", now:"AED 1,499", mo:"AED 399"}
 };
 function applyMarket(country, suburb){
-  const d = MARKET_DATA[country] || MARKET_DATA.IN;
-  const sub = suburb || d.country;
-  const set = (id, txt) => { const e=document.getElementById(id); if(e) e.innerText=txt; };
-  set('pricingCity', sub.toUpperCase()); set('pricingSuburb', sub); set('otLoc', sub); set('otLoc2', sub); set('moLoc', sub); set('moLoc2', sub);
-  set('otOld', d.old); set('otNow', d.now); set('moNow', d.mo + (country==='IN'?'':'/mo'));
-  set('otCta', `Lock Top 3 in ${sub} for ${d.now} →`); set('moCta', `Keep Top 3 in ${sub} for ${d.mo}/mo →`);
-  set('formLoc', sub); set('finalPrecise', sub); set('finalPrecise2', sub); set('modalLoc', sub);
-  document.getElementById('formCta').innerText = `Get FREE Audit for ${sub} → Worth $299`;
-  set('cityPrecise', sub); set('searchExample', `plumber in ${sub}`); set('cardLoc', `${sub}, ${MARKET_DATA[country]?.country||'India'} • Precise tracker`);
-  set('cardName', `Business in ${sub}`); document.getElementById('city').value = sub; document.getElementById('country').value = country;
-  document.getElementById('headerLoc').innerText = sub.toUpperCase(); document.getElementById('liveCityTop').innerText = sub;
+  const d = MARKET_DATA[country] || MARKET_DATA.US;
+  const sub = (suburb||'Your Suburb').trim();
+  const setAll = (cls, txt) => { document.querySelectorAll('.'+cls).forEach(el=>el.innerText=txt); };
+  const setText = (id, txt) => { const e=document.getElementById(id); if(e) e.innerText=txt; };
+  setAll('otLoc', sub); setAll('moLoc', sub);
+  setText('pricingCity', sub.toUpperCase()); setText('pricingSuburb', sub);
+  setText('otOld', d.old); setText('otNow', d.now); setText('moNow', d.mo + (country==='IN'?'':'/mo'));
+  setText('otCta', `Lock Top 3 in ${sub} for ${d.now} →`); setText('moCta', `Keep Top 3 in ${sub} for ${d.mo}/mo →`);
+  setText('formLoc', sub); setText('finalPrecise', sub); setText('finalPrecise2', sub); setText('modalLoc', sub);
+  setText('cityPrecise', sub); setText('cityPrecise2', sub); setText('searchExample', `plumber in ${sub}`);
+  setText('cardName', `Business in ${sub}`); setText('cardMeta', `Now ranking #1 for "near me" in ${sub} • +27 calls/day`);
+  setText('cardLoc', `${sub}, ${d.country} • Precise tracker`); setText('headerLoc', sub.toUpperCase());
+  setText('liveCityTop', sub); if(document.getElementById('city')) document.getElementById('city').value = sub;
+  if(document.getElementById('country')) document.getElementById('country').value = country;
+  if(document.getElementById('formCta')) document.getElementById('formCta').innerText = `Get FREE Audit for ${sub} → Worth $299`;
 }
 async function preciseDetect(){
-  let detectedCountry = 'IN'; let preciseSuburb = 'Vasai West'; let detectedCity = 'Vasai';
-  const gpsPromise = new Promise((resolve)=>{
-    if(!navigator.geolocation){ resolve(null); return; }
-    navigator.geolocation.getCurrentPosition(async (pos)=>{
-      const lat=pos.coords.latitude; const lng=pos.coords.longitude;
-      document.getElementById('lat').value=lat; document.getElementById('lng').value=lng;
-      try{
-        const res=await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`);
-        const data=await res.json();
-        const suburb=data.locality||data.city||data.principalSubdivision||'Vasai West';
-        const city=data.city||data.principalSubdivision||suburb;
-        const countryCode=data.countryCode||'IN';
-        resolve({suburb, city, country:countryCode, lat, lng});
-      }catch(e){ resolve({suburb:`${lat.toFixed(2)}, ${lng.toFixed(2)}`, city:'Your Area', country:'IN', lat, lng}); }
-    }, (err)=>{ resolve(null); }, {enableHighAccuracy:true, timeout:8000, maximumAge:60000});
-  });
-  const gpsResult=await gpsPromise;
-  let ipResult=null;
-  try{ const ipRes=await fetch('https://ipapi.co/json/'); const ipData=await ipRes.json(); ipResult={country:(ipData.country_code||'IN').toUpperCase(), city:ipData.city||'Mumbai'}; }catch(e){}
-  if(gpsResult){
-    preciseSuburb=gpsResult.suburb; detectedCity=gpsResult.city; detectedCountry=ipResult?ipResult.country:(gpsResult.country||'IN');
-    document.getElementById('geoText').innerText=`🎯 Hyper-local: ${preciseSuburb} (GPS) • ${detectedCity} • ${detectedCountry} • 3 spots left in ${preciseSuburb}`;
-  }else if(ipResult){
-    preciseSuburb=ipResult.city; detectedCity=ipResult.city; detectedCountry=ipResult.country;
-    document.getElementById('geoText').innerText=`🌍 ${detectedCountry} • ${detectedCity} (IP) • Allow location for precise suburb like Vasai West`;
+  let ipData = null;
+  try{
+    const r = await fetch('https://ipapi.co/json/');
+    const j = await r.json();
+    ipData = {country:(j.country_code||'US').toUpperCase(), city:j.city||'Clifton'};
+  }catch(e){ ipData = {country:'US', city:'Clifton'}; }
+  let gpsData = null;
+  try{
+    gpsData = await new Promise((resolve)=>{
+      if(!navigator.geolocation){ resolve(null); return; }
+      navigator.geolocation.getCurrentPosition(async (pos)=>{
+        const lat=pos.coords.latitude, lng=pos.coords.longitude;
+        document.getElementById('lat').value=lat; document.getElementById('lng').value=lng;
+        try{
+          const rr = await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`);
+          const dd = await rr.json();
+          const suburb = dd.locality || dd.city || dd.principalSubdivision || ipData.city;
+          const country = (dd.countryCode||ipData.country||'US').toUpperCase();
+          resolve({suburb, city:dd.city||suburb, country, lat, lng});
+        }catch(e){ resolve({suburb:ipData.city, city:ipData.city, country:ipData.country, lat, lng}); }
+      }, ()=>resolve(null), {enableHighAccuracy:true, timeout:5000, maximumAge:300000});
+    });
+  }catch(e){ gpsData=null; }
+  let finalSuburb, finalCountry, finalCity, source;
+  if(gpsData && ipData){
+    if(gpsData.country!== ipData.country){
+      finalSuburb = ipData.city; finalCity = ipData.city; finalCountry = ipData.country;
+      source = `IP Only (GPS ${gpsData.country}!= IP ${ipData.country} - proxy)`;
+      document.getElementById('geoText').innerText = `🌍 ${finalCountry} • ${finalCity} (IP) • GPS conflict ignored • 100% ${finalSuburb} proof`;
+      document.getElementById('preciseNote').innerText = `🎯 100% Consistent: ${finalSuburb} • Proxy detected - using IP only`;
+    } else {
+      finalSuburb = gpsData.suburb; finalCity = gpsData.city; finalCountry = gpsData.country;
+      source = 'GPS + IP Match';
+      document.getElementById('geoText').innerText = `🎯 Hyper-local: ${finalSuburb} (GPS) • ${finalCity} • ${finalCountry} • 3 spots left`;
+      document.getElementById('preciseNote').innerText = `🎯 100% Consistent: ${finalSuburb} • Exact suburb via GPS • Not just ${finalCity}`;
+    }
+  } else if(ipData){
+    finalSuburb = ipData.city; finalCity = ipData.city; finalCountry = ipData.country;
+    source = 'IP Only';
+    document.getElementById('geoText').innerText = `🌍 ${finalCountry} • ${finalCity} (IP) • Allow location for precise suburb • 3 spots left`;
+    document.getElementById('preciseNote').innerText = `📍 100% Consistent: ${finalSuburb} • Enable GPS for hyper-local`;
+  } else {
+    finalSuburb = 'Clifton'; finalCity = 'Clifton'; finalCountry = 'US'; source = 'Fallback';
   }
-  const supported=['IN','US','AU','GB','AE','CA','NZ']; if(!supported.includes(detectedCountry)){ detectedCountry='IN'; }
-  document.getElementById('ipcity').value=detectedCity; document.getElementById('detectedCountry').value=detectedCountry; document.getElementById('preciseSuburb').value=preciseSuburb;
-  applyMarket(detectedCountry, preciseSuburb);
+  const supported=['IN','US','AU','GB','AE','CA','NZ']; if(!supported.includes(finalCountry)) finalCountry='US';
+  document.getElementById('ipcity').value = finalCity; document.getElementById('detectedCountry').value = finalCountry; document.getElementById('preciseSuburb').value = finalSuburb;
+  document.getElementById('liveTop').innerHTML = `LIVE: 100% CONSISTENT • <span id="liveCityTop">${finalSuburb}</span> • ${source}`;
+  applyMarket(finalCountry, finalSuburb);
 }
 preciseDetect();
 let sec=899; setInterval(()=>{sec--; if(sec<0) sec=899; const m=Math.floor(sec/60),s=sec%60; const t=String(m).padStart(2,'0')+":"+String(s).padStart(2,'0'); const el=document.getElementById('countdown'); if(el) el.innerText=t;},1000);
 async function submitLead(e){
   e.preventDefault();
   const get=id=>document.getElementById(id)?.value||'';
-  const data={business:get('biz'), city:get('city'), preciseSuburb:get('preciseSuburb'), phone:get('phone'), email:get('email'), country:get('detectedCountry'), ipcity:get('ipcity'), lat:get('lat'), lng:get('lng'), source:`HyperLocal_${get('detectedCountry')}_${get('preciseSuburb')}`, timestamp:new Date().toISOString(), page:location.href};
+  const data={business:get('biz'), city:get('city'), preciseSuburb:get('preciseSuburb'), phone:get('phone'), email:get('email'), country:get('detectedCountry'), ipcity:get('ipcity'), lat:get('lat'), lng:get('lng'), source:`Fixed_100Percent_${get('detectedCountry')}_${get('preciseSuburb')}`, timestamp:new Date().toISOString(), page:location.href};
   fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
   fetch(FORMSPREE_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(()=>{});
   document.getElementById('modal').classList.add('active'); e.target.reset();
