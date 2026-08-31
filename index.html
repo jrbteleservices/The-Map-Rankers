@@ -3,281 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MapRankers AU - Lock 1 Suburb 1 Trade on Google Maps | From $299 | 30 Day Top 3 Guarantee</title>
-<meta name="description" content="One tradie per suburb per trade. No shop needed. $299 first suburb + $199 per extra. 3+=10% OFF, 5+=20% OFF, 10=30% OFF MEGA. 30 day Top 3 guarantee. Stripe secure. 20 cities.">
+<title>MapRankers AU - Lock 1 Suburb 1 Trade on Google Maps | $299 | Top 3 in 30 Days</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-body{font-family:'Inter',sans-serif;background:#080808;color:#fff}
-.royal{font-family:'Playfair Display',serif}
-.gold{color:#f5d76e}.bg-gold{background:#f5d76e}.border-gold{border-color:#f5d76e}
-.shadow-gold{box-shadow:0 0 40px rgba(245,215,110,0.25)}
-.progress-track{height:58px;background:#0f0f0f;border:2px solid #222;border-radius:16px;overflow:hidden;position:relative;display:flex}
-.progress-seg{flex:1;position:relative;display:flex;align-items:center;justify-content:center;border-right:1px solid #1a1a1a;transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1);background:#0a0a0a}
-.progress-seg.active{background:linear-gradient(180deg,#f5d76e 0%,#d4b44a 100%);color:#000;box-shadow:inset 0 1px 0 rgba(255,255,255,0.5),0 0 22px rgba(245,215,110,0.6);transform:scaleY(1.08);z-index:2;border-radius:12px;margin:2px}
-.progress-seg.mega.active{background:linear-gradient(180deg,#f5d76e 0%,#ffef9c 35%,#d4b44a 100%);box-shadow:inset 0 1px 0 #fff,0 0 35px rgba(245,215,110,0.9),0 0 70px rgba(245,215,110,0.4)}
+*{ -webkit-font-smoothing:antialiased }
+body{font-family:'Inter',sans-serif;background:#070708;color:#fff;letter-spacing:-0.01em}
+.serif{font-family:'Instrument Serif',serif}
+.gold{color:#F5D76E}
+.bg-gold{background:#F5D76E}
+.progress-track{height:44px;background:#111113;border:1px solid #1E1E20;border-radius:12px;display:flex;overflow:hidden}
+.progress-seg{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:1px solid #1E1E20;transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);background:#0E0E10}
+.progress-seg:last-child{border-right:0}
+.progress-seg.active{background:linear-gradient(180deg,#F5D76E,#C8A92E);color:#000;transform:scaleY(1.06) scaleX(1.02);z-index:2;border-radius:10px;margin:2px;box-shadow:0 0 0 1px #F5D76E,0 4px 16px rgba(245,215,110,0.5)}
+.progress-seg.mega.active{background:linear-gradient(180deg,#FFEFA0,#F5D76E 45%,#B8962A)}
 @keyframes shimmer{0%{transform:translateX(-100%) skewX(-12deg)}100%{transform:translateX(200%) skewX(-12deg)}}
-.shimmer-gold::after{content:'';position:absolute;top:0;left:0;width:70%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.85),transparent);animation:shimmer 0.9s ease-out}
-.gold-particle{position:absolute;width:6px;height:6px;background:radial-gradient(circle,#fff 0%,#f5d76e 40%,#d4b44a 100%);border-radius:50%;pointer-events:none;box-shadow:0 0 8px #f5d76e}
-@keyframes goldFloat{0%{transform:translateY(0) scale(0) rotate(0deg);opacity:0}15%{opacity:1;transform:scale(1.3)}100%{transform:translateY(-95px) translateX(var(--x)) scale(0) rotate(360deg);opacity:0}}
-@keyframes royalPulse{0%,100%{transform:scale(1);box-shadow:0 0 20px rgba(245,215,110,0.4)}50%{transform:scale(1.05);box-shadow:0 0 35px rgba(245,215,110,0.85)}}
-.royal-pulse{animation:royalPulse 2s infinite}
-.tier-glow{box-shadow:0 0 0 2px #f5d76e,0 0 22px rgba(245,215,110,0.55),inset 0 1px 0 rgba(255,255,255,0.3)}
+.shimmer::after{content:'';position:absolute;top:0;left:0;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.7),transparent);animation:shimmer 0.8s ease-out}
+.gold-dot{position:absolute;width:5px;height:5px;background:radial-gradient(circle,#fff 0%,#F5D76E 60%);border-radius:50%;pointer-events:none;box-shadow:0 0 6px #F5D76E}
+@keyframes floatUp{0%{transform:translateY(0) scale(0);opacity:0}20%{opacity:1;transform:scale(1)}100%{transform:translateY(-80px) translateX(var(--x)) scale(0);opacity:0}}
+.input-premium{background:#0E0E10;border:1px solid #232326;border-radius:12px;padding:12px 14px;font-size:13px;font-weight:600;outline:none;transition:all.2s;width:100%;color:#fff}
+.input-premium:focus{border-color:#F5D76E;box-shadow:0 0 0 3px rgba(245,215,110,0.15)}
+.input-premium::placeholder{color:#4A4A4E;font-weight:500}
+.badge-gold{background:linear-gradient(180deg,#1A1A1A,#0E0E10);border:1px solid #252529;border-radius:12px}
+.tier-active{border-color:#F5D76E!important;box-shadow:0 0 0 1px #F5D76E,0 8px 24px rgba(245,215,110,0.25)}
 </style>
 </head>
 <body>
 
-<div class="bg-[#f5d76e] text-black text-center py-2.5 text-[11px] font-black tracking-[0.18em]">👑 ROYAL TIER • 3 SUBS = BRONZE 10% OFF • 5 SUBS = SILVER 20% OFF • 10 SUBS = GOLD 30% OFF MEGA 👑</div>
+<!-- TICKER -->
+<div class="bg-[#F5D76E] text-black text-center py-2 text-[10px] font-extrabold tracking-[0.14em]">👑 BRONZE 3 SUBS = 10% OFF • SILVER 5 SUBS = 20% OFF • GOLD 10 SUBS = 30% OFF MEGA • MAX 10 TO KEEP TOP 3</div>
 
-<header class="border-b border-[#1a1a1a] bg-black/95 sticky top-0 z-[100] backdrop-blur">
-<div class="max-w-[1180px] mx-auto px-4 py-3.5 flex justify-between items-center">
-<div class="font-black text-[21px] tracking-tighter royal">MapRankers<span class="gold">.AU</span> <span class="text-[10px] font-sans font-bold bg-[#111] border border-[#222] px-2 py-0.5 rounded-full ml-2">20 CITIES • 1 CLIENT PER SUBURB</span></div>
-<a href="https://wa.me/61485990944?text=Hi%20MapRankers%20I%20want%20to%20lock%20suburbs" class="bg-[#25D366] text-black px-5 py-2.5 rounded-full text-[11px] font-black">WhatsApp →</a>
+<!-- HEADER COMPACT 48px -->
+<header class="h-12 border-b border-[#1A1A1D] bg-[#0A0A0B]/90 backdrop-blur-xl sticky top-0 z-50">
+<div class="max-w-[1160px] mx-auto px-4 h-full flex justify-between items-center">
+<div class="flex items-center gap-3"><span class="font-black text-[18px] tracking-tighter serif italic">MapRankers<span class="gold not-italic font-sans font-black">.AU</span></span><span class="hidden md:flex text-[9px] font-bold tracking-widest bg-[#151517] border border-[#232326] px-2 py-1 rounded-full text-[#888]">20 CITIES • 1 CLIENT PER SUBURB</span></div>
+<div class="flex items-center gap-2"><span class="text-[10px] text-[#666] font-bold hidden md:block">No shop needed • 30 day guarantee</span><a href="https://wa.me/61485990944" class="bg-[#1ED760] text-black px-4 h-8 rounded-full text-[11px] font-black flex items-center">WhatsApp →</a></div>
 </div>
 </header>
 
-<!-- HERO -->
-<div class="max-w-[1180px] mx-auto px-4 pt-10 pb-6 grid md:grid-cols-[1.1fr_0.9fr] gap-8 items-start">
+<div class="max-w-[1160px] mx-auto px-4 py-4 md:py-5 grid lg:grid-cols-[1.05fr_0.95fr] gap-4">
+
+<!-- LEFT - FORM -->
+<div class="bg-[#101012] border border-[#1E1E20] rounded-[16px] p-4 md:p-5">
+
+<!-- COMPACT HERO + TIER IN ONE -->
+<div class="flex flex-col gap-3.5">
+<div class="flex justify-between items-start gap-4">
 <div>
-<h1 class="royal text-[38px] md:text-[52px] font-black leading-[0.9] tracking-tighter">Lock Your Suburb<br><span class="gold">on Google Maps.</span><br>Own It Before<br>Competitor Does.</h1>
-<p class="text-[13px] text-gray-400 mt-4 leading-relaxed max-w-[480px]">We rank <b class="text-white">Service Area Businesses</b> - no shop needed, we hide your home address. One tradie per suburb per trade. 30 day Top 3 guarantee or we work free till you are Top 3.</p>
-<div class="mt-5 grid grid-cols-3 gap-2 max-w-[420px]">
-<div class="bg-[#111] border border-[#222] rounded-xl p-3 text-center"><div class="text-[18px] font-black gold">20</div><div class="text-[9px] text-gray-500 font-bold">CITIES</div></div>
-<div class="bg-[#111] border border-[#222] rounded-xl p-3 text-center"><div class="text-[18px] font-black gold">$299</div><div class="text-[9px] text-gray-500 font-bold">START</div></div>
-<div class="bg-[#111] border border-[#222] rounded-xl p-3 text-center"><div class="text-[18px] font-black gold">30 Day</div><div class="text-[9px] text-gray-500 font-bold">TOP 3 GUARANTEE</div></div>
+<h1 class="serif text-[30px] md:text-[34px] leading-[0.95] tracking-[-0.02em] font-normal">Lock your suburb<br><span class="gold italic">on Google Maps.</span></h1>
+<p class="text-[11px] text-[#8A8A90] mt-2 leading-[1.5] max-w-[360px]">Service Area Business • No shop needed, we hide address. One tradie per suburb per trade. Top 3 in 30 days or we work free.</p>
 </div>
-<div class="mt-6 bg-[#0f0f0f] border border-[#222] rounded-xl p-3 max-w-[480px]">
-<p class="text-[10px] font-black">WHAT YOU GET FOR $299:</p>
-<p class="text-[10px] text-gray-400 mt-1 leading-relaxed">✓ No shop needed - we hide address, Service Area Business<br>✓ Lock suburbs as service areas<br>✓ Rank for "Concreter Ballarat" type searches<br>✓ 15 directory listings • 5 job photos geotagged<br>✓ Review QR that mentions suburb + job<br>✓ 30 day Top 3 Map Pack guarantee</p>
-</div>
-</div>
-<div class="bg-[#111] border border-[#222] rounded-[20px] p-4">
-<p class="text-[11px] font-black tracking-widest">LIVE AVAILABILITY CHECKER</p>
-<div class="mt-3 grid grid-cols-2 gap-2 text-[10px]">
-<div class="bg-black border border-[#222] rounded-lg p-2.5 flex justify-between"><span>Ballarat</span><span class="text-[#25D366] font-black">3/10 locked</span></div>
-<div class="bg-black border border-[#222] rounded-lg p-2.5 flex justify-between"><span>Bendigo</span><span class="text-[#25D366] font-black">2/10 locked</span></div>
-<div class="bg-black border border-[#222] rounded-lg p-2.5 flex justify-between"><span>Geelong</span><span class="text-orange-400 font-black">6/10 locked</span></div>
-<div class="bg-black border border-[#222] rounded-lg p-2.5 flex justify-between"><span>Toowoomba</span><span class="text-red-400 font-black">8/10 HOT</span></div>
-</div>
-<p class="text-[9px] text-gray-500 mt-3 text-center">One client per suburb per trade. When it's gone, it's gone. Max 10 suburbs per trade to keep Top 3 quality.</p>
-<a href="#lock" class="block w-full mt-3 bg-gold text-black text-center py-3.5 rounded-xl font-black text-[13px]">🔒 Lock Your Suburbs Now →</a>
+<div class="hidden md:grid grid-cols-3 gap-1.5 min-w-[220px]">
+<div class="badge-gold p-2 text-center"><div class="text-[13px] font-black gold">20</div><div class="text-[8px] font-bold text-[#666] tracking-widest">CITIES</div></div>
+<div class="badge-gold p-2 text-center"><div class="text-[13px] font-black gold">$299</div><div class="text-[8px] font-bold text-[#666] tracking-widest">START</div></div>
+<div class="badge-gold p-2 text-center"><div class="text-[13px] font-black gold">30D</div><div class="text-[8px] font-bold text-[#666] tracking-widest">GUARANTEE</div></div>
 </div>
 </div>
 
-<!-- LOCK SECTION - ALL IN ONE -->
-<div id="lock" class="max-w-[1180px] mx-auto px-4 py-10">
-<div class="grid lg:grid-cols-[1.3fr_0.7fr] gap-6 items-start">
-
-<div class="bg-[#0f0f0f] border-2 border-[#222] rounded-[24px] p-6 md:p-8">
-
-<!-- ROYAL TIER BAR - PROMINENT -->
-<div class="mb-8">
-<div class="flex justify-between items-center mb-3">
-<h2 class="text-[13px] font-black tracking-[0.22em] gold royal">ROYAL TIER UNLOCK SYSTEM</h2>
-<span class="text-[11px] bg-black border border-[#333] px-3 py-1.5 rounded-full font-black"><span id="countBadge">0</span>/10 • <span id="tierName" class="gold">STARTER</span></span>
-</div>
+<!-- ROYAL TIER - PROMINENT 44px -->
+<div class="relative">
+<div class="flex justify-between items-center mb-2"><span class="text-[10px] font-black tracking-[0.18em] gold">ROYAL TIER UNLOCK</span><span class="text-[10px] font-bold bg-[#0E0E10] border border-[#232326] px-2.5 py-1 rounded-full"><span id="countBadge">0</span>/10 • <span id="tierName" class="gold">STARTER</span></span></div>
 <div class="progress-track" id="progressTrack">
-<div class="progress-seg" data-tier="starter"><div class="text-center leading-[1.1]"><div class="text-[10px] font-black">0-2</div><div class="text-[7px] font-bold opacity-70 tracking-widest">STARTER</div></div></div>
-<div class="progress-seg" data-tier="bronze"><div class="text-center leading-[1.1]"><div class="text-[13px]">🥉</div><div class="text-[9px] font-black">BRONZE</div><div class="text-[7px] font-bold">10% OFF</div></div></div>
-<div class="progress-seg" data-tier="silver"><div class="text-center leading-[1.1]"><div class="text-[13px]">🥈</div><div class="text-[9px] font-black">SILVER</div><div class="text-[7px] font-bold">20% OFF</div></div></div>
-<div class="progress-seg" data-tier="gold"><div class="text-center leading-[1.1]"><div class="text-[14px]">👑</div><div class="text-[9px] font-black">GOLD</div><div class="text-[7px] font-bold">30% OFF</div></div></div>
+<div class="progress-seg" data-tier="starter"><span class="text-[9px] font-black">0-2</span><span class="text-[7px] font-bold opacity-60">STARTER</span></div>
+<div class="progress-seg" data-tier="bronze"><span class="text-[10px]">🥉</span><span class="text-[8px] font-black leading-none">BRONZE</span><span class="text-[6.5px] font-bold">10% OFF</span></div>
+<div class="progress-seg" data-tier="silver"><span class="text-[10px]">🥈</span><span class="text-[8px] font-black leading-none">SILVER</span><span class="text-[6.5px] font-bold">20% OFF</span></div>
+<div class="progress-seg" data-tier="gold"><span class="text-[11px]">👑</span><span class="text-[8px] font-black leading-none">GOLD</span><span class="text-[6.5px] font-bold">30% OFF</span></div>
 </div>
-<div class="mt-3 bg-black border border-[#222] rounded-xl px-4 py-2.5 flex justify-between items-center">
-<span id="tierMsg" class="text-[11px] font-bold text-gray-300">👑 Select 1 suburb to begin your royal journey - unlock Bronze at 3</span>
-<span id="tierSave" class="text-[11px] font-black gold hidden">You save $0</span>
-</div>
-<div id="badgeRow" class="mt-3 grid grid-cols-4 gap-2">
-<div id="badge-starter" class="bg-[#111] border border-[#222] rounded-xl p-2.5 text-center opacity-40 transition-all"><div class="text-[16px]">⚪</div><div class="text-[8px] font-black mt-1">STARTER</div><div class="text-[7px] text-gray-500">0-2 subs</div></div>
-<div id="badge-bronze" class="bg-[#111] border border-[#222] rounded-xl p-2.5 text-center opacity-40 transition-all"><div class="text-[16px]">🥉</div><div class="text-[8px] font-black mt-1">BRONZE</div><div class="text-[7px] text-gray-500">3 • 10% OFF</div></div>
-<div id="badge-silver" class="bg-[#111] border border-[#222] rounded-xl p-2.5 text-center opacity-40 transition-all"><div class="text-[16px]">🥈</div><div class="text-[8px] font-black mt-1">SILVER</div><div class="text-[7px] text-gray-500">5 • 20% OFF</div></div>
-<div id="badge-gold" class="bg-[#111] border border-[#222] rounded-xl p-2.5 text-center opacity-40 transition-all"><div class="text-[16px]">👑</div><div class="text-[8px] font-black mt-1">GOLD MEGA</div><div class="text-[7px] text-gray-500">10 • 30% OFF</div></div>
+<div class="mt-2 flex justify-between items-center bg-[#0E0E10] border border-[#1A1A1D] rounded-full px-3 py-1.5">
+<span id="tierMsg" class="text-[10px] font-bold text-[#9A9AA0]">Select 1 suburb to begin → Bronze at 3 saves $70</span><span id="tierSave" class="text-[10px] font-black gold hidden">Save $0</span>
 </div>
 </div>
 
-<h2 class="royal text-[26px] font-black tracking-tighter">Lock Your Suburbs - Stripe Secure</h2>
-<p class="text-[11px] text-gray-400 mt-1">First $299 + $199 per extra suburb. Discount on setup only. Monthly $149 + $99 per extra starts after 30 days.</p>
-
-<div class="grid md:grid-cols-2 gap-4 mt-6">
-<div><label class="text-[11px] font-bold text-gray-300">1. CITY *</label><select id="city" class="w-full mt-1.5 bg-black border-2 border-[#333] rounded-xl p-3.5 text-[13px] font-bold focus:border-[#f5d76e] outline-none"><option value="">-- Choose City --</option><option value="ballarat">Ballarat VIC</option><option value="bendigo">Bendigo VIC</option><option value="geelong">Geelong VIC</option><option value="warrnambool">Warrnambool VIC</option><option value="horsham">Horsham VIC</option><option value="mildura">Mildura VIC</option><option value="shepparton">Shepparton VIC</option><option value="traralgon">Traralgon VIC</option><option value="toowoomba">Toowoomba QLD - HOT</option><option value="mackay">Mackay QLD</option><option value="rockhampton">Rockhampton QLD</option><option value="bundaberg">Bundaberg QLD</option><option value="cairns">Cairns QLD</option><option value="townsville">Townsville QLD</option><option value="launceston">Launceston TAS</option><option value="devonport">Devonport TAS</option><option value="bunbury">Bunbury WA</option><option value="geraldton">Geraldton WA</option><option value="albury-wodonga">Albury-Wodonga NSW/VIC</option><option value="wagga-wagga">Wagga Wagga NSW</option></select></div>
-<div><label class="text-[11px] font-bold text-gray-300">2. TRADE *</label><select id="trade" class="w-full mt-1.5 bg-black border-2 border-[#333] rounded-xl p-3.5 text-[13px] font-bold focus:border-[#f5d76e] outline-none"><option value="">-- Choose Trade --</option><option>Concreter</option><option>Plumber</option><option>Electrician</option><option>Builder</option><option>Landscaper</option><option>Roof Plumber</option><option>Carpenter</option><option>Painter</option></select></div>
+<!-- CITY + TRADE ROW -->
+<div class="grid grid-cols-2 gap-2.5">
+<div><label class="text-[9px] font-bold tracking-widest text-[#777]">CITY *</label><select id="city" class="input-premium mt-1"><option value="">Choose city</option><option value="ballarat">Ballarat VIC</option><option value="bendigo">Bendigo VIC</option><option value="geelong">Geelong VIC</option><option value="warrnambool">Warrnambool VIC</option><option value="horsham">Horsham VIC</option><option value="mildura">Mildura VIC</option><option value="shepparton">Shepparton VIC</option><option value="traralgon">Traralgon VIC</option><option value="toowoomba">Toowoomba QLD • HOT</option><option value="mackay">Mackay QLD</option><option value="rockhampton">Rockhampton QLD</option><option value="bundaberg">Bundaberg QLD</option><option value="cairns">Cairns QLD</option><option value="townsville">Townsville QLD</option><option value="launceston">Launceston TAS</option><option value="devonport">Devonport TAS</option><option value="bunbury">Bunbury WA</option><option value="geraldton">Geraldton WA</option><option value="albury-wodonga">Albury-Wodonga</option><option value="wagga-wagga">Wagga Wagga NSW</option></select></div>
+<div><label class="text-[9px] font-bold tracking-widest text-[#777]">TRADE *</label><select id="trade" class="input-premium mt-1"><option value="">Choose trade</option><option>Concreter</option><option>Plumber</option><option>Electrician</option><option>Builder</option><option>Landscaper</option><option>Roof Plumber</option><option>Carpenter</option><option>Painter</option></select></div>
 </div>
 
-<div class="mt-6">
-<div class="flex justify-between items-center"><label class="text-[11px] font-bold text-gray-300">3. TICK SUBURBS (MAX 10) - Royal tiers unlock as you add</label><span class="text-[10px] bg-[#1a1a1a] border border-[#333] px-2 py-1 rounded-full font-black"><span id="countSmall">0</span>/10</span></div>
-<div id="suburbsBox" class="mt-3 bg-black border border-[#222] rounded-xl p-2 min-h-[200px] max-h-[380px] overflow-y-auto">
-<p class="text-[12px] text-gray-500 text-center py-14">← Select City First to see suburbs<br><span class="text-[10px]">Then tick to unlock Royal Tiers 👑</span></p>
-</div>
-</div>
-
-<div class="mt-7 grid md:grid-cols-2 gap-3.5">
-<div class="md:col-span-2"><label class="text-[11px] font-bold">BUSINESS NAME *</label><input id="biz" placeholder="e.g. Ballarat Premium Concrete" class="w-full mt-1.5 bg-black border border-[#333] rounded-xl p-3.5 text-[13px] outline-none focus:border-[#f5d76e]"></div>
-<div><label class="text-[11px] font-bold">YOUR NAME *</label><input id="name" placeholder="John Smith" class="w-full mt-1.5 bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"></div>
-<div><label class="text-[11px] font-bold">MOBILE *</label><input id="mobile" placeholder="04xx xxx xxx" class="w-full mt-1.5 bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"></div>
-<div class="md:col-span-2"><label class="text-[11px] font-bold">EMAIL FOR STRIPE RECEIPT *</label><input id="email" type="email" placeholder="you@gmail.com" class="w-full mt-1.5 bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"></div>
-</div>
-
-</div>
-
-<!-- STICKY PRICING -->
-<div class="lg:sticky top-[70px] space-y-4">
-<div class="bg-[#111] border-2 border-[#f5d76e] rounded-[20px] p-6 shadow-gold">
-<h3 class="font-black text-[14px] royal flex items-center gap-2">🔒 Live Royal Pricing <span class="text-[8px] bg-[#25D366] text-black px-2 py-0.5 rounded-full font-sans">STRIPE SECURE</span></h3>
-<div id="calcEmpty" class="text-[12px] text-gray-500 mt-5 text-center py-10 border-2 border-dashed border-[#222] rounded-xl">Tick 1-10 suburbs<br><span class="gold font-black royal text-[14px]">to unlock Royal Tiers 👑</span><br><span class="text-[10px]">Bronze 10% • Silver 20% • Gold 30% MEGA</span></div>
-<div id="calcBox" class="hidden mt-5 space-y-3 text-[12px]">
-<div class="flex justify-between"><span class="text-gray-500">City</span><b id="calcCity" class="text-white">-</b></div>
-<div class="flex justify-between"><span class="text-gray-500">Trade</span><b id="calcTrade" class="text-white">-</b></div>
-<div class="flex justify-between"><span class="text-gray-500">Suburbs (<span id="calcCount">0</span>)</span><span class="text-[10px] text-gray-400" id="calcShort">-</span></div>
-<div id="calcSubsFull" class="text-[10px] text-gray-400 bg-black border border-[#222] rounded-lg p-2.5 max-h-[70px] overflow-y-auto leading-relaxed">-</div>
-<div class="border-t border-[#222] pt-3 space-y-2">
-<div class="flex justify-between"><span class="text-gray-400">1st Suburb Setup</span><span>$299</span></div>
-<div class="flex justify-between"><span class="text-gray-400" id="extraLabel">Extra x 0 @ $199</span><span id="extraPrice">$0</span></div>
-<div class="flex justify-between text-gray-500 text-[11px]"><span>Subtotal</span><span id="subtotal">$0</span></div>
-<div id="discountRow" class="hidden bg-gradient-to-r from-[#f5d76e]/25 to-[#f5d76e]/5 border border-[#f5d76e]/50 rounded-xl p-3.5 flex justify-between items-center relative overflow-hidden"><div><div id="discountText" class="font-black text-[#f5d76e] royal text-[13px]">BRONZE TIER</div><div class="text-[9px] text-gray-400">Royal discount applied</div></div><span id="discountAmt" class="font-black text-[18px] gold">-$0</span></div>
-<div class="flex justify-between text-[16px] font-black border-t-2 border-[#f5d76e]/20 pt-3"><span class="royal">Pay Today</span><span id="totalSetup" class="gold text-[24px]">$0</span></div>
-<div id="saveMsg" class="hidden text-center text-[11px] font-black gold bg-[#f5d76e]/10 border border-[#f5d76e]/20 rounded-full py-2.5">👑 You save $0 - Royal tier unlocked!</div>
-</div>
-<div class="border-t border-[#222] pt-3"><div class="flex justify-between"><span class="text-gray-400">Monthly Protection</span><span id="monthly" class="font-black text-white text-[13px]">$0/mo</span></div><p class="text-[9px] text-gray-500 mt-1.5 leading-relaxed">Starts after 30 days. $149 first + $99 per extra. Protects Top 3. Cancel anytime but you lose suburb.</p></div>
-</div>
-<div id="paySection" class="hidden mt-6">
-<button id="stripeBtn" class="w-full bg-gold text-black py-4 rounded-xl font-black text-[14px] royal-pulse royal text-[15px]">👑 Pay <span id="payAmt">$0</span> with Stripe →</button>
-<p class="text-[9px] text-gray-500 text-center mt-2">Card • Apple Pay • Google Pay • Instant receipt</p>
-<div class="mt-3 bg-black border border-[#222] rounded-xl p-3">
-<p class="text-[10px] font-bold">After Stripe Payment:</p>
-<p class="text-[10px] text-gray-400 mt-1 leading-relaxed">1. Receipt to email instantly<br>2. Click below → WhatsApp us screenshot<br>3. We verify 2hrs & lock<br>4. Top 3 in 30 days or we work free</p>
-<a id="waAfter" href="#" class="block w-full mt-3 bg-[#25D366] text-black text-center py-3 rounded-xl font-black text-[12px]">After Pay → WhatsApp Receipt →</a>
-</div>
+<!-- SUBURBS - COMPACT LIST -->
+<div>
+<div class="flex justify-between items-center"><label class="text-[9px] font-bold tracking-widest text-[#777]">SUBURBS (MAX 10) *</label><span class="text-[9px] font-bold text-[#555]"><span id="countSmall">0</span>/10 selected • Popular has tag</span></div>
+<div id="suburbsBox" class="mt-1.5 bg-[#08080A] border border-[#1A1A1D] rounded-[12px] p-1.5 min-h-[132px] max-h-[168px] overflow-y-auto">
+<p class="text-[11px] text-[#555] text-center py-10">← Select city to see suburbs<br><span class="text-[10px] text-[#777]">Tick to unlock Bronze 10% → Silver 20% → Gold 30%</span></p>
 </div>
 </div>
 
-<div class="bg-[#0f0f0f] border border-[#222] rounded-[16px] p-4">
-<p class="text-[11px] font-black royal gold">👑 WHY ROYAL TIER WORKS</p>
-<p class="text-[10px] text-gray-400 mt-2 leading-relaxed"><b class="text-white">For Tradie:</b> Feels like unlocking levels - Starter → Bronze → Silver → Gold MEGA. Wants to add more suburbs to feel worth. 3 suburbs = sweet spot = 10% OFF feels like win.<br><br><b class="text-white">For You:</b> Setup 1st=6hrs, extra=1.5hrs. Even at GOLD MEGA 10 suburbs $1,463 setup, cost ~$350, profit ~$1,100 + $1,040/mo. Quality stays Top 3 because max 10.</p>
-</div>
+<!-- DETAILS - 2 COL COMPACT -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+<div class="md:col-span-2"><input id="biz" placeholder="Business name * e.g. Ballarat Premium Concrete" class="input-premium"></div>
+<div><input id="name" placeholder="Your name *" class="input-premium"></div>
+<div><input id="mobile" placeholder="Mobile * 04xx xxx xxx" class="input-premium"></div>
+<div class="md:col-span-2"><input id="email" type="email" placeholder="Email for Stripe receipt * you@gmail.com" class="input-premium"></div>
 </div>
 
 </div>
 </div>
 
-<!-- SEO CITIES FOOTER -->
-<div class="max-w-[1180px] mx-auto px-4 pb-12">
-<div class="border-t border-[#1a1a1a] pt-8">
-<h3 class="text-[12px] font-black tracking-widest text-gray-500">20 CITIES WE COVER - ONE CLIENT PER SUBURB PER TRADE</h3>
-<div class="mt-4 grid grid-cols-2 md:grid-cols-5 gap-2 text-[11px]">
-<a href="#lock" onclick="setCity('ballarat')" class="bg-[#0f0f0f] border border-[#222] rounded-lg p-3 hover:border-[#f5d76e]">Ballarat VIC →</a>
-<a href="#lock" onclick="setCity('bendigo')" class="bg-[#0f0f0f] border border-[#222] rounded-lg p-3 hover:border-[#f5d76e]">Bendigo VIC →</a>
-<a href="#lock" onclick="setCity('geelong')" class="bg-[#0f0f0f] border border-[#222] rounded-lg p-3 hover:border-[#f5d76e]">Geelong VIC →</a>
-<a href="#lock" onclick="setCity('toowoomba')" class="bg-[#0f0f0f] border border-[#222] rounded-lg p-3 hover:border-[#f5d76e]">Toowoomba QLD HOT →</a>
-<a href="#lock" onclick="setCity('mackay')" class="bg-[#0f0f0f] border border-[#222] rounded-lg p-3 hover:border-[#f5d76e]">Mackay QLD →</a>
-<a href="#lock" onclick="setCity('cairns')" class="bg-[#0f0f0f] border border-[#222] rounded-lg p-3 hover:border-[#f5d76e]">Cairns QLD →</a>
-<a href="#lock" onclick="setCity('townsville')" class="bg-[#0f0f0f] border border-[#222] rounded-lg p-3 hover:border-[#f5d76e]">Townsville QLD →</a>
-<a href="#lock" onclick="setCity('launceston')" class="bg-[#0f0f0f] border border-[#222] rounded-lg p-3 hover:border-[#f5d76e]">Launceston TAS →</a>
-<a href="#lock" onclick="setCity('bunbury')" class="bg-[#0f0f0f] border border-[#222] rounded-lg p-3 hover:border-[#f5d76e]">Bunbury WA →</a>
-<a href="#lock" onclick="setCity('albury-wodonga')" class="bg-[#0f0f0f] border border-[#222] rounded-lg p-3 hover:border-[#f5d76e]">Albury-Wodonga →</a>
+<!-- RIGHT - PRICING + WHAT YOU GET - COMPACT STICKY -->
+<div class="space-y-3 lg:sticky top-[56px] h-fit">
+
+<!-- PRICING CARD -->
+<div class="bg-[#101012] border-[1.5px] border-[#F5D76E]/40 rounded-[16px] p-4 shadow-[0_0_30px_rgba(245,215,110,0.15)]">
+<div class="flex justify-between items-center"><h3 class="text-[11px] font-black tracking-widest">LIVE ROYAL PRICING</h3><span class="text-[8px] font-black bg-[#1ED760] text-black px-2 py-0.5 rounded-full">STRIPE SECURE</span></div>
+
+<div id="calcEmpty" class="mt-4 text-center py-7 border border-dashed border-[#232326] rounded-[12px]"><div class="text-[11px] text-[#666]">Tick 1-10 suburbs to</div><div class="serif italic text-[18px] gold">unlock Royal Tiers 👑</div><div class="text-[9px] text-[#555] mt-1">Bronze 10% • Silver 20% • Gold 30% MEGA</div></div>
+
+<div id="calcBox" class="hidden mt-4 space-y-2.5">
+<div class="flex justify-between text-[11px]"><span class="text-[#777]">City • Trade</span><b class="text-white text-[11px]"><span id="calcCity">-</span> • <span id="calcTrade">-</span></b></div>
+<div class="bg-[#08080A] border border-[#1A1A1D] rounded-[10px] p-2.5"><div class="text-[9px] font-bold tracking-widest text-[#555]">SUBURBS (<span id="calcCount">0</span>)</div><div id="calcSubsFull" class="text-[10px] text-[#9A9AA0] mt-1 leading-[1.4]">-</div></div>
+<div class="space-y-1.5 text-[11px] pt-2 border-t border-[#1A1A1D]">
+<div class="flex justify-between"><span class="text-[#777]">1st Suburb Setup</span><span class="font-bold">$299</span></div>
+<div class="flex justify-between"><span class="text-[#777]" id="extraLabel">Extra x0 @ $199</span><span id="extraPrice">$0</span></div>
+<div class="flex justify-between text-[#666] text-[10px]"><span>Subtotal</span><span id="subtotal">$0</span></div>
+<div id="discountRow" class="hidden relative overflow-hidden bg-gradient-to-r from-[#F5D76E]/15 to-transparent border border-[#F5D76E]/30 rounded-[10px] p-2.5 flex justify-between items-center"><div><div id="discountText" class="text-[11px] font-black gold tracking-wide">BRONZE 10% OFF</div><div class="text-[8px] text-[#777]">Royal discount applied</div></div><div id="discountAmt" class="text-[15px] font-black gold">-$0</div></div>
+<div class="flex justify-between items-center pt-2 border-t border-[#F5D76E]/20"><span class="text-[12px] font-black tracking-wide">Pay Today</span><span id="totalSetup" class="text-[22px] font-black gold tracking-tighter">$0</span></div>
+<div id="saveMsg" class="hidden text-center text-[10px] font-black gold bg-[#F5D76E]/10 border border-[#F5D76E]/20 rounded-full py-1.5">👑 You save $0</div>
+</div>
+<div class="flex justify-between items-center pt-2 border-t border-[#1A1A1D] text-[11px]"><span class="text-[#777]">Monthly after 30 days</span><span id="monthly" class="font-black text-white">$0/mo</span></div>
+<p class="text-[8.5px] text-[#555] leading-[1.4]">Starts only if Top 3. $149 first + $99 per extra. Protects rank. Cancel anytime.</p>
+
+<div id="paySection" class="hidden pt-3">
+<button id="stripeBtn" class="w-full bg-[#F5D76E] text-black h-[46px] rounded-[12px] font-black text-[13px] tracking-tight hover:bg-[#FFE88A] transition-all flex items-center justify-center gap-2">👑 Pay <span id="payAmt">$0</span> with Stripe →</button>
+<p class="text-[8px] text-[#555] text-center mt-1.5">Card • Apple Pay • Google Pay • Tax invoice • Instant receipt</p>
+<div class="mt-2.5 bg-[#08080A] border border-[#1E1E20] rounded-[12px] p-3">
+<div class="text-[10px] font-black tracking-wide">👑 After Stripe - Royal Process</div>
+<div class="text-[9.5px] text-[#8A8A90] mt-1.5 leading-[1.5]"><span class="gold font-bold">1.</span> Receipt instantly to email<br><span class="gold font-bold">2.</span> Click below → WhatsApp us screenshot<br><span class="gold font-bold">3.</span> Verify 2hrs & lock suburbs<br><span class="gold font-bold">4.</span> Setup 48hrs • Top 3 in 30 days or FREE</div>
+<a id="waAfter" href="#" class="mt-2.5 block w-full bg-[#1ED760] text-black text-center h-10 rounded-[10px] font-black text-[11px] flex items-center justify-center">After Pay → WhatsApp Receipt →</a>
 </div>
 </div>
-<footer class="border-t border-[#1a1a1a] mt-10 py-6 text-center text-[10px] text-gray-600">MapRankers AU © 2026 • Stripe Secure • Max 10 suburbs per trade • 30 Day Top 3 Guarantee • One client per suburb per trade<br>Service Area Business - No Shop Needed - We Hide Your Address</footer>
+</div>
 </div>
 
-<!-- ROYAL TOAST -->
-<div id="royalToast" class="fixed bottom-5 left-4 right-4 md:left-auto md:right-6 md:w-[390px] bg-[#101010] border border-[#f5d76e] rounded-[18px] p-0 shadow-gold z-[9999] hidden overflow-hidden">
-<div id="toastInner" class="p-4 relative"><div class="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-[#f5d76e] to-transparent"></div>
-<div class="flex gap-3 items-start"><div id="toastIcon" class="w-11 h-11 rounded-full bg-gradient-to-br from-[#f5d76e] to-[#b8962a] flex items-center justify-center text-black font-black text-[18px] shadow-gold">1</div><div class="flex-1"><div id="toastTitle" class="font-black text-[13px] royal tracking-wide">Bronze Tier Unlocked</div><div id="toastDesc" class="text-[11px] text-[#a0a0a0] mt-1 leading-relaxed">You are in. Add more to reach Silver.</div><div class="mt-3 flex gap-1.5" id="toastDots"></div></div><button onclick="document.getElementById('royalToast').classList.add('hidden')" class="text-[#555]">✕</button></div></div>
-<div class="bg-black/50 px-4 py-2.5 flex justify-between items-center text-[10px] border-t border-[#222]"><span class="text-[#666]">Royal Progress</span><span id="toastProgressText" class="font-black gold">1 / 10 • Next: Silver at 3</span></div>
+<!-- WHAT YOU GET COMPACT -->
+<div class="bg-[#101012] border border-[#1E1E20] rounded-[14px] p-3.5">
+<div class="flex gap-2 items-start">
+<div class="w-8 h-8 rounded-full bg-[#F5D76E]/10 border border-[#F5D76E]/20 flex items-center justify-center text-[12px]">✓</div>
+<div class="flex-1"><div class="text-[10px] font-black tracking-widest">WHAT YOU GET FOR $299</div><div class="text-[9.5px] text-[#8A8A90] mt-1 leading-[1.5]">No shop needed • Service Area hidden • <span id="getCount">0</span> suburbs locked • Rank for "Concreter Ballarat" • 15 listings • 5 photos geotagged • Review QR • 30 day Top 3 guarantee</div></div>
+</div>
+</div>
+
+<!-- TRUST -->
+<div class="bg-[#0E0E10] border border-[#1E1E20] rounded-[14px] p-3.5">
+<div class="text-[10px] font-black tracking-widest gold">👑 30 DAY ROYAL GUARANTEE</div>
+<div class="text-[9.5px] text-[#8A8A90] mt-1.5 leading-[1.5]"><b class="text-white">Top 3 in 30 days or we work free till you are.</b> No contract • Cancel monthly • One tradie per suburb • Ballarat team • WhatsApp 9am-7pm • Stripe secure</div>
+</div>
+
+<!-- LIVE CHECKER COMPACT -->
+<div class="bg-[#0E0E10] border border-[#1E1E20] rounded-[14px] p-3">
+<div class="text-[9px] font-black tracking-widest text-[#666]">LIVE AVAILABILITY • 20 CITIES</div>
+<div class="mt-2 grid grid-cols-4 gap-1.5 text-[9px] font-bold">
+<div class="bg-[#151517] border border-[#232326] rounded-full px-2.5 py-1.5 text-center">Ballarat <span class="text-[#1ED760]">3/10</span></div>
+<div class="bg-[#151517] border border-[#232326] rounded-full px-2.5 py-1.5 text-center">Bendigo <span class="text-[#1ED760]">2/10</span></div>
+<div class="bg-[#151517] border border-[#232326] rounded-full px-2.5 py-1.5 text-center">Geelong <span class="text-orange-400">6/10</span></div>
+<div class="bg-[#151517] border border-[#232326] rounded-full px-2.5 py-1.5 text-center">Toowoomba <span class="text-red-400">8/10</span></div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div id="royalToast" class="fixed bottom-4 right-4 w-[360px] max-w-[92vw] bg-[#141416] border border-[#F5D76E]/50 rounded-[14px] p-0 shadow-[0_8px_40px_rgba(0,0,0,0.6),0_0_20px_rgba(245,215,110,0.25)] z-[9999] hidden overflow-hidden">
+<div id="toastInner" class="p-3.5 relative flex gap-3"><div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#F5D76E] to-transparent"></div><div id="toastIcon" class="w-9 h-9 rounded-full bg-[#F5D76E] text-black flex items-center justify-center font-black text-[13px]">1</div><div class="flex-1"><div id="toastTitle" class="text-[12px] font-black tracking-tight">Bronze Unlocked</div><div id="toastDesc" class="text-[10px] text-[#8A8A90] mt-0.5 leading-[1.4]">You save $70. Add more for Silver.</div><div id="toastDots" class="mt-2 flex gap-1"></div></div><button onclick="document.getElementById('royalToast').classList.add('hidden')" class="text-[#555] text-[12px]">✕</button></div>
+<div class="bg-[#0E0E10] px-3.5 py-2 flex justify-between items-center text-[9px] border-t border-[#1E1E20]"><span class="text-[#555] font-bold tracking-widest">ROYAL PROGRESS</span><span id="toastProgressText" class="font-black gold">1/10 • Next: Bronze at 3</span></div>
 </div>
 
 <script>
 const suburbsData={"ballarat":["Winter Valley","Alfredton","Sebastopol","Wendouree","Redan","Delacombe","Mount Clear","Buninyong","Brown Hill","Ballarat East"],"bendigo":["Kangaroo Flat","Epsom","Strathdale","Kennington","Golden Square","Strathfieldsaye","White Hills","Maiden Gully","Junortoun","Eaglehawk"],"geelong":["Grovedale","Highton","Belmont","Newtown","Corio","Lara","Ocean Grove","Leopold","Barwon Heads","Drysdale","Waurn Ponds","Geelong West"],"warrnambool":["Dennington","Woodford","Warrnambool Central","Warrnambool East","Merrivale","Sherwood Park","Bushfield","Allansford"],"horsham":["Horsham Central","Haven","Natall","Horsham West","Horsham North","Horsham South"],"mildura":["Mildura Central","Irymple","Merbein","Red Cliffs","Cardross","Nichols Point","Mildura South"],"shepparton":["Shepparton North","Kialla","Mooroopna","Shepparton East","Shepparton South","Tatura","Grahamvale"],"traralgon":["Traralgon East","Morwell","Moe","Churchill","Traralgon South","Glengarry","Tyers"],"toowoomba":["Kearneys Spring","Wilsonton","Middle Ridge","Rangeville","Centenary Heights","Harristown","Newtown","Glenvale","Highfields","Drayton"],"mackay":["Andergrove","Beaconsfield","Mount Pleasant","North Mackay","Rural View","Glenella","Eimeo","Bucasia","Ooralea","Paget"],"rockhampton":["Berserker","Gracemere","Park Avenue","Frenchville","Allenstown","North Rockhampton","Kawana","The Range","Parkhurst","Norman Gardens"],"bundaberg":["Bundaberg Central","Bargara","Kepnock","Burnett Heads","Ashfield","Svensson Heights","Norville","Avenell Heights","Thabeban","Walkervale"],"cairns":["Earlville","Edmonton","Manunda","Trinity Beach","Smithfield","Redlynch","Bayview Heights","Mooroobool","Manoora","Edge Hill"],"townsville":["Idalia","Kirwan","Annandale","Condon","Burdell","Douglas","Mount Louisa","Rasmussen","Wulguru","Currajong"],"launceston":["Kings Meadows","Newstead","Riverside","Mowbray","Legana","Prospect","Youngtown","Summerhill","Trevallyn","Norwood"],"devonport":["Miandetta","East Devonport","Stony Rise","Latta","Ambleside","Spreyton","Quoiba","Devonport Central"],"bunbury":["Australind","Eaton","Withers","South Bunbury","Dalyellup","College Grove","Glen Iris","Carey Park","Leschenault","Picton"],"geraldton":["Wonthella","Strathalbyn","Tarcoola Beach","Sunset Beach","Rangeway","Spalding","Bluff Point","Wandina","Beresford","Drummond Cove"],"albury-wodonga":["Lavington","Thurgoona","West Wodonga","Wodonga Central","Albury East","Glenroy","Springdale Heights","Baranduda","Bandiana","Gateway Island"],"wagga-wagga":["Estella","Kooringal","Turvey Park","Lake Albert","Glenfield Park","Tolland","Lloyd","Bourkelands","Boorooma","Tatton"]};
 const STRIPE_LINK="https://buy.stripe.com/test_6oU7sM0uZ8rS0oA3cc";
-
 const citySel=document.getElementById('city'), tradeSel=document.getElementById('trade'), box=document.getElementById('suburbsBox');
 const calcEmpty=document.getElementById('calcEmpty'), calcBox=document.getElementById('calcBox'), paySection=document.getElementById('paySection');
 
-function setCity(c){ citySel.value=c; renderSuburbs(c); document.getElementById('lock').scrollIntoView({behavior:'smooth'}); }
-
 function goldBurst(x,y){
- for(let i=0;i<20;i++){
-   const p=document.createElement('div'); p.className='gold-particle';
+ for(let i=0;i<14;i++){
+   const p=document.createElement('div'); p.className='gold-dot';
    p.style.left=x+'px'; p.style.top=y+'px';
-   p.style.setProperty('--x',(Math.random()*180-90)+'px');
-   p.style.animation=`goldFloat ${0.9+Math.random()*0.7}s ease-out forwards`;
-   p.style.animationDelay=(Math.random()*0.2)+'s';
-   document.body.appendChild(p);
-   setTimeout(()=>p.remove(),1300);
+   p.style.setProperty('--x',(Math.random()*120-60)+'px');
+   p.style.animation=`floatUp ${0.7+Math.random()*0.5}s ease-out forwards`;
+   p.style.animationDelay=(Math.random()*0.12)+'s';
+   document.body.appendChild(p); setTimeout(()=>p.remove(),1000);
  }
 }
-
 function renderSuburbs(city){
  const subs=suburbsData[city]||[];
- if(!subs.length){box.innerHTML='<p class="text-[12px] text-gray-500 text-center py-14">No suburbs</p>';return;}
- box.innerHTML=subs.map((s,i)=>`<label class="flex items-center gap-2.5 py-3.5 px-3 hover:bg-[#111] rounded-lg cursor-pointer border-b border-[#111] last:border-0 group"><input type="checkbox" value="${s}" class="subCheck w-5 h-5 accent-[#f5d76e]"><span class="text-[13px] font-semibold group-hover:text-[#f5d76e]">${s}</span>${i<3?'<span class="ml-auto text-[8px] bg-[#f5d76e] text-black px-1.5 py-0.5 rounded-full font-black">POPULAR</span>':''}</label>`).join('');
+ if(!subs.length){box.innerHTML='<p class="text-[11px] text-[#555] text-center py-10">No suburbs</p>';return;}
+ box.innerHTML=subs.map((s,i)=>`<label class="flex items-center gap-2 py-2.5 px-2.5 hover:bg-[#111113] rounded-[10px] cursor-pointer group transition-all"><input type="checkbox" value="${s}" class="subCheck w-4 h-4 accent-[#F5D76E] rounded"><span class="text-[12px] font-semibold group-hover:text-[#F5D76E]">${s}</span>${i<3?'<span class="ml-auto text-[7px] font-black bg-[#F5D76E] text-black px-1.5 py-0.5 rounded-full">POPULAR</span>':''}</label>`).join('');
  document.querySelectorAll('.subCheck').forEach(ch=>ch.addEventListener('change',onCheckChange));
  updateCalc();
 }
-
 function onCheckChange(e){
  const checks=Array.from(document.querySelectorAll('.subCheck:checked'));
- if(checks.length>10){ e.target.checked=false; alert('Max 10 suburbs to keep Top 3 quality. Want more? WhatsApp us.'); return; }
- const rect=e.target.getBoundingClientRect(); goldBurst(rect.left+12, rect.top+6);
- updateCalc(); showRoyalTier(checks.length);
+ if(checks.length>10){ e.target.checked=false; alert('Max 10 suburbs to keep Top 3 quality. WhatsApp us for enterprise.'); return; }
+ const r=e.target.getBoundingClientRect(); goldBurst(r.left+8,r.top+4);
+ updateCalc(); showTier(checks.length);
 }
-
-function showRoyalTier(count){
+function showTier(count){
  const segs=document.querySelectorAll('.progress-seg');
- const badges={starter:document.getElementById('badge-starter'), bronze:document.getElementById('badge-bronze'), silver:document.getElementById('badge-silver'), gold:document.getElementById('badge-gold')};
  const tierName=document.getElementById('tierName'), tierMsg=document.getElementById('tierMsg'), tierSave=document.getElementById('tierSave');
  const toast=document.getElementById('royalToast'), toastIcon=document.getElementById('toastIcon'), toastTitle=document.getElementById('toastTitle'), toastDesc=document.getElementById('toastDesc'), toastDots=document.getElementById('toastDots'), toastProg=document.getElementById('toastProgressText');
- segs.forEach(s=>{s.classList.remove('active','shimmer-gold','tier-glow');}); Object.values(badges).forEach(b=>{b.classList.add('opacity-40'); b.classList.remove('tier-glow','royal-pulse');});
+ segs.forEach(s=>{s.classList.remove('active','shimmer');});
  let tier='starter', save=0, next='Bronze at 3', dots='';
- if(count===0){ tierName.innerText='STARTER'; tierMsg.innerText='👑 Select 1 suburb to begin your royal journey - unlock Bronze at 3'; tierSave.classList.add('hidden'); toast.classList.add('hidden'); return; }
- else if(count>=1 && count<3){ tier='starter'; tierName.innerText='STARTER'; tierMsg.innerText=`${3-count} more to unlock 🥉 BRONZE • 10% OFF • Save $70`; next='Bronze at 3'; dots='<div class="w-2 h-2 rounded-full bg-[#f5d76e]"></div><div class="w-2 h-2 rounded-full bg-[#333]"></div><div class="w-2 h-2 rounded-full bg-[#333]"></div><div class="w-2 h-2 rounded-full bg-[#333]"></div>'; }
- else if(count>=3 && count<5){ tier='bronze'; save=Math.round((299+(count-1)*199)*0.10); tierName.innerText='BRONZE 🥉'; tierMsg.innerText=`🥉 Bronze unlocked! Add ${5-count} more for 🥈 Silver 20% OFF`; tierSave.innerText=`You save $${save} - Bronze`; tierSave.classList.remove('hidden'); next='Silver at 5'; dots='<div class="w-2 h-2 rounded-full bg-[#f5d76e]"></div><div class="w-2 h-2 rounded-full bg-[#f5d76e]"></div><div class="w-2 h-2 rounded-full bg-[#333]"></div><div class="w-2 h-2 rounded-full bg-[#333]"></div>'; }
- else if(count>=5 && count<10){ tier='silver'; save=Math.round((299+(count-1)*199)*0.20); tierName.innerText='SILVER 🥈'; tierMsg.innerText=`🥈 Silver unlocked! Add ${10-count} more for 👑 GOLD 30% OFF MEGA`; tierSave.innerText=`You save $${save} - Silver`; tierSave.classList.remove('hidden'); next='Gold MEGA at 10'; dots='<div class="w-2 h-2 rounded-full bg-[#f5d76e]"></div><div class="w-2 h-2 rounded-full bg-[#f5d76e]"></div><div class="w-2 h-2 rounded-full bg-[#f5d76e]"></div><div class="w-2 h-2 rounded-full bg-[#333]"></div>'; }
- else if(count>=10){ tier='gold'; save=Math.round((299+9*199)*0.30); tierName.innerText='GOLD 👑 MEGA'; tierMsg.innerText=`👑 GOLD MEGA unlocked! You saved $${save} - Legend tier! You locked half the city!`; tierSave.innerText=`You save $${save} - GOLD MEGA 👑`; tierSave.classList.remove('hidden'); next='Max Reached'; dots='<div class="w-2 h-2 rounded-full bg-[#f5d76e]"></div><div class="w-2 h-2 rounded-full bg-[#f5d76e]"></div><div class="w-2 h-2 rounded-full bg-[#f5d76e]"></div><div class="w-2 h-2 rounded-full bg-[#f5d76e]"></div>'; }
+ if(count===0){ tierName.innerText='STARTER'; tierMsg.innerText='Select 1 suburb to begin → Bronze at 3 saves $70'; tierSave.classList.add('hidden'); toast.classList.add('hidden'); return; }
+ else if(count>=1 && count<3){ tier='starter'; tierName.innerText='STARTER'; tierMsg.innerText=`${3-count} more to unlock 🥉 BRONZE 10% OFF • Save $70`; next='Bronze at 3'; dots='<div class="w-1.5 h-1.5 rounded-full bg-[#F5D76E]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#333]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#333]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#333]"></div>'; }
+ else if(count>=3 && count<5){ tier='bronze'; save=Math.round((299+(count-1)*199)*0.10); tierName.innerText='BRONZE 🥉'; tierMsg.innerText=`🥉 Bronze unlocked! Add ${5-count} more for 🥈 Silver 20% OFF`; tierSave.innerText=`You save $${save} - Bronze`; tierSave.classList.remove('hidden'); next='Silver at 5'; dots='<div class="w-1.5 h-1.5 rounded-full bg-[#F5D76E]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#F5D76E]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#333]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#333]"></div>'; }
+ else if(count>=5 && count<10){ tier='silver'; save=Math.round((299+(count-1)*199)*0.20); tierName.innerText='SILVER 🥈'; tierMsg.innerText=`🥈 Silver unlocked! Add ${10-count} more for 👑 GOLD 30% MEGA`; tierSave.innerText=`You save $${save} - Silver`; tierSave.classList.remove('hidden'); next='Gold MEGA at 10'; dots='<div class="w-1.5 h-1.5 rounded-full bg-[#F5D76E]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#F5D76E]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#F5D76E]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#333]"></div>'; }
+ else if(count>=10){ tier='gold'; save=Math.round((299+9*199)*0.30); tierName.innerText='GOLD 👑 MEGA'; tierMsg.innerText=`👑 GOLD MEGA unlocked! You saved $${save} - Legend!`; tierSave.innerText=`You save $${save} - GOLD MEGA 👑`; tierSave.classList.remove('hidden'); next='Max Reached'; dots='<div class="w-1.5 h-1.5 rounded-full bg-[#F5D76E]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#F5D76E]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#F5D76E]"></div><div class="w-1.5 h-1.5 rounded-full bg-[#F5D76E]"></div>'; }
  const order=['starter','bronze','silver','gold']; const idx=order.indexOf(tier);
- order.forEach((t,i)=>{ if(i<=idx){ const seg=document.querySelector(`[data-tier="${t}"]`); seg.classList.add('active','shimmer-gold'); if(i===idx) seg.classList.add('tier-glow'); badges[t].classList.remove('opacity-40'); badges[t].classList.add('tier-glow'); if(t===tier && t!=='starter'){ badges[t].classList.add('royal-pulse'); const r=badges[t].getBoundingClientRect(); goldBurst(r.left+r.width/2, r.top+r.height/2); } } });
- if(count>=1){
-   toast.classList.remove('hidden');
-   toastIcon.innerText=count>=10?'👑':count>=5?'🥈':count>=3?'🥉':count;
-   toastTitle.innerText= tier==='gold'? 'GOLD MEGA UNLOCKED 👑' : tier==='silver'? 'SILVER UNLOCKED 🥈' : tier==='bronze'? 'BRONZE UNLOCKED 🥉' : 'Journey Started - Royal Path';
-   toastDesc.innerText= count<3? `${3-count} more to unlock Bronze 10% OFF. Most concreters choose 3.` : count<5? `Bronze unlocked! You save $${save}. Add ${5-count} more for Silver 20% OFF.` : count<10? `Silver unlocked! You save $${save}. Add ${10-count} more for GOLD MEGA 30% OFF.` : `GOLD MEGA! You saved $${save} - You locked ${count} suburbs like a king.`;
-   toastDots.innerHTML=dots; toastProg.innerText= count>=10? `10/10 • GOLD MEGA • Save $${save}` : `${count}/10 • Next: ${next} • Save up to $${count<3?70:count<5?219:627}`;
-   document.getElementById('toastInner').classList.remove('shimmer-gold'); void document.getElementById('toastInner').offsetWidth; document.getElementById('toastInner').classList.add('shimmer-gold');
-   setTimeout(()=>{ if(count<10) toast.classList.add('hidden'); }, count>=3? 5500 : 3800);
- }
+ order.forEach((t,i)=>{ if(i<=idx){ const seg=document.querySelector(`[data-tier="${t}"]`); seg.classList.add('active'); if(i===idx) seg.classList.add('shimmer'); } });
+ if(count>=1){ toast.classList.remove('hidden'); toastIcon.innerText=count>=10?'👑':count>=5?'🥈':count>=3?'🥉':count; toastTitle.innerText= tier==='gold'? 'GOLD MEGA UNLOCKED 👑' : tier==='silver'? 'SILVER UNLOCKED 🥈' : tier==='bronze'? 'BRONZE UNLOCKED 🥉' : 'Journey Started'; toastDesc.innerText= count<3? `${3-count} more to unlock Bronze 10% OFF. Most choose 3.` : count<5? `Bronze unlocked! You save $${save}. Add ${5-count} more for Silver 20%.` : count<10? `Silver unlocked! You save $${save}. Add ${10-count} more for GOLD 30% MEGA.` : `GOLD MEGA! You saved $${save} - ${count} suburbs locked like a king.`; toastDots.innerHTML=dots; toastProg.innerText= count>=10? `10/10 • GOLD MEGA • Save $${save}` : `${count}/10 • Next: ${next} • Save up to $${count<3?70:count<5?219:627}`; document.getElementById('toastInner').classList.remove('shimmer'); void document.getElementById('toastInner').offsetWidth; document.getElementById('toastInner').classList.add('shimmer'); setTimeout(()=>{ if(count<10) toast.classList.add('hidden'); }, count>=3? 5000:3500); }
 }
-
 function updateCalc(){
  const city=citySel.value, trade=tradeSel.value;
  const checks=Array.from(document.querySelectorAll('.subCheck:checked')).map(c=>c.value);
  const count=checks.length;
- document.getElementById('countBadge').innerText=count; document.getElementById('countSmall').innerText=count;
+ document.getElementById('countBadge').innerText=count; document.getElementById('countSmall').innerText=count; document.getElementById('getCount').innerText=count;
  if(count===0){ calcEmpty.classList.remove('hidden'); calcBox.classList.add('hidden'); paySection.classList.add('hidden'); return; }
  calcEmpty.classList.add('hidden'); calcBox.classList.remove('hidden'); paySection.classList.remove('hidden');
  const first=299, extraUnit=199, extraCount=Math.max(0,count-1);
- let subtotal=first+(extraCount*extraUnit);
- let discount=0, discountText="";
+ let subtotal=first+(extraCount*extraUnit); let discount=0, discountText="";
  if(count>=10){ discount=subtotal*0.30; discountText="GOLD MEGA - 30% OFF"; }
- else if(count>=5){ discount=subtotal*0.20; discountText="SILVER TIER - 20% OFF"; }
- else if(count>=3){ discount=subtotal*0.10; discountText="BRONZE TIER - 10% OFF"; }
+ else if(count>=5){ discount=subtotal*0.20; discountText="SILVER - 20% OFF"; }
+ else if(count>=3){ discount=subtotal*0.10; discountText="BRONZE - 10% OFF"; }
  const save=Math.round(discount); const total=Math.round(subtotal-discount); const monthly=149+(extraCount*99);
  document.getElementById('calcCity').innerText=city?city.toUpperCase():'-'; document.getElementById('calcTrade').innerText=trade||'-';
- document.getElementById('calcCount').innerText=count; document.getElementById('calcShort').innerText=checks.slice(0,2).join(', ')+(count>2?' +'+(count-2)+' more':'');
- document.getElementById('calcSubsFull').innerText=checks.join(', '); document.getElementById('extraLabel').innerText=`Extra x ${extraCount} @ $199`; document.getElementById('extraPrice').innerText='$'+(extraCount*extraUnit);
+ document.getElementById('calcCount').innerText=count; document.getElementById('calcSubsFull').innerText=checks.join(', ');
+ document.getElementById('extraLabel').innerText=`Extra x ${extraCount} @ $199`; document.getElementById('extraPrice').innerText='$'+(extraCount*extraUnit);
  document.getElementById('subtotal').innerText='$'+subtotal; document.getElementById('totalSetup').innerText='$'+total; document.getElementById('payAmt').innerText='$'+total; document.getElementById('monthly').innerText='$'+monthly+'/mo';
  if(discount>0){ document.getElementById('discountRow').classList.remove('hidden'); document.getElementById('discountText').innerText=discountText; document.getElementById('discountAmt').innerText='-$'+save; document.getElementById('saveMsg').classList.remove('hidden'); document.getElementById('saveMsg').innerText=`👑 You save $${save} - ${discountText} unlocked!`; } else { document.getElementById('discountRow').classList.add('hidden'); document.getElementById('saveMsg').classList.add('hidden'); }
  document.getElementById('stripeBtn').onclick=function(){
    const biz=document.getElementById('biz').value, name=document.getElementById('name').value, mobile=document.getElementById('mobile').value, email=document.getElementById('email').value;
-   if(!biz||!name||!mobile||!email||!city||!trade){alert('Fill Business, Name, Mobile, Email, City, Trade + at least 1 suburb');return;}
+   if(!biz||!name||!mobile||!email||!city||!trade){alert('Please fill Business name, Your name, Mobile, Email, City, Trade and tick at least 1 suburb');return;}
+   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){alert('Please enter valid email');return;}
+   if(mobile.replace(/\D/g,'').length<8){alert('Please enter valid mobile');return;}
    localStorage.setItem('lastLead',JSON.stringify({city,trade,suburbs:checks,total,monthly,biz,name,mobile,email,ts:new Date().toISOString()}));
    window.location.href=STRIPE_LINK + (STRIPE_LINK.includes('?')?'&':'?') + 'prefilled_email='+encodeURIComponent(email);
  };
  const waMsg=`Hi MapRankers, I paid $${total} via Stripe for ${count} suburbs in ${city.toUpperCase()} as ${trade}. Suburbs: ${checks.join(', ')}. Biz: ${document.getElementById('biz').value}, Name: ${document.getElementById('name').value}, Mobile: ${document.getElementById('mobile').value}. Monthly $${monthly}/mo. Tier: ${discountText||'Starter'}.`;
  document.getElementById('waAfter').href='https://wa.me/61485990944?text='+encodeURIComponent(waMsg);
 }
-
 citySel.addEventListener('change',function(){ if(this.value) renderSuburbs(this.value); });
 tradeSel.addEventListener('change',updateCalc);
-window.addEventListener('load',()=>{ const p=new URLSearchParams(window.location.search); const c=p.get('city'); if(c && suburbsData[c.toLowerCase()]){ citySel.value=c.toLowerCase(); renderSuburbs(c.toLowerCase()); document.getElementById('lock').scrollIntoView(); }});
 </script>
 </body>
 </html>
