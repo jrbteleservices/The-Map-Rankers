@@ -1,0 +1,25 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/ballarat", "destination": "/ballarat.html" },
+    { "source": "/bendigo", "destination": "/bendigo.html" },
+    { "source": "/geelong", "destination": "/geelong.html" },
+    { "source": "/warrnambool", "destination": "/warrnambool.html" },
+    { "source": "/horsham", "destination": "/horsham.html" },
+    { "source": "/mildura", "destination": "/mildura.html" },
+    { "source": "/shepparton", "destination": "/shepparton.html" },
+    { "source": "/traralgon", "destination": "/traralgon.html" },
+    { "source": "/toowoomba", "destination": "/toowoomba.html" },
+    { "source": "/mackay", "destination": "/mackay.html" },
+    { "source": "/rockhampton", "destination": "/rockhampton.html" },
+    { "source": "/bundaberg", "destination": "/bundaberg.html" },
+    { "source": "/cairns", "destination": "/cairns.html" },
+    { "source": "/townsville", "destination": "/townsville.html" },
+    { "source": "/launceston", "destination": "/launceston.html" },
+    { "source": "/devonport", "destination": "/devonport.html" },
+    { "source": "/bunbury", "destination": "/bunbury.html" },
+    { "source": "/geraldton", "destination": "/geraldton.html" },
+    { "source": "/albury-wodonga", "destination": "/albury-wodonga.html" },
+    { "source": "/wagga-wagga", "destination": "/wagga-wagga.html" }
+  ]
+}
