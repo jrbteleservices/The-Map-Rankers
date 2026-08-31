@@ -20,6 +20,7 @@
     { "source": "/bunbury", "destination": "/bunbury.html" },
     { "source": "/geraldton", "destination": "/geraldton.html" },
     { "source": "/albury-wodonga", "destination": "/albury-wodonga.html" },
-    { "source": "/wagga-wagga", "destination": "/wagga-wagga.html" }
+    { "source": "/wagga-wagga", "destination": "/wagga-wagga.html" },
+    { "source": "/pay", "destination": "/pay.html" }
   ]
 }
