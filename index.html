@@ -1,181 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Map Rankers | Google Maps Revenue Intelligence</title>
-<meta name="description" content="Know where you rank on Google Maps. Know who's beating you. Know what you're losing. Live visibility scan.">
+<title>MapRankers AU - Top 3 Google Maps Ranking in Your Suburb | $299 Setup | 20 Cities</title>
+<meta name="description" content="We rank tradies Top 3 on Google Maps in 30 days. One client per suburb. Concreter, Plumber, Electrician, Builder, Roofer. 20 regional cities: Ballarat, Bendigo, Geelong, Warrnambool, Horsham, Mildura, Shepparton, Traralgon, Toowoomba, Mackay, Rockhampton, Bundaberg, Cairns, Townsville, Launceston, Devonport, Bunbury, Geraldton, Albury-Wodonga, Wagga Wagga. $299 setup + $149/mo.">
 <link rel="canonical" href="https://the-map-rankers.vercel.app/">
-<meta name="theme-color" content="#07070A">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%2307070A'/><text x='16' y='22' text-anchor='middle' font-family='Arial Black' font-size='18' font-weight='900' fill='%23facc15'>T</text></svg>">
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://js.stripe.com/v3/"></script>
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#07070A;--card:#0F0F13;--gold:#facc15;--gold2:#fde68a}
-*{font-family:Inter,sans-serif}.serif{font-family:'Instrument Serif',serif}
-body{background:var(--bg);color:#fff;overflow-x:hidden}
-.gold{background:linear-gradient(135deg,var(--gold2),var(--gold))}
-.gold-text{background:linear-gradient(135deg,var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.grid-pattern{background-image:radial-gradient(rgba(255,255,255,0.06) 1px,transparent 1px);background-size:24px 24px}
-.card{background:var(--card);border:1px solid rgba(255,255,255,0.08)}
-.shimmer{position:relative;overflow:hidden}.shimmer:after{content:'';position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,0.4),transparent);animation:s 2.2s infinite}@keyframes s{100%{transform:translateX(100%)}}
-.pulse-dot{animation:pulse 2s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.5}}
-.map-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
-.map-cell{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px}
-.logo{width:32px;height:32px;background:linear-gradient(135deg,#fde68a,#facc15);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;color:#000;font-size:16px}
-input,select:focus{outline:none!important;border-color:#facc15!important;box-shadow:0 0 0 3px rgba(250,204,21,0.15)!important}
+body{font-family:'Inter',sans-serif;background:#080808;color:#fff}
+.no-wrap{white-space:nowrap}
+.gold{color:#f5d76e}
+.bg-gold{background:#f5d76e}
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "MapRankers AU",
+  "description": "Google Maps Top 3 ranking service for tradies. One client per suburb per trade. 20 cities across Australia.",
+  "url": "https://the-map-rankers.vercel.app/",
+  "telephone": "+61485990944",
+  "priceRange": "$299 - $149/mo",
+  "areaServed": [{"@type": "City","name": "Ballarat"},{"@type": "City","name": "Bendigo"},{"@type": "City","name": "Geelong"},{"@type": "City","name": "Warrnambool"},{"@type": "City","name": "Horsham"},{"@type": "City","name": "Mildura"},{"@type": "City","name": "Shepparton"},{"@type": "City","name": "Traralgon"},{"@type": "City","name": "Toowoomba"},{"@type": "City","name": "Mackay"},{"@type": "City","name": "Rockhampton"},{"@type": "City","name": "Bundaberg"},{"@type": "City","name": "Cairns"},{"@type": "City","name": "Townsville"},{"@type": "City","name": "Launceston"},{"@type": "City","name": "Devonport"},{"@type": "City","name": "Bunbury"},{"@type": "City","name": "Geraldton"},{"@type": "City","name": "Albury-Wodonga"},{"@type": "City","name": "Wagga Wagga"}]
+}
+</script>
 </head>
 <body>
-<div id="geoChip" class="fixed bottom-4 left-4 right-4 md:left-6 md:right-auto z-[70] bg-zinc-900/90 backdrop-blur-xl border border-white/10 rounded-full px-4 py-2.5 text-[11px] font-semibold flex items-center gap-2.5"><span class="w-2 h-2 bg-emerald-400 rounded-full pulse-dot"></span><span id="geoText">Detecting market...</span></div>
-<nav class="sticky top-0 z-50 border-b border-white/[0.06] bg-[#07070A]/80 backdrop-blur-2xl"><div class="max-w-[1280px] mx-auto px-6 h-[68px] flex justify-between items-center"><a href="#" class="flex items-center gap-3"><div class="logo">T</div><div><p class="font-black text-[13px] tracking-[0.14em] leading-none">THE MAP RANKERS</p><p class="text-[9px] tracking-[0.18em] text-zinc-500 font-bold mt-1">REVENUE INTELLIGENCE</p></div></a><a href="#scan" class="gold text-black px-5 py-2.5 rounded-full font-bold text-[13px] shimmer">FREE MAP SCAN →</a></div></nav>
-
-<section class="relative overflow-hidden"><div class="absolute inset-0 grid-pattern opacity-40"></div><div class="absolute -top-[400px] left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-gradient-to-b from-yellow-500/20 via-yellow-500/5 to-transparent rounded-full blur-[80px]"></div>
-<div class="relative max-w-[1280px] mx-auto px-6 pt-12 lg:pt-20 pb-12"><div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-start">
-<div><div class="inline-flex items-center gap-2 bg-white/[0.06] border border-white/[0.08] rounded-full px-3.5 py-1.5 text-[11px] font-semibold"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full pulse-dot"></span> LIVE • <span id="heroLoc">Detecting...</span></div>
-<h1 class="mt-6 font-[800] text-[36px] lg:text-[58px] leading-[0.92] tracking-[-0.03em]">Your customers are<br><span class="serif italic text-zinc-400">searching.</span><br>Your competitors<br>are getting them.</h1>
-<p class="mt-5 text-[16px] lg:text-[18px] text-zinc-400 max-w-[48ch]">Live Google Maps scan: See exactly where you appear, who's outranking you, and where customers are being lost.</p>
-<div class="mt-8 flex flex-col sm:flex-row gap-3"><a href="#scan" class="gold text-black px-7 py-4 rounded-full font-bold text-[14px] inline-flex justify-center gap-2 shimmer">SCAN MY GOOGLE MAPS VISIBILITY →</a><a href="#how" class="bg-white/[0.06] border border-white/[0.08] text-white px-7 py-4 rounded-full font-semibold text-[14px] inline-flex justify-center">SEE HOW IT WORKS</a></div>
-<p class="mt-4 text-[12px] text-zinc-500">Live scan • 30 seconds • No credit card • Real Google data</p></div>
-
-<div class="card rounded-[28px] overflow-hidden shadow-2xl"><div class="p-6 border-b border-white/[0.06] flex justify-between items-center"><div class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-[#facc15]/15 border border-[#facc15]/20 flex items-center justify-center">◉</div><div><p class="font-bold text-[12px]">MAP MONEY LEAK - LIVE</p><p class="text-[11px] text-zinc-500" id="dashSub">Enter business → Live scan • <span id="dashLoc">Your Business</span></p></div></div><span id="statusBadge" class="text-[10px] font-bold bg-zinc-800 text-zinc-400 border border-white/10 rounded-full px-2.5 py-1">READY TO SCAN</span></div>
-<div class="p-6 grid grid-cols-3 gap-4"><div><p class="text-[10px] font-bold tracking-widest text-zinc-500">VISIBILITY</p><p class="mt-1 font-black text-[28px]" id="liveVis">--<span class="text-[16px] text-zinc-500">/100</span></p><div class="mt-2 h-1.5 bg-white/10 rounded-full"><div id="visBar" class="h-full bg-gradient-to-r from-red-500 to-amber-400 rounded-full" style="width:0%"></div></div></div><div><p class="text-[10px] font-bold tracking-widest text-zinc-500">AVG POSITION</p><p class="mt-1 font-black text-[28px]" id="livePos">--</p><p class="text-[11px] text-zinc-500 mt-1" id="liveTarget">Target: Top 3</p></div><div><p class="text-[10px] font-bold tracking-widest text-zinc-500">MISSED / MO</p><p class="mt-1 font-black text-[20px]" id="liveMissed">--</p><p class="text-[11px] text-zinc-500 mt-1">opportunities</p></div></div>
-<div class="px-6 pb-6"><p class="text-[10px] font-bold tracking-widest text-zinc-500 mb-3">LOCAL RANKING GRID • 1.2km radius • Live Google Data</p><div class="map-grid" id="mapGrid"></div><div class="mt-4 grid grid-cols-2 gap-3 text-[11px]"><div class="bg-white/[0.04] border border-white/[0.06] rounded-xl p-3 flex justify-between"><span class="text-zinc-500">Competitor advantage</span><span class="font-bold" id="liveAdv">--</span></div><div class="bg-[#facc15]/10 border border-[#facc15]/20 rounded-xl p-3 flex justify-between"><span class="text-zinc-600">Potential recovery</span><span class="font-bold text-black" id="liveRec">Scan first</span></div></div></div></div>
-</div></div></section>
-
-<section id="how" class="py-16 bg-white text-black"><div class="max-w-[1280px] mx-auto px-6"><div class="grid lg:grid-cols-[1fr_1.1fr] gap-8"><div class="bg-white border border-black/10 rounded-[24px] p-7"><h3 class="font-bold text-[14px]">REVENUE CALCULATOR - LIVE RANK</h3><p class="text-[12px] text-zinc-500 mt-1">Auto-filled after live scan • Potential, not guaranteed</p><div class="mt-6 space-y-5"><div><label class="text-[11px] font-bold tracking-widest text-zinc-500">MONTHLY SEARCHES</label><input id="calcSearch" type="range" min="100" max="5000" value="1200" class="w-full mt-2 accent-black"><div class="flex justify-between text-[12px] font-semibold"><span id="calcSearchVal">1,200</span><span class="text-zinc-500">searches</span></div></div><div class="grid grid-cols-2 gap-4"><div><label class="text-[11px] font-bold tracking-widest text-zinc-500">CURRENT RANK (LIVE)</label><select id="calcRank" class="mt-2 w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-[14px] font-bold"><option value="8">#8</option><option value="15">#15</option><option value="25">#25</option><option value="5">#5</option><option value="2">#2</option></select></div><div><label class="text-[11px] font-bold tracking-widest text-zinc-500">AVG VALUE</label><select id="calcValue" class="mt-2 w-full bg-white border border-black/10 rounded-xl px-4 py-3 text-[14px] font-semibold"><option value="400" selected>$400 / Rs 8,000</option><option value="150">$150</option><option value="1000">$1,000</option><option value="2500">$2,500</option></select></div></div></div></div><div class="bg-black text-white rounded-[24px] p-7"><p class="text-[11px] font-black tracking-widest text-zinc-500">ESTIMATED OPPORTUNITY IF TOP 3</p><div class="mt-6 grid grid-cols-2 gap-4"><div class="bg-white/[0.06] border border-white/[0.08] rounded-2xl p-5"><p class="text-[11px] text-zinc-400">Extra calls / mo</p><p class="font-black text-[28px] mt-1" id="outCalls">+0</p></div><div class="bg-white/[0.06] border border-white/[0.08] rounded-2xl p-5"><p class="text-[11px] text-zinc-400">Extra customers</p><p class="font-black text-[28px] mt-1" id="outCust">+0</p></div><div class="col-span-2 bg-[#facc15] text-black rounded-2xl p-6"><p class="text-[11px] font-black tracking-widest opacity-70">POTENTIAL REVENUE</p><p class="font-black text-[36px] mt-1" id="outRev">$0 / mo</p></div></div><a href="#scan" class="mt-6 bg-white text-black w-full py-4 rounded-full font-bold text-[14px] text-center block" id="payCta">CALCULATE → THEN PAY IF WORTH IT</a></div></div></div></section>
-
-<section id="scan" class="py-16 lg:py-24 bg-[#f5f5f7] text-black"><div class="max-w-[1280px] mx-auto px-6 grid lg:grid-cols-[1fr_1.1fr] gap-12"><div><h2 class="font-black text-[36px] lg:text-[52px] leading-[0.9]">Stop guessing.<br>Start seeing your<br><span class="bg-[#facc15] px-1.5">live map opportunity.</span></h2><p class="mt-5 text-[15px] text-zinc-600">Paste your Google Maps link or business name. We live-scan Google Maps grid around you.</p><div class="mt-6 text-[13px] space-y-2"><p>● Real rank from Google Places API</p><p>● Real competitors who outrank you</p><p>● Real reviews, photos, rating gap</p><p>● Real missed searches calculation</p></div></div><div class="bg-black rounded-[28px] p-6 lg:p-8"><div class="flex items-center gap-3"><div class="logo">T</div><div><p class="text-white font-black text-[14px]">LIVE Google Maps Scan</p><p class="text-[11px] text-zinc-500">Real Google data • <span id="formLoc">your suburb</span></p></div></div>
-<form onsubmit="submitLiveScan(event)" class="mt-7 space-y-3.5">
-<input id="biz" required placeholder="Business Name * e.g. Sharma Plumbing" class="w-full bg-white text-black border border-white/10 rounded-2xl px-5 py-3.5 text-[14px] font-semibold">
-<input id="city" required placeholder="Location * e.g. Thane West" class="w-full bg-white text-black border border-white/10 rounded-2xl px-5 py-3.5 text-[14px] font-semibold">
-<input id="service" required placeholder="Service * e.g. Plumber, Dentist" class="w-full bg-white text-black border border-white/10 rounded-2xl px-5 py-3.5 text-[14px] font-semibold">
-<input id="website" placeholder="Google Maps Link (optional)" class="w-full bg-white text-black border border-white/10 rounded-2xl px-5 py-3.5 text-[14px] font-semibold">
-<div class="grid grid-cols-2 gap-3"><input id="email" required type="email" placeholder="Email *" class="w-full bg-white text-black rounded-2xl px-5 py-3.5 text-[14px] font-semibold"><input id="phone" placeholder="WhatsApp" class="w-full bg-white text-black rounded-2xl px-5 py-3.5 text-[14px] font-semibold"></div>
-<input type="hidden" id="ipcity"><input type="hidden" id="preciseSuburb"><input type="hidden" id="detectedCountry"><input type="hidden" id="lat"><input type="hidden" id="lng">
-<button type="submit" id="formCta" class="w-full gold text-black rounded-full font-black text-[14px] py-4 px-6 shimmer">SCAN MY GOOGLE MAPS LIVE →</button>
-<p class="text-[10px] text-zinc-500 text-center">Free scan $0 • Detailed scan $9.99 • Sheet 1EjzWZ7X...</p>
-</form></div></div></section>
-
-<div id="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);backdrop-filter:blur(16px);z-index:9999;align-items:center;justify-content:center;padding:16px">
-<div class="bg-zinc-900 border border-white/10 rounded-[28px] p-8 max-w-[480px] w-full text-center">
-<div class="logo mx-auto w-14 h-14 text-[22px]">T</div>
-<h3 class="font-black text-[22px] mt-5 text-white">Live Scan: <span id="modalLoc">Business</span></h3>
-<div class="mt-4 bg-white/[0.06] rounded-2xl p-4 text-left text-[13px] space-y-1">
-<p>Visibility: <b id="modalVis" class="text-white">34/100</b></p>
-<p>Avg Rank: <b id="modalRank" class="text-white">#8</b></p>
-<p>Missed: <b id="modalMissed" class="text-white">127/mo</b></p>
-<p>Competitor advantage: <b id="modalAdv" class="text-white">+243 reviews</b></p>
-</div>
-<div class="mt-5 bg-[#facc15]/10 border border-[#facc15]/20 rounded-2xl p-4">
-<p class="text-[11px] font-bold text-yellow-400">🔒 FULL 9-GRID + COMPETITORS LOCKED</p>
-<p class="text-[12px] text-zinc-300 mt-1">Free scan shows approximate rank. Pay $9.99 for REAL Google Places API live data.</p>
-</div>
-<div class="mt-5 grid grid-cols-1 gap-3">
-<button id="unlockBtn" onclick="unlockDetailedScan()" class="gold text-black py-4 rounded-full font-black text-[14px] shimmer">UNLOCK FULL 9-GRID - $9.99 →</button>
-<a href="#how" onclick="document.getElementById('modal').style.display='none'" class="bg-white/[0.06] border border-white/10 text-white py-3 rounded-full font-bold text-[13px] text-center">See Revenue First →</a>
-<button onclick="document.getElementById('modal').style.display='none'" class="text-zinc-500 text-[12px]">Close</button>
+<div class="bg-[#f5d76e] text-black text-center py-2.5 text-[11px] font-black tracking-widest">⚡ ONE CLIENT PER SUBURB PER TRADE - 20 CITIES - 3 SPOTS LEFT IN BALLARAT THIS MONTH ⚡</div>
+<header class="border-b border-[#1a1a1a] bg-black/90 sticky top-0 backdrop-blur z-50">
+<div class="max-w-[1200px] mx-auto px-4 py-3.5 flex justify-between items-center">
+<div class="font-black text-[22px] tracking-tighter">MapRankers<span class="gold">.AU</span></div>
+<div class="flex items-center gap-2">
+<a href="tel:0485990944" class="hidden md:block no-wrap text-[12px] font-bold border border-[#333] px-4 py-2 rounded-full">📞 0485 990 944</a>
+<a href="/blog/" class="hidden md:block text-[11px] font-bold border border-[#333] px-3 py-2 rounded-full">SEO Blog 2026</a>
+<a href="/pay/" class="bg-gold text-black px-5 py-2.5 rounded-full text-[12px] font-black">Lock My Suburb $299 →</a>
 </div>
 </div>
+</header>
+<section class="max-w-[1200px] mx-auto px-4 py-10 md:py-16 grid md:grid-cols-[1.1fr_0.9fr] gap-10 items-center">
+<div>
+<div class="inline-flex bg-[#1a1a00] border border-[#f5d76e]/20 text-[#f5d76e] text-[10px] font-bold px-3 py-1.5 rounded-full tracking-widest">FOR CONCRETERS • PLUMBERS • ELECTRICIANS • BUILDERS • ROOFERS • 20 CITIES</div>
+<h1 class="text-[34px] md:text-[50px] font-black leading-[0.9] mt-5 tracking-tighter">Get <span class="gold">Top 3</span> on Google Maps in Your Suburb - In 30 Days</h1>
+<p class="text-gray-400 text-[14px] md:text-[15px] mt-5 leading-[1.6]">We rank tradies for <b class="text-white">[Trade] + [Suburb]</b> searches like <b class="text-white">"Concreter Winter Valley"</b>, <b class="text-white">"Plumber Bendigo"</b>, <b class="text-white">"Electrician Geelong"</b>. When locals search, you show <b class="text-white">Top 3 on Maps</b>. Calls go direct to your phone. <b class="text-white">One tradie per suburb. No shared leads.</b> We prove it by ranking ourselves Top 3 in all 20 cities first.</p>
+<div class="bg-[#111] border border-[#222] rounded-2xl p-4 mt-7 grid grid-cols-3 divide-x divide-[#222]">
+<div class="text-center px-2"><div class="text-[24px] font-black gold">30</div><div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">Days to Top 3</div></div>
+<div class="text-center px-2"><div class="text-[24px] font-black gold">$299</div><div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">Setup</div></div>
+<div class="text-center px-2"><div class="text-[24px] font-black gold">$149</div><div class="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-1">/mo After</div></div>
 </div>
+<div class="mt-7 flex gap-3"><a href="/pay/" class="flex-1 bg-gold text-black text-center py-4 rounded-xl font-black text-[14px]">Lock My Suburb - $299 Setup →</a></div>
+<p class="text-[10px] text-gray-500 text-center mt-2.5">✓ 48hr Setup ✓ No Lock-in ✓ Cancel Anytime ✓ PayID Instant Osko ✓ Service-Area Business - No Shop Needed</p>
+<div class="mt-6 bg-[#0f0f0f] border border-[#1a1a1a] rounded-xl p-3 flex gap-3 items-center">
+<img src="https://i.pravatar.cc/100?img=32" class="w-9 h-9 rounded-full">
+<div class="text-[11px] leading-tight"><b class="text-white">Smith Concrete, Winter Valley, Ballarat</b><br><span class="text-gray-400">"Was page 2 on Maps. Now Top 2 for Concreter Winter Valley. Got 11 calls in 2 weeks. $299 best money spent."</span></div>
+</div>
+</div>
+<div class="bg-[#0f0f0f] border-2 border-[#f5d76e] rounded-[20px] p-6 shadow-[0_0_40px_rgba(245,215,110,0.15)]">
+<h3 class="font-black text-[16px]">Check If Your Suburb Is Available:</h3>
+<p class="text-[11px] text-gray-500 mt-1">One client per suburb per trade. First to pay locks it forever.</p>
+<form id="checkForm" class="mt-5 space-y-2.5">
+<select id="trade" required class="w-full bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"><option value="">Select Your Trade</option><option>Concreter</option><option>Plumber</option><option>Electrician</option><option>Builder</option><option>Landscaper</option><option>Roof Plumber</option></select>
+<input id="suburb" placeholder="Your Suburb (e.g. Winter Valley)" required class="w-full bg-black border border-[#333] rounded-xl p-3.5 text-[13px]">
+<input id="city" placeholder="City (e.g. Ballarat)" required class="w-full bg-black border border-[#333] rounded-xl p-3.5 text-[13px]">
+<input id="business" placeholder="Business Name (e.g. Smith Concrete)" required class="w-full bg-black border border-[#333] rounded-xl p-3.5 text-[13px]">
+<button type="submit" class="w-full bg-gold text-black py-4 rounded-xl font-black text-[14px]">Check Availability & Lock →</button>
+</form>
+<p class="text-[10px] text-gray-500 mt-3 text-center leading-tight"><b class="text-gray-300">20 CITIES:</b><br>Ballarat, Bendigo, Geelong, Warrnambool, Horsham, Mildura, Shepparton, Traralgon, Toowoomba, Mackay, Rockhampton, Bundaberg, Cairns, Townsville, Launceston, Devonport, Bunbury, Geraldton, Albury-Wodonga, Wagga Wagga</p>
+</div>
+</section>
+
+<section class="bg-[#0f0f0f] border-y border-[#1a1a1a] py-14">
+<div class="max-w-[1200px] mx-auto px-4">
+<h2 class="text-[28px] font-black text-center tracking-tighter">How We Get You Top 3 in 30 Days - Same System We Use For Ourselves</h2>
+<div class="grid md:grid-cols-3 gap-4 mt-10">
+<div class="bg-[#111] border border-[#222] rounded-2xl p-6"><div class="w-10 h-10 rounded-full bg-gold text-black flex items-center justify-center font-black">1</div><h3 class="font-black text-[14px] mt-4">Lock Your Suburb + Trade</h3><p class="text-[12px] text-gray-400 mt-2 leading-relaxed">You pay $299. We instantly block your suburb for your trade. No shopfront needed - Service Area Business.</p></div>
+<div class="bg-[#111] border border-[#222] rounded-2xl p-6"><div class="w-10 h-10 rounded-full bg-gold text-black flex items-center justify-center font-black">2</div><h3 class="font-black text-[14px] mt-4">We Optimise Everything - 48hrs</h3><p class="text-[12px] text-gray-400 mt-2 leading-relaxed">GBP optimised for [Trade]+[Suburb]+[City], 15+ citations, 5 geotagged photos, review system with suburb mention, AI Overview ready.</p></div>
+<div class="bg-[#111] border border-[#222] rounded-2xl p-6"><div class="w-10 h-10 rounded-full bg-gold text-black flex items-center justify-center font-black">3</div><h3 class="font-black text-[14px] mt-4">You Get Direct Calls - Top 3</h3><p class="text-[12px] text-gray-400 mt-2 leading-relaxed">2-4 weeks = Top 3 Map Pack. Calls direct to your phone. $149/mo protects rank.</p></div>
+</div>
+</div>
+</section>
+
+<section class="max-w-[1200px] mx-auto px-4 py-14">
+<h2 class="text-[28px] font-black tracking-tighter">We Rank Tradies in 20 Regional Cities - Check Your City</h2>
+<p class="text-[12px] text-gray-500 mt-2">Click your city to see how we rank concreters, plumbers, electricians Top 3 in your suburbs. One client per suburb per trade.</p>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+<div class="bg-[#111] border border-[#222] rounded-2xl p-5"><h3 class="font-black text-[14px] gold">VICTORIA - Ballarat</h3><ul class="mt-3 space-y-2 text-[11px] text-gray-400"><li><a href="/ballarat-google-maps-ranking">✓ Ballarat Google Maps Ranking →</a></li><li><a href="/ballarat-concreter-maps">✓ Concreter Ballarat - Top 3</a></li><li><a href="/ballarat-plumber-maps">✓ Plumber Ballarat - Winter Valley</a></li><li class="text-[10px] text-gray-500 mt-2">Suburbs: Winter Valley, Alfredton, Sebastopol, Wendouree</li></ul></div>
+<div class="bg-[#111] border border-[#222] rounded-2xl p-5"><h3 class="font-black text-[14px] gold">VICTORIA - Bendigo</h3><ul class="mt-3 space-y-2 text-[11px] text-gray-400"><li><a href="/bendigo-google-maps-ranking">✓ Bendigo Google Maps Ranking →</a></li><li><a href="/bendigo-concreter-maps">✓ Concreter Bendigo</a></li><li><a href="/bendigo-plumber-maps">✓ Plumber Bendigo - Kangaroo Flat</a></li></ul></div>
+<div class="bg-[#111] border border-[#222] rounded-2xl p-5"><h3 class="font-black text-[14px] gold">VICTORIA - Geelong</h3><ul class="mt-3 space-y-2 text-[11px] text-gray-400"><li><a href="/geelong-google-maps-ranking">✓ Geelong Google Maps Ranking →</a></li><li><a href="/geelong-concreter-maps">✓ Concreter Geelong</a></li></ul></div>
+<div class="bg-[#111] border border-[#222] rounded-2xl p-5"><h3 class="font-black text-[14px] gold">VIC - Warrnambool + Horsham</h3><ul class="mt-3 space-y-2 text-[11px] text-gray-400"><li><a href="/warrnambool-google-maps-ranking">✓ Warrnambool Maps Ranking</a></li><li><a href="/horsham-google-maps-ranking">✓ Horsham Maps Ranking</a></li><li><a href="/mildura-google-maps-ranking">✓ Mildura Maps Ranking</a></li></ul></div>
+<div class="bg-[#111] border border-[#222] rounded-2xl p-5"><h3 class="font-black text-[14px] gold">QUEENSLAND - Toowoomba</h3><ul class="mt-3 space-y-2 text-[11px] text-gray-400"><li><a href="/toowoomba-google-maps-ranking">✓ Toowoomba Google Maps Ranking →</a></li><li><a href="/toowoomba-concreter-maps">✓ Concreter Toowoomba</a></li></ul></div>
+<div class="bg-[#111] border border-[#222] rounded-2xl p-5"><h3 class="font-black text-[14px] gold">QLD - Mackay + Rockhampton</h3><ul class="mt-3 space-y-2 text-[11px] text-gray-400"><li><a href="/mackay-google-maps-ranking">✓ Mackay Maps Ranking</a></li><li><a href="/rockhampton-google-maps-ranking">✓ Rockhampton Maps Ranking</a></li><li><a href="/bundaberg-google-maps-ranking">✓ Bundaberg Maps Ranking</a></li></ul></div>
+<div class="bg-[#111] border border-[#222] rounded-2xl p-5"><h3 class="font-black text-[14px] gold">TAS + WA</h3><ul class="mt-3 space-y-2 text-[11px] text-gray-400"><li><a href="/launceston-google-maps-ranking">✓ Launceston Maps Ranking</a></li><li><a href="/bunbury-google-maps-ranking">✓ Bunbury Maps Ranking</a></li><li><a href="/geraldton-google-maps-ranking">✓ Geraldton Maps Ranking</a></li></ul></div>
+<div class="bg-[#111] border border-[#222] rounded-2xl p-5"><h3 class="font-black text-[14px] gold">NSW - Albury + Wagga</h3><ul class="mt-3 space-y-2 text-[11px] text-gray-400"><li><a href="/albury-google-maps-ranking">✓ Albury-Wodonga Maps Ranking</a></li><li><a href="/wagga-wagga-google-maps-ranking">✓ Wagga Wagga Maps Ranking</a></li></ul></div>
+</div>
+</section>
+
+<section id="pricing" class="bg-[#0f0f0f] border-y border-[#1a1a1a] py-14">
+<div class="max-w-[800px] mx-auto px-4">
+<h2 class="text-[28px] font-black text-center tracking-tighter">Maps Only - Simple Pricing</h2>
+<div class="bg-[#111] border-2 border-[#f5d76e] rounded-[20px] p-8 mt-10 relative max-w-[520px] mx-auto">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-black text-[10px] font-black px-4 py-1 rounded-full tracking-widest">ONE CLIENT PER SUBURB - MAPS ONLY</div>
+<h3 class="font-black text-[20px] mt-2 text-center">Maps Domination - Top 3 in 30 Days</h3>
+<div class="mt-4 flex items-baseline justify-center gap-2"><span class="text-[48px] font-black gold leading-none">$299</span><span class="text-gray-400 text-[14px]"> setup + $149/mo</span></div>
+<p class="text-[11px] text-gray-500 text-center mt-1">No website. No ads. Pure Maps ranking.</p>
+<div class="bg-black border border-[#222] rounded-xl p-4 mt-6">
+<h4 class="font-bold text-[12px] text-white">WHAT'S INCLUDED - $299 SETUP:</h4>
+<ul class="mt-3 space-y-2 text-[12px] text-gray-300">
+<li>✓ Google Business Profile - Service Area Business Setup - No shopfront needed</li>
+<li>✓ Top 3 Ranking - [Trade] + [Suburb] + [City]</li>
+<li>✓ One Client Per Suburb Locked</li>
+<li>✓ GBP Full Optimisation + Keywords + AI Overview 2026</li>
+<li>✓ 15+ Local Citations Built</li>
+<li>✓ Review + Photo System + Geo-Grid Tracking</li>
+</ul>
+</div>
+<div class="mt-8"><a href="/pay/" class="block bg-gold text-black text-center py-4 rounded-xl font-black text-[14px]">Lock My Suburb $299 →</a>
+<p class="text-[10px] text-center text-gray-500 mt-2">PayID: 0485 990 944 instant Osko</p></div>
+</div>
+</div>
+</section>
+
+<section class="max-w-[1200px] mx-auto px-4 py-14">
+<div class="flex justify-between items-center mb-8">
+<div><div class="text-[10px] font-black tracking-widest text-[#f5d76e]">2026 INSIGHTS</div><h2 class="text-[24px] font-black tracking-tighter mt-1">We Rank Ourselves First - Here's How</h2></div>
+<a href="/blog/" class="hidden md:block text-[11px] font-bold border border-[#333] px-4 py-2 rounded-full">View All Blogs →</a>
+</div>
+<div class="grid md:grid-cols-3 gap-4">
+<a href="/blog/google-map-pack-ai-overview-2026.html" class="bg-[#111] border border-[#222] rounded-2xl p-5"><div class="text-[10px] font-black text-[#f5d76e]">MAP PACK 2026</div><h3 class="font-black text-[14px] mt-2">AI Overviews Stole 40% Clicks - Our Fix</h3></a>
+<a href="/blog/reviews-invisible-2026.html" class="bg-[#111] border border-[#222] rounded-2xl p-5"><div class="text-[10px] font-black text-[#f5d76e]">REVIEWS 2026</div><h3 class="font-black text-[14px] mt-2">Why 120 Five-Star Reviews Are Invisible</h3></a>
+<a href="/blog/voice-search-near-me-2026.html" class="bg-[#111] border border-[#222] rounded-2xl p-5"><div class="text-[10px] font-black text-[#f5d76e]">VOICE SEARCH</div><h3 class="font-black text-[14px] mt-2">Siri Says ONE Name - How Voice Picks Tradies</h3></a>
+</div>
+</section>
+
+<section class="bg-[#f5d76e] text-black py-9 px-4">
+<div class="max-w-4xl mx-auto text-center"><h2 class="font-black text-[24px] tracking-tighter">Our Guarantee</h2><p class="text-[13px] font-bold mt-2 max-w-2xl mx-auto">If we don't get you Top 10 in 30 days, we work free till you are. If not Top 3 in 60 days, cancel and keep optimisation. We prove it by ranking MapRankers AU Top 3 in all 20 cities.</p></div>
+</section>
+
+<section class="max-w-4xl mx-auto px-4 py-14">
+<h2 class="font-black text-[24px] text-center tracking-tighter">FAQs - Maps Ranking + ABN + Service Area</h2>
+<div class="mt-8 space-y-3">
+<details class="bg-[#111] border border-[#222] rounded-xl p-4"><summary class="font-bold text-[13px] cursor-pointer">Do I need ABN to rank Google Business Profile?</summary><p class="text-[12px] text-gray-400 mt-3">No ABN needed to create or rank GBP. Google doesn't ask for ABN. You can rank as Service Area Business, hide address, set service areas. ABN helps for payments but not Maps.</p></details>
+<details class="bg-[#111] border border-[#222] rounded-xl p-4"><summary class="font-bold text-[13px] cursor-pointer">Can you rank without shopfront?</summary><p class="text-[12px] text-gray-400 mt-3">Yes - 90% of tradies are Service Area Businesses. Hide address, set service areas, verify via video showing tools, vehicle.</p></details>
+<details class="bg-[#111] border border-[#222] rounded-xl p-4"><summary class="font-bold text-[13px] cursor-pointer">Why one client per suburb?</summary><p class="text-[12px] text-gray-400 mt-3">2 concreters can't both be Top 3 in Winter Valley. First to pay $299 locks that suburb + trade.</p></details>
+<details class="bg-[#111] border border-[#222] rounded-xl p-4"><summary class="font-bold text-[13px] cursor-pointer">Which cities do you cover?</summary><p class="text-[12px] text-gray-400 mt-3">20 regional cities: Ballarat, Bendigo, Geelong, Warrnambool, Horsham, Mildura, Shepparton, Traralgon, Toowoomba, Mackay, Rockhampton, Bundaberg, Cairns, Townsville, Launceston, Devonport, Bunbury, Geraldton, Albury-Wodonga, Wagga Wagga.</p></details>
+</div>
+</section>
+
+<section class="max-w-[1200px] mx-auto px-4 pb-20">
+<div class="bg-[#111] border-2 border-[#f5d76e] rounded-[24px] p-8 md:p-12 text-center">
+<h2 class="text-[28px] md:text-[36px] font-black tracking-tighter">Ready to Lock Your Suburb?</h2>
+<p class="text-[13px] text-gray-400 mt-3">Pay $299 now → Verify in 2hrs → Setup in 48hrs → Top 3 in 30 days</p>
+<div class="flex flex-col md:flex-row gap-3 justify-center mt-8 max-w-2xl mx-auto">
+<a href="/pay/" class="flex-1 bg-gold text-black px-8 py-4 rounded-xl font-black text-[14px]">Pay $299 - Lock My Suburb →</a>
+<a href="https://wa.me/61485990944?text=Is%20my%20suburb%20available?" class="flex-1 bg-[#25D366] text-black px-8 py-4 rounded-xl font-black text-[14px]">WhatsApp - Is my suburb free? →</a>
+</div>
+</div>
+</section>
+
+<footer class="border-t border-[#1a1a1a] py-8 text-center text-[10px] text-gray-600 leading-relaxed">
+MapRankers AU © 2026 | Service Area Business - 20 Cities | 0485 990 944 | hello@maprankers.au<br>
+One client per suburb | $299 Maps + $149/mo - Maps Only - We Rank Ourselves First<br>
+<div class="mt-2"><a href="/blog/" class="underline">2026 Blog</a> | Powered by Web Wolves</div>
+</footer>
 
 <script>
-const SHEET_URL = "https://script.google.com/macros/s/AKfycbyGydgXqs_4uRiSnIYISlmnM1EdBjqIsowURbvzgYa2w4zQqXqvioDmJS8O24_342E9/exec";
-const FORMSPREE_URL = "https://formspree.io/f/mljeedqk";
-function calc(){const searches=parseInt(document.getElementById('calcSearch')?.value||1200);const rank=parseInt(document.getElementById('calcRank')?.value||8);const value=parseInt(document.getElementById('calcValue')?.value||400);const ctrTop3=0.62,ctrCurrent=rank<=3?0.22:rank<=10?0.08:0.02;const missed=Math.max(0,Math.round(searches*(ctrTop3-ctrCurrent)));const calls=Math.round(missed*0.15);const cust=Math.round(calls*0.35);const rev=cust*value;const safe=(id,t)=>{const e=document.getElementById(id);if(e)e.innerText=t;};safe('calcSearchVal',searches.toLocaleString());safe('outCalls','+'+calls.toLocaleString());safe('outCust','+'+cust.toLocaleString());safe('outRev','$'+rev.toLocaleString()+' / mo');safe('liveMissed',missed+'');const pc=document.getElementById('payCta');if(pc)pc.innerText=`WORTH $${rev.toLocaleString()}/mo? PAY $497 TO FIX →`;}
-async function preciseDetect(){let ip=null;try{const r=await fetch('https://ipapi.co/json/');const j=await r.json();ip={country:(j.country_code||'US').toUpperCase(),city:j.city||'Thane'};}catch(e){ip={country:'IN',city:'Thane'};}const s=(id,v)=>{const e=document.getElementById(id);if(e)e.value=v;};const st=(id,v)=>{const e=document.getElementById(id);if(e)e.innerText=v;};s('ipcity',ip.city);s('detectedCountry',ip.country);s('preciseSuburb',ip.city);st('geoText',`🎯 ${ip.city} • ${ip.country}`);st('heroLoc',ip.city);st('formLoc',ip.city);st('dashLoc',ip.city);const ce=document.getElementById('city');if(ce&&!ce.value) ce.value=ip.city;const isIndia=ip.country==='IN'; const priceText=isIndia?'₹299':'$9.99'; const btn=document.getElementById('unlockBtn'); if(btn) btn.innerText=`UNLOCK FULL 9-GRID - ${priceText} →`;}
-function buildEmptyGrid(){const grid=document.getElementById('mapGrid');if(!grid) return;const vals=Array(25).fill(0).map(()=>({n:'-',c:'bg-white/[0.04] border border-white/10 text-zinc-600'}));grid.innerHTML=vals.map(v=>`<div class="map-cell ${v.c}">${v.n}</div>`).join('');}
-preciseDetect();buildEmptyGrid();
-['calcSearch','calcRank','calcValue'].forEach(id=>{const el=document.getElementById(id);if(el){el.addEventListener('input',calc);el.addEventListener('change',calc);}});
-calc();
-
-async function submitLiveScan(e){
-  e.preventDefault();
-  const btn=document.getElementById('formCta');
-  const original=btn.innerHTML;
-  btn.innerHTML='🔍 LIVE SCANNING GOOGLE MAPS... (10 sec)';
-  btn.disabled=true;
-  const sb=document.getElementById('statusBadge'); if(sb){sb.innerText='SCANNING LIVE...';}
-  const get=id=>document.getElementById(id)?.value||'';
-  const payload={businessName:get('biz'),location:get('city'),service:get('service'),mapsLink:get('website'),email:get('email'),phone:get('phone')};
-  window.lastBusinessName=payload.businessName; window.lastLocation=payload.location; window.lastService=payload.service;
-  localStorage.setItem('bizName',payload.businessName); localStorage.setItem('loc',payload.location); localStorage.setItem('service',payload.service);
-  const safeSet=(id,val)=>{const el=document.getElementById(id); if(el) el.innerText=val;};
-  const safeHtml=(id,val)=>{const el=document.getElementById(id); if(el) el.innerHTML=val;};
-  try{
-    const res=await fetch('/api/scan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-    const data=await res.json();
-    if(!data.success) throw new Error(data.error||'Scan failed');
-    safeHtml('liveVis',data.scan.visibility_score+`<span class="text-[16px] text-zinc-500">/100</span>`);
-    const vb=document.getElementById('visBar'); if(vb) vb.style.width=data.scan.visibility_score+'%';
-    safeSet('livePos','#'+data.scan.avg_rank);
-    safeSet('liveMissed',data.opportunity.missed_monthly+'');
-    safeSet('liveAdv','+'+data.opportunity.competitor_advantage+' reviews');
-    safeSet('liveRec',data.scan.visibility_score<50?'High - Fix now':'Medium');
-    if(sb){sb.innerText='LIVE • '+data.business.name; sb.className='text-[10px] font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 rounded-full px-2.5 py-1';}
-    safeSet('dashSub',`Live scan • ${data.business.name} • ${data.scan.keyword}`);
-    safeSet('dashLoc',data.business.name);
-    const grid=document.getElementById('mapGrid');
-    if(grid){
-      grid.innerHTML=data.scan.grid.map(g=>{
-        let cls='bg-white/[0.06] border border-white/10 text-zinc-400';
-        if(g.rank<=3) cls='bg-[#facc15] text-black font-black';
-        else if(g.rank<=10) cls='bg-white/[0.08] border border-white/10 text-white';
-        else if(g.rank>=21) cls='bg-red-500/15 border border-red-500/20 text-red-400';
-        return `<div class="map-cell ${cls}">${g.rank>=21?'21+':'#'+g.rank}</div>`;
-      }).join('');
-    }
-    const cr=document.getElementById('calcRank'); if(cr) cr.value=data.scan.avg_rank;
-    const cs=document.getElementById('calcSearch'); if(cs) cs.value=data.opportunity.monthly_searches;
-    if(typeof calc==='function') calc();
-    const leadData={business:payload.businessName,city:payload.location,preciseSuburb:payload.location,service:payload.service,email:payload.email,phone:payload.phone,country:document.getElementById('detectedCountry')?.value||'IN',lat:data.business.lat,lng:data.business.lng,live_visibility:data.scan.visibility_score,live_rank:data.scan.avg_rank,live_missed:data.opportunity.missed_monthly,competitor_advantage:data.opportunity.competitor_advantage,place_id:data.business.place_id,source:`FREE_${data.scan.visibility_score}_${data.scan.avg_rank}`,timestamp:new Date().toISOString(),page:location.href};
-    fetch(SHEET_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(leadData)}).catch(()=>{});
-    fetch(FORMSPREE_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(leadData)}).catch(()=>{});
-    safeSet('modalLoc',data.business.name);
-    safeSet('modalVis',data.scan.visibility_score+'/100');
-    safeSet('modalRank','#'+data.scan.avg_rank);
-    safeSet('modalMissed',data.opportunity.missed_monthly+'/mo');
-    safeSet('modalAdv','+'+data.opportunity.competitor_advantage+' reviews');
-    document.getElementById('modal').style.display='flex';
-  }catch(err){
-    alert('Scan failed: '+err.message);
-    const sb2=document.getElementById('statusBadge'); if(sb2) sb2.innerText='FAILED';
-    console.error(err);
-  }finally{
-    btn.innerHTML=original; btn.disabled=false;
-  }
-}
-
-async function unlockDetailedScan(){
-  const btn=document.getElementById('unlockBtn');
-  const orig=btn.innerText;
-  btn.innerText='Creating secure checkout...';
-  btn.disabled=true;
-  try{
-    const res=await fetch('/api/create-order',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        businessName: window.lastBusinessName || localStorage.getItem('bizName') || document.getElementById('biz')?.value,
-        location: window.lastLocation || localStorage.getItem('loc') || document.getElementById('city')?.value,
-        service: window.lastService || localStorage.getItem('service') || document.getElementById('service')?.value
-      })
-    }).then(r=>r.json());
-    if(res.url){
-      window.location=res.url;
-    } else {
-      alert('Add STRIPE_SECRET_KEY in Vercel: '+JSON.stringify(res));
-      btn.innerText=orig;
-      btn.disabled=false;
-    }
-  }catch(e){
-    alert('Checkout error: '+e.message);
-    btn.innerText=orig;
-    btn.disabled=false;
-  }
-}
+document.getElementById('checkForm').addEventListener('submit', function(e){
+ e.preventDefault();
+ const trade = document.getElementById('trade').value;
+ const suburb = document.getElementById('suburb').value;
+ const city = document.getElementById('city').value;
+ const business = document.getElementById('business').value;
+ window.location.href = `/pay/?trade=${encodeURIComponent(trade)}&suburb=${encodeURIComponent(suburb)}&city=${encodeURIComponent(city)}&business=${encodeURIComponent(business)}`;
+});
 </script>
 </body>
 </html>
