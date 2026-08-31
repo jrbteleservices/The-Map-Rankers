@@ -3,312 +3,329 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lock Your Suburb - Pay $299 | MapRankers AU | Google Maps Top 3</title>
-<meta name="description" content="Lock your suburb on Google Maps for $299 setup + $149/mo. One client per suburb per trade. PayID 0485 990 944 or Stripe. 20 cities.">
+<title>Lock Your Suburb - Pay with Stripe | MapRankers AU</title>
+<meta name="description" content="Lock up to 10 suburbs on Google Maps. $299 first + $199 per extra. 3+=10% OFF, 5+=20% OFF, 10=30% OFF. Stripe secure.">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-<style>body{font-family:'Inter',sans-serif;background:#080808;color:#fff}.gold{color:#f5d76e}.bg-gold{background:#f5d76e}.shadow-gold{box-shadow:0 0 30px rgba(245,215,110,0.15)}</style>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<style>body{font-family:'Inter',sans-serif;background:#080808;color:#fff}.gold{color:#f5d76e}.bg-gold{background:#f5d76e}.shadow-gold{box-shadow:0 0 30px rgba(245,215,110,0.18)} @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}.pulse{animation:pulse 1.5s infinite}</style>
 </head>
 <body>
 
-<div class="bg-[#f5d76e] text-black text-center py-2.5 text-[11px] font-black tracking-widest">⚡ ONE CLIENT PER SUBURB • VERIFY IN 2HRS • SETUP IN 48HRS • TOP 3 IN 30 DAYS ⚡</div>
+<div class="bg-[#f5d76e] text-black text-center py-2.5 text-[11px] font-black tracking-widest">⚡ MAX 10 SUBURBS PER TRADE • 3+ = 10% OFF • 5+ = 20% OFF • 10 = 30% OFF MEGA • STRIPE SECURE ⚡</div>
 
 <header class="border-b border-[#1a1a1a] bg-black/90 sticky top-0 z-50">
-<div class="max-w-[1100px] mx-auto px-4 py-3.5 flex justify-between items-center">
+<div class="max-w-[1150px] mx-auto px-4 py-3.5 flex justify-between items-center">
 <a href="/" class="font-black text-[20px] tracking-tighter">MapRankers<span class="gold">.AU</span></a>
-<a href="https://wa.me/61485990944?text=Help%20me%20lock%20my%20suburb" class="bg-[#25D366] text-black px-4 py-2 rounded-full text-[11px] font-black">WhatsApp Help →</a>
+<a href="https://wa.me/61485990944?text=Help%20me%20lock%20suburbs" class="bg-[#25D366] text-black px-4 py-2 rounded-full text-[11px] font-black">WhatsApp →</a>
 </div>
 </header>
 
-<div class="max-w-[1100px] mx-auto px-4 py-8 grid md:grid-cols-[1.2fr_0.8fr] gap-6">
+<!-- NUDGE TOAST -->
+<div id="nudgeToast" class="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-[360px] bg-[#111] border-2 border-[#f5d76e] rounded-2xl p-4 shadow-gold z-[9999] hidden">
+<div class="flex gap-3 items-start">
+<div class="text-[20px]">🔥</div>
+<div class="flex-1"><div id="toastTitle" class="font-black text-[13px]">Add 2 more for 10% OFF!</div><div id="toastDesc" class="text-[11px] text-gray-400 mt-1">Most concreters lock 3 suburbs. Save $70 now.</div>
+<div class="mt-2 bg-black rounded-full h-2 overflow-hidden"><div id="toastProgress" class="bg-gold h-2 rounded-full" style="width:33%"></div></div>
+<div class="text-[9px] text-gray-500 mt-1"><span id="toastCount">1</span>/3 to 10% OFF • <span id="toastCount2">1</span>/5 to 20% OFF</div>
+</div>
+<button onclick="document.getElementById('nudgeToast').classList.add('hidden')" class="text-gray-500 text-[14px]">✕</button>
+</div>
+</div>
 
-<!-- LEFT - FORM -->
+<div class="max-w-[1150px] mx-auto px-4 py-8 grid md:grid-cols-[1.25fr_0.75fr] gap-6">
+
+<!-- LEFT FORM -->
 <div class="bg-[#0f0f0f] border-2 border-[#222] rounded-[20px] p-6 md:p-7">
-<h1 class="text-[26px] font-black tracking-tighter leading-[0.9]">Lock Your Suburb<br>on Google Maps</h1>
-<p class="text-[12px] text-gray-400 mt-2">Select city → tick suburbs you want → pay $299 first + $199 per extra. 3+ = 10% off, 5+ = 20% off. $149/mo first, $99/mo per extra protects rank.</p>
+<h1 class="text-[26px] md:text-[28px] font-black tracking-tighter leading-[0.9]">Lock Your Suburbs<br>on Google Maps - Stripe</h1>
+<p class="text-[12px] text-gray-400 mt-2">Tick up to 10 suburbs. First $299, each extra $199. Monthly $149 first + $99 per extra. Discount on setup only.</p>
 
-<!-- CITY + TRADE -->
+<div class="mt-4 bg-[#111] border border-[#333] rounded-xl p-3 flex gap-2 items-center">
+<div class="text-[10px] font-black bg-[#f5d76e] text-black px-2 py-1 rounded-full">NEW</div>
+<div class="text-[11px]"><b>Max 10 suburbs per trade</b> to keep Top 3 quality. One client per suburb per trade. 30 day guarantee.</div>
+</div>
+
 <div class="grid md:grid-cols-2 gap-3 mt-6">
-<div>
-<label class="text-[11px] font-bold text-gray-300">1. SELECT CITY *</label>
-<select id="city" required class="w-full mt-1 bg-black border-2 border-[#333] rounded-xl p-3.5 text-[13px] font-bold focus:border-[#f5d76e] outline-none">
-<option value="">-- Choose City --</option>
-<option value="ballarat">Ballarat VIC</option>
-<option value="bendigo">Bendigo VIC</option>
-<option value="geelong">Geelong VIC</option>
-<option value="warrnambool">Warrnambool VIC</option>
-<option value="horsham">Horsham VIC</option>
-<option value="mildura">Mildura VIC</option>
-<option value="shepparton">Shepparton VIC</option>
-<option value="traralgon">Traralgon VIC</option>
-<option value="toowoomba">Toowoomba QLD</option>
-<option value="mackay">Mackay QLD</option>
-<option value="rockhampton">Rockhampton QLD</option>
-<option value="bundaberg">Bundaberg QLD</option>
-<option value="cairns">Cairns QLD</option>
-<option value="townsville">Townsville QLD</option>
-<option value="launceston">Launceston TAS</option>
-<option value="devonport">Devonport TAS</option>
-<option value="bunbury">Bunbury WA</option>
-<option value="geraldton">Geraldton WA</option>
-<option value="albury-wodonga">Albury-Wodonga NSW/VIC</option>
-<option value="wagga-wagga">Wagga Wagga NSW</option>
-</select>
-</div>
-<div>
-<label class="text-[11px] font-bold text-gray-300">2. SELECT TRADE *</label>
-<select id="trade" required class="w-full mt-1 bg-black border-2 border-[#333] rounded-xl p-3.5 text-[13px] font-bold focus:border-[#f5d76e] outline-none">
-<option value="">-- Choose Trade --</option>
-<option>Concreter</option>
-<option>Plumber</option>
-<option>Electrician</option>
-<option>Builder</option>
-<option>Landscaper</option>
-<option>Roof Plumber</option>
-<option>Carpenter</option>
-<option>Painter</option>
-</select>
-</div>
+<div><label class="text-[11px] font-bold text-gray-300">1. CITY *</label><select id="city" required class="w-full mt-1 bg-black border-2 border-[#333] rounded-xl p-3.5 text-[13px] font-bold focus:border-[#f5d76e] outline-none"><option value="">-- Choose City --</option><option value="ballarat">Ballarat VIC</option><option value="bendigo">Bendigo VIC</option><option value="geelong">Geelong VIC</option><option value="warrnambool">Warrnambool VIC</option><option value="horsham">Horsham VIC</option><option value="mildura">Mildura VIC</option><option value="shepparton">Shepparton VIC</option><option value="traralgon">Traralgon VIC</option><option value="toowoomba">Toowoomba QLD - HOT</option><option value="mackay">Mackay QLD</option><option value="rockhampton">Rockhampton QLD</option><option value="bundaberg">Bundaberg QLD</option><option value="cairns">Cairns QLD</option><option value="townsville">Townsville QLD</option><option value="launceston">Launceston TAS</option><option value="devonport">Devonport TAS</option><option value="bunbury">Bunbury WA</option><option value="geraldton">Geraldton WA</option><option value="albury-wodonga">Albury-Wodonga NSW/VIC</option><option value="wagga-wagga">Wagga Wagga NSW</option></select></div>
+<div><label class="text-[11px] font-bold text-gray-300">2. TRADE *</label><select id="trade" required class="w-full mt-1 bg-black border-2 border-[#333] rounded-xl p-3.5 text-[13px] font-bold focus:border-[#f5d76e] outline-none"><option value="">-- Choose Trade --</option><option>Concreter</option><option>Plumber</option><option>Electrician</option><option>Builder</option><option>Landscaper</option><option>Roof Plumber</option><option>Carpenter</option><option>Painter</option></select></div>
 </div>
 
-<!-- SUBURBS CHECKBOXES -->
 <div class="mt-6">
-<label class="text-[11px] font-bold text-gray-300">3. TICK SUBURBS YOU WANT TO LOCK *</label>
-<p class="text-[10px] text-gray-500">First suburb $299 setup, each extra $199. Monthly: first $149, extra $99 each. 3+ suburbs = 10% OFF, 5+ = 20% OFF total setup.</p>
-<div id="suburbsBox" class="mt-3 bg-black border border-[#222] rounded-xl p-4 min-h-[120px]">
-<p class="text-[12px] text-gray-500 text-center py-6">← Select City First to see suburbs</p>
-</div>
-<div id="selectedCount" class="text-[11px] font-black gold mt-2 hidden">0 suburbs selected</div>
+<div class="flex justify-between items-center">
+<label class="text-[11px] font-bold text-gray-300">3. TICK SUBURBS (MAX 10) *</label>
+<span class="text-[10px] bg-[#1a1a1a] border border-[#333] px-2 py-1 rounded-full"><span id="countBadge">0</span>/10 selected</span>
 </div>
 
-<!-- BUSINESS DETAILS -->
+<!-- PROGRESS BAR -->
+<div class="mt-3 bg-black border border-[#222] rounded-full h-3 overflow-hidden relative">
+<div id="progressBar" class="bg-gold h-3 rounded-full transition-all duration-500" style="width:0%"></div>
+<div class="absolute inset-0 flex justify-between px-2 text-[7px] font-black leading-[12px]">
+<span>0</span><span class="text-[#f5d76e]">3=10% OFF</span><span class="text-[#25D366]">5=20% OFF</span><span>10=30% OFF MEGA</span>
+</div>
+</div>
+<p id="progressText" class="text-[10px] text-gray-500 mt-1">Select suburbs to unlock discounts</p>
+
+<div id="suburbsBox" class="mt-3 bg-black border border-[#222] rounded-xl p-2 min-h-[160px] max-h-[380px] overflow-y-auto">
+<p class="text-[12px] text-gray-500 text-center py-10">← Select City First to see suburbs</p>
+</div>
+
+<div id="popularHint" class="hidden mt-2 bg-[#1a1a0a] border border-[#f5d76e]/30 rounded-xl p-3 flex gap-2">
+<div class="text-[14px]">💡</div>
+<div class="text-[11px]"><b>Most Popular:</b> Tradies in <span id="hintCity">Ballarat</span> lock 3 suburbs - Winter Valley + Alfredton + Sebastopol. Gets 10% OFF.</div>
+</div>
+
+<div id="maxMsg" class="hidden mt-2 bg-[#ff0000]/10 border border-[#ff0000]/30 rounded-xl p-3 text-[11px] text-center font-bold text-red-400">⚠️ Max 10 suburbs reached to maintain Top 3 quality. Want 15-20? WhatsApp us for enterprise plan.</div>
+</div>
+
 <div class="mt-6 grid md:grid-cols-2 gap-3">
-<div class="md:col-span-2"><label class="text-[11px] font-bold text-gray-300">BUSINESS NAME *</label><input id="biz" required placeholder="e.g. Ballarat Premium Concrete" class="w-full mt-1 bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"></div>
-<div><label class="text-[11px] font-bold text-gray-300">YOUR NAME *</label><input id="name" required placeholder="John Smith" class="w-full mt-1 bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"></div>
-<div><label class="text-[11px] font-bold text-gray-300">MOBILE *</label><input id="mobile" required placeholder="04xx xxx xxx" class="w-full mt-1 bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"></div>
-<div class="md:col-span-2"><label class="text-[11px] font-bold text-gray-300">GOOGLE BUSINESS PROFILE LINK (if you have)</label><input id="gbp" placeholder="https://g.page/..." class="w-full mt-1 bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"></div>
+<div class="md:col-span-2"><label class="text-[11px] font-bold">BUSINESS NAME *</label><input id="biz" required placeholder="e.g. Ballarat Premium Concrete" class="w-full mt-1 bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"></div>
+<div><label class="text-[11px] font-bold">YOUR NAME *</label><input id="name" required placeholder="John Smith" class="w-full mt-1 bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"></div>
+<div><label class="text-[11px] font-bold">MOBILE *</label><input id="mobile" required placeholder="04xx xxx xxx" class="w-full mt-1 bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"></div>
+<div class="md:col-span-2"><label class="text-[11px] font-bold">EMAIL FOR STRIPE RECEIPT *</label><input id="email" type="email" required placeholder="you@gmail.com" class="w-full mt-1 bg-black border border-[#333] rounded-xl p-3.5 text-[13px]"></div>
+</div>
 </div>
 
-</div>
-
-<!-- RIGHT - CALCULATOR + PAY -->
+<!-- RIGHT CALCULATOR -->
 <div class="space-y-4">
-
-<!-- LIVE CALCULATOR -->
 <div class="bg-[#111] border-2 border-[#f5d76e] rounded-[20px] p-6 shadow-gold sticky top-[70px]">
-<h3 class="font-black text-[15px]">Live Pricing Calculator</h3>
+<h3 class="font-black text-[15px] flex items-center gap-2">🔒 Live Pricing - Stripe <span class="text-[9px] bg-[#25D366] text-black px-2 py-0.5 rounded-full">SECURE</span></h3>
 
-<div id="calcEmpty" class="text-[12px] text-gray-500 mt-4 text-center py-4">Select city + tick suburbs to see price</div>
+<div id="calcEmpty" class="text-[12px] text-gray-500 mt-4 text-center py-6 border-2 border-dashed border-[#222] rounded-xl">Tick 1-10 suburbs<br><span class="text-[10px]">to see price + discounts</span></div>
 
 <div id="calcBox" class="hidden mt-4 space-y-2.5 text-[12px]">
 <div class="flex justify-between"><span class="text-gray-400">City:</span><b id="calcCity" class="text-white">-</b></div>
 <div class="flex justify-between"><span class="text-gray-400">Trade:</span><b id="calcTrade" class="text-white">-</b></div>
-<div class="flex justify-between"><span class="text-gray-400">Suburbs:</span><b id="calcSubs" class="text-white">0</b></div>
+<div class="flex justify-between"><span class="text-gray-400">Suburbs (<span id="calcCount">0</span>):</span><b id="calcSubsShort" class="text-white text-[10px]">-</b></div>
+<div id="calcSubsFull" class="text-[10px] text-gray-400 bg-black border border-[#222] rounded-lg p-2 max-h-[60px] overflow-y-auto">-</div>
+
 <div class="border-t border-[#222] pt-3 space-y-1.5">
 <div class="flex justify-between"><span class="text-gray-400">1st Suburb Setup</span><span>$299</span></div>
-<div class="flex justify-between"><span class="text-gray-400" id="extraLabel">Extra x 0</span><span id="extraPrice">$0</span></div>
-<div class="flex justify-between text-[11px]"><span class="text-gray-500">Subtotal Setup</span><span id="subtotal">$0</span></div>
-<div id="discountRow" class="hidden flex justify-between text-[#25D366] font-black"><span id="discountText">10% OFF (3+ suburbs)</span><span id="discountAmt">-$0</span></div>
-<div class="flex justify-between text-[14px] font-black border-t border-[#222] pt-2"><span>Total Setup Today</span><span id="totalSetup" class="gold text-[16px]">$0</span></div>
+<div class="flex justify-between"><span class="text-gray-400" id="extraLabel">Extra x 0 @ $199</span><span id="extraPrice">$0</span></div>
+<div class="flex justify-between text-[11px] text-gray-500"><span>Subtotal Setup</span><span id="subtotal">$0</span></div>
+<div id="discountRow" class="hidden flex justify-between text-[#25D366] font-black bg-[#25D366]/10 border border-[#25D366]/20 rounded-lg p-2"><span id="discountText">10% OFF</span><span id="discountAmt">-$0</span></div>
+<div class="flex justify-between text-[15px] font-black border-t-2 border-[#f5d76e]/30 pt-3"><span>Total Pay Today</span><span id="totalSetup" class="gold text-[20px]">$0</span></div>
+<div id="saveMsg" class="hidden text-[11px] text-center font-black text-[#25D366] bg-[#25D366]/10 rounded-full py-1">You save $0! 🎉</div>
 </div>
-<div class="border-t border-[#222] pt-3 space-y-1.5">
-<div class="flex justify-between"><span class="text-gray-400">Monthly Protection</span><span id="monthly">$0/mo</span></div>
-<p class="text-[9px] text-gray-500 leading-relaxed">First $149/mo + $99/mo per extra suburb. Protects your Top 3 rank. Cancel anytime, but if competitor takes suburb you lose spot.</p>
+
+<div class="border-t border-[#222] pt-3 space-y-1">
+<div class="flex justify-between"><span class="text-gray-400">Monthly Protection</span><span id="monthly" class="font-black text-white">$0/mo</span></div>
+<p class="text-[9px] text-gray-500 leading-relaxed">Starts after 30 days. $149 first + $99 per extra. Protects Top 3 rank. Cancel anytime, but you lose suburb if competitor takes it.</p>
 </div>
+
 <div class="bg-black border border-[#222] rounded-xl p-3 mt-3">
-<p class="text-[10px] font-bold">WHAT YOU GET:</p>
-<p class="text-[10px] text-gray-400 mt-1 leading-relaxed">✓ GBP as Service Area (hide address)<br>✓ Service areas set to your suburbs<br>✓ Optimized for "[Trade] + [Suburb]"<br>✓ 15 citations NAP<br>✓ 5 geotagged job photos<br>✓ Review system mentions suburb<br>✓ 30 day Top 3 guarantee</p>
+<p class="text-[10px] font-bold">WHAT YOU GET FOR THIS PRICE:</p>
+<p class="text-[10px] text-gray-400 mt-1.5 leading-relaxed">
+✓ No shop needed - we hide address, Service Area Business<br>
+✓ Lock <span id="getSubCount">0</span> suburbs - set as service areas<br>
+✓ Rank for "Concreter <span id="getCity">Ballarat</span>" type searches<br>
+✓ 15 directory listings (True Local etc)<br>
+✓ 5 job photos geotagged to your suburbs<br>
+✓ Review QR that mentions suburb + job<br>
+✓ 30 day Top 3 Map Pack guarantee
+</p>
 </div>
 </div>
 
-<!-- PAY BUTTONS -->
 <div id="paySection" class="hidden mt-5 space-y-3">
-<button id="stripeBtn" class="w-full bg-gold text-black py-4 rounded-xl font-black text-[14px]">Pay <span id="payAmt">$299</span> with Card (Stripe) →</button>
+<button id="stripeBtn" class="w-full bg-gold text-black py-4 rounded-xl font-black text-[14px] pulse flex items-center justify-center gap-2">🔒 Pay <span id="payAmt">$0</span> with Stripe →</button>
+<p class="text-[9px] text-gray-500 text-center">Card • Apple Pay • Google Pay • Instant receipt • Tax invoice</p>
 
-<div class="text-center text-[10px] text-gray-500">OR</div>
-
-<div class="bg-black border-2 border-[#f5d76e]/50 rounded-xl p-4">
-<div class="text-[11px] font-black">PayID Instant Transfer (Preferred - No Fees)</div>
-<div class="mt-2 flex justify-between items-center bg-[#111] border border-[#222] rounded-lg p-3">
-<div><div class="text-[9px] text-gray-500">PayID NUMBER</div><div class="font-black text-[16px] tracking-wider">0485 990 944</div><div class="text-[9px] text-gray-500">Name: MapRankers AU</div></div>
-<button onclick="navigator.clipboard.writeText('0485990944'); alert('Copied 0485 990 944')" class="bg-[#222] px-3 py-2 rounded-lg text-[10px] font-bold">COPY</button>
-</div>
-<p class="text-[9px] text-gray-400 mt-2 leading-relaxed">Transfer <b id="payidAmt" class="text-white">$299</b> → Screenshot → WhatsApp us with business name + suburbs. We verify in 2hrs and lock your suburb instantly. Tax invoice provided. Reference: <b id="refCode" class="text-white">CITY-TRADE</b></p>
-<a id="waPay" href="#" class="block w-full mt-3 bg-[#25D366] text-black text-center py-3.5 rounded-xl font-black text-[13px]">I Paid - WhatsApp Receipt →</a>
+<div class="bg-black border-2 border-[#25D366]/30 rounded-xl p-4">
+<p class="text-[11px] font-black">After Stripe Payment:</p>
+<p class="text-[10px] text-gray-400 mt-1 leading-relaxed">1. Stripe receipt instantly to email<br>2. Click button below → WhatsApp us with screenshot<br>3. We verify in 2hrs & lock suburbs<br>4. Setup in 48hrs, Top 3 in 30 days</p>
+<a id="waAfter" href="#" class="block w-full mt-3 bg-[#25D366] text-black text-center py-3 rounded-xl font-black text-[12px]">After Paying - WhatsApp Receipt →</a>
 </div>
 
-<p class="text-[9px] text-gray-500 text-center leading-relaxed">By paying you agree to one client per suburb per trade. Setup 48hrs. Monthly starts after 30 days. 30 day Top 3 guarantee or we work free till you rank.</p>
+<div id="upsellNudge" class="hidden bg-[#1a1a0a] border border-[#f5d76e] rounded-xl p-3">
+<p id="upsellText" class="text-[11px] font-bold text-center">Add 1 more suburb for only $139 extra (after 30% OFF) and lock 4 suburbs!</p>
+</div>
 </div>
 
 </div>
 
-<!-- TRUST -->
 <div class="bg-[#0f0f0f] border border-[#222] rounded-[16px] p-4">
-<p class="text-[11px] font-black">Why PayID?</p>
-<p class="text-[10px] text-gray-400 mt-1 leading-relaxed">Instant, no 1.7% Stripe fee. 90% of our tradies use PayID. You get locked in 10 mins faster. ABN invoice provided same day.</p>
-<div class="mt-3 grid grid-cols-3 gap-2 text-center">
-<div class="bg-black border border-[#222] rounded-lg p-2"><div class="text-[14px] font-black gold">2hrs</div><div class="text-[8px] text-gray-500">VERIFY</div></div>
-<div class="bg-black border border-[#222] rounded-lg p-2"><div class="text-[14px] font-black gold">48hrs</div><div class="text-[8px] text-gray-500">SETUP</div></div>
-<div class="bg-black border border-[#222] rounded-lg p-2"><div class="text-[14px] font-black gold">30d</div><div class="text-[8px] text-gray-500">TOP 3</div></div>
+<p class="text-[11px] font-black">💰 Why Max 10 + Discount Ladder Works:</p>
+<p class="text-[10px] text-gray-400 mt-2 leading-relaxed">
+<b class="text-white">For Tradie:</b> Feels like game - unlocks discounts, wants to add more to save. 3 suburbs is sweet spot.<br><br>
+<b class="text-white">For You:</b> Setup cost: 1st=6hrs, extra=1.5hrs each. Even at 30% OFF for 10 suburbs ($1,463 setup), your cost ~$350, profit ~$1,100 + $1,040/mo recurring. If you allowed 20 suburbs, quality drops and you can't guarantee Top 3.
+</p>
 </div>
-</div>
-
 </div>
 </div>
 
-<footer class="border-t border-[#1a1a1a] mt-8 py-6 text-center text-[10px] text-gray-600">MapRankers AU - PayID 0485 990 944 - $299 Setup + $149/mo - Service Area Business - No Shop Needed<br><a href="/" class="underline">← Back to Cities</a></footer>
+<footer class="border-t border-[#1a1a1a] mt-8 py-6 text-center text-[10px] text-gray-600">MapRankers AU © 2026 - Stripe Secure - Max 10 suburbs per trade - One client per suburb per trade<br><a href="/" class="underline">← Back to Cities</a></footer>
 
 <script>
-const suburbsData = {
-"ballarat": ["Winter Valley","Alfredton","Sebastopol","Wendouree","Redan","Delacombe","Mount Clear","Buninyong","Brown Hill","Ballarat East"],
-"bendigo": ["Kangaroo Flat","Epsom","Strathdale","Kennington","Golden Square","Strathfieldsaye","White Hills","Maiden Gully","Junortoun","Eaglehawk"],
-"geelong": ["Grovedale","Highton","Belmont","Newtown","Corio","Lara","Ocean Grove","Leopold","Barwon Heads","Drysdale","Waurn Ponds","Geelong West"],
-"warrnambool": ["Dennington","Woodford","Warrnambool Central","Warrnambool East","Merrivale","Sherwood Park","Bushfield","Allansford"],
-"horsham": ["Horsham Central","Haven","Natall","Horsham West","Horsham North","Horsham South"],
-"mildura": ["Mildura Central","Irymple","Merbein","Red Cliffs","Cardross","Nichols Point","Mildura South"],
-"shepparton": ["Shepparton North","Kialla","Mooroopna","Shepparton East","Shepparton South","Tatura","Grahamvale"],
-"traralgon": ["Traralgon East","Morwell","Moe","Churchill","Traralgon South","Glengarry","Tyers"],
-"toowoomba": ["Kearneys Spring","Wilsonton","Middle Ridge","Rangeville","Centenary Heights","Harristown","Newtown","Glenvale","Highfields","Drayton"],
-"mackay": ["Andergrove","Beaconsfield","Mount Pleasant","North Mackay","Rural View","Glenella","Eimeo","Bucasia","Ooralea","Paget"],
-"rockhampton": ["Berserker","Gracemere","Park Avenue","Frenchville","Allenstown","North Rockhampton","Kawana","The Range","Parkhurst","Norman Gardens"],
-"bundaberg": ["Bundaberg Central","Bargara","Kepnock","Burnett Heads","Ashfield","Svensson Heights","Norville","Avenell Heights","Thabeban","Walkervale"],
-"cairns": ["Earlville","Edmonton","Manunda","Trinity Beach","Smithfield","Redlynch","Bayview Heights","Mooroobool","Manoora","Edge Hill"],
-"townsville": ["Idalia","Kirwan","Annandale","Condon","Burdell","Douglas","Mount Louisa","Rasmussen","Wulguru","Currajong"],
-"launceston": ["Kings Meadows","Newstead","Riverside","Mowbray","Legana","Prospect","Youngtown","Summerhill","Trevallyn","Norwood"],
-"devonport": ["Miandetta","East Devonport","Stony Rise","Latta","Ambleside","Spreyton","Quoiba","Devonport Central"],
-"bunbury": ["Australind","Eaton","Withers","South Bunbury","Dalyellup","College Grove","Glen Iris","Carey Park","Leschenault","Picton"],
-"geraldton": ["Wonthella","Strathalbyn","Tarcoola Beach","Sunset Beach","Rangeway","Spalding","Bluff Point","Wandina","Beresford","Drummond Cove"],
-"albury-wodonga": ["Lavington","Thurgoona","West Wodonga","Wodonga Central","Albury East","Glenroy","Springdale Heights","Baranduda","Bandiana","Gateway Island"],
-"wagga-wagga": ["Estella","Kooringal","Turvey Park","Lake Albert","Glenfield Park","Tolland","Lloyd","Bourkelands","Boorooma","Tatton"]
-};
+const suburbsData={"ballarat":["Winter Valley","Alfredton","Sebastopol","Wendouree","Redan","Delacombe","Mount Clear","Buninyong","Brown Hill","Ballarat East"],"bendigo":["Kangaroo Flat","Epsom","Strathdale","Kennington","Golden Square","Strathfieldsaye","White Hills","Maiden Gully","Junortoun","Eaglehawk"],"geelong":["Grovedale","Highton","Belmont","Newtown","Corio","Lara","Ocean Grove","Leopold","Barwon Heads","Drysdale","Waurn Ponds","Geelong West"],"warrnambool":["Dennington","Woodford","Warrnambool Central","Warrnambool East","Merrivale","Sherwood Park","Bushfield","Allansford"],"horsham":["Horsham Central","Haven","Natall","Horsham West","Horsham North","Horsham South"],"mildura":["Mildura Central","Irymple","Merbein","Red Cliffs","Cardross","Nichols Point","Mildura South"],"shepparton":["Shepparton North","Kialla","Mooroopna","Shepparton East","Shepparton South","Tatura","Grahamvale"],"traralgon":["Traralgon East","Morwell","Moe","Churchill","Traralgon South","Glengarry","Tyers"],"toowoomba":["Kearneys Spring","Wilsonton","Middle Ridge","Rangeville","Centenary Heights","Harristown","Newtown","Glenvale","Highfields","Drayton"],"mackay":["Andergrove","Beaconsfield","Mount Pleasant","North Mackay","Rural View","Glenella","Eimeo","Bucasia","Ooralea","Paget"],"rockhampton":["Berserker","Gracemere","Park Avenue","Frenchville","Allenstown","North Rockhampton","Kawana","The Range","Parkhurst","Norman Gardens"],"bundaberg":["Bundaberg Central","Bargara","Kepnock","Burnett Heads","Ashfield","Svensson Heights","Norville","Avenell Heights","Thabeban","Walkervale"],"cairns":["Earlville","Edmonton","Manunda","Trinity Beach","Smithfield","Redlynch","Bayview Heights","Mooroobool","Manoora","Edge Hill"],"townsville":["Idalia","Kirwan","Annandale","Condon","Burdell","Douglas","Mount Louisa","Rasmussen","Wulguru","Currajong"],"launceston":["Kings Meadows","Newstead","Riverside","Mowbray","Legana","Prospect","Youngtown","Summerhill","Trevallyn","Norwood"],"devonport":["Miandetta","East Devonport","Stony Rise","Latta","Ambleside","Spreyton","Quoiba","Devonport Central"],"bunbury":["Australind","Eaton","Withers","South Bunbury","Dalyellup","College Grove","Glen Iris","Carey Park","Leschenault","Picton"],"geraldton":["Wonthella","Strathalbyn","Tarcoola Beach","Sunset Beach","Rangeway","Spalding","Bluff Point","Wandina","Beresford","Drummond Cove"],"albury-wodonga":["Lavington","Thurgoona","West Wodonga","Wodonga Central","Albury East","Glenroy","Springdale Heights","Baranduda","Bandiana","Gateway Island"],"wagga-wagga":["Estella","Kooringal","Turvey Park","Lake Albert","Glenfield Park","Tolland","Lloyd","Bourkelands","Boorooma","Tatton"]};
 
-const citySel = document.getElementById('city');
-const tradeSel = document.getElementById('trade');
-const box = document.getElementById('suburbsBox');
-const calcEmpty = document.getElementById('calcEmpty');
-const calcBox = document.getElementById('calcBox');
-const paySection = document.getElementById('paySection');
+// REPLACE WITH YOUR REAL STRIPE LINK - Use "Customer chooses price" with min $299
+const STRIPE_LINK = "https://buy.stripe.com/test_6oU7sM0uZ8rS0oA3cc";
 
-let selected = [];
+const citySel=document.getElementById('city'), tradeSel=document.getElementById('trade'), box=document.getElementById('suburbsBox');
+const calcEmpty=document.getElementById('calcEmpty'), calcBox=document.getElementById('calcBox'), paySection=document.getElementById('paySection');
+const progressBar=document.getElementById('progressBar'), progressText=document.getElementById('progressText'), countBadge=document.getElementById('countBadge');
+const nudgeToast=document.getElementById('nudgeToast');
+
+function fireConfetti(){
+ confetti({particleCount:120, spread:80, origin:{y:0.7}, colors:['#f5d76e','#25D366','#ffffff']});
+}
 
 function renderSuburbs(city){
- selected = [];
- const subs = suburbsData[city] || [];
- if(!subs.length){box.innerHTML='<p class="text-[12px] text-gray-500 text-center py-6">No suburbs found</p>'; return;}
- box.innerHTML = subs.map(s=>`
-  <label class="flex items-center gap-2.5 py-2.5 px-2 hover:bg-[#111] rounded-lg cursor-pointer border-b border-[#111] last:border-0">
-    <input type="checkbox" value="${s}" class="subCheck w-4 h-4 accent-[#f5d76e]">
-    <span class="text-[13px] font-semibold">${s}</span>
-    <span class="ml-auto text-[9px] text-gray-500">${city.toUpperCase()}</span>
-  </label>
- `).join('');
- document.querySelectorAll('.subCheck').forEach(ch=>{
-   ch.addEventListener('change', updateCalc);
- });
+ const subs=suburbsData[city]||[];
+ if(!subs.length){box.innerHTML='<p class="text-[12px] text-gray-500 text-center py-10">No suburbs</p>';return;}
+ box.innerHTML=subs.map((s,i)=>`
+  <label class="flex items-center gap-2.5 py-3 px-3 hover:bg-[#111] rounded-lg cursor-pointer border-b border-[#111] last:border-0 group">
+    <input type="checkbox" value="${s}" class="subCheck w-5 h-5 accent-[#f5d76e]">
+    <span class="text-[13px] font-semibold group-hover:text-[#f5d76e]">${s}</span>
+    ${i<3?'<span class="ml-auto text-[8px] bg-[#f5d76e] text-black px-1.5 py-0.5 rounded-full font-black">POPULAR</span>':''}
+  </label>`).join('');
+ document.querySelectorAll('.subCheck').forEach(ch=>ch.addEventListener('change',onCheckChange));
+ document.getElementById('hintCity').innerText=city.charAt(0).toUpperCase()+city.slice(1);
+ document.getElementById('popularHint').classList.remove('hidden');
  updateCalc();
+}
+
+function onCheckChange(e){
+ const checks=Array.from(document.querySelectorAll('.subCheck:checked'));
+ if(checks.length>10){
+   e.target.checked=false;
+   document.getElementById('maxMsg').classList.remove('hidden');
+   setTimeout(()=>document.getElementById('maxMsg').classList.add('hidden'),4000);
+   return;
+ }
+ // Confetti on unlocks
+ if(checks.length===3 || checks.length===5 || checks.length===10){
+   fireConfetti();
+ }
+ updateCalc();
+ showNudge(checks.length);
+}
+
+function showNudge(count){
+ if(count===0){ nudgeToast.classList.add('hidden'); return; }
+ const toastTitle=document.getElementById('toastTitle'), toastDesc=document.getElementById('toastDesc'), toastProgress=document.getElementById('toastProgress');
+ nudgeToast.classList.remove('hidden');
+ document.getElementById('toastCount').innerText=count;
+ document.getElementById('toastCount2').innerText=count;
+ if(count===1){
+   toastTitle.innerText="Add 2 more for 10% OFF! 🔥";
+   toastDesc.innerText="Most tradies lock 3 suburbs. Save $70 instantly.";
+   toastProgress.style.width="33%";
+   progressText.innerText="Add 2 more to unlock 10% OFF → Save $70";
+ } else if(count===2){
+   toastTitle.innerText="Almost there! 1 more for 10% OFF 🎉";
+   toastDesc.innerText="You're 1 away from 10% OFF. Add Sebastopol?";
+   toastProgress.style.width="66%";
+   progressText.innerText="1 more suburb to unlock 10% OFF!";
+ } else if(count===3){
+   toastTitle.innerText="10% OFF Unlocked! 🎉 Want 20% OFF?";
+   toastDesc.innerText="You saved $70! Add 2 more suburbs to get 20% OFF and save $219";
+   toastProgress.style.width="60%";
+   progressText.innerText="10% OFF unlocked! Add 2 more for 20% OFF →";
+ } else if(count===4){
+   toastTitle.innerText="1 more for 20% OFF! 💰";
+   toastDesc.innerText="Add 1 more, save $219 total. Best value!";
+   toastProgress.style.width="80%";
+   progressText.innerText="1 more for 20% OFF MEGA!";
+ } else if(count>=5 && count<10){
+   toastTitle.innerText=`20% OFF Unlocked! ${10-count} more for 30% OFF MEGA 🚀`;
+   toastDesc.innerText=`You saved $${count>=5?Math.round((299+(count-1)*199)*0.2):0}! Add ${10-count} more for 30% OFF - lock half the city!`;
+   toastProgress.style.width=(50+count*5)+"%";
+   progressText.innerText=`20% OFF unlocked! Add ${10-count} more for 30% OFF MEGA!`;
+ } else if(count===10){
+   toastTitle.innerText="30% OFF MEGA Unlocked! 🚀🚀🚀";
+   toastDesc.innerText="You are a legend - you locked 10 suburbs and saved max! Enterprise level.";
+   toastProgress.style.width="100%";
+   progressText.innerText="30% OFF MEGA unlocked! Max value achieved!";
+ }
 }
 
 function updateCalc(){
- const city = citySel.value;
- const trade = tradeSel.value;
- const checks = Array.from(document.querySelectorAll('.subCheck:checked')).map(c=>c.value);
- selected = checks;
- const count = checks.length;
+ const city=citySel.value, trade=tradeSel.value;
+ const checks=Array.from(document.querySelectorAll('.subCheck:checked')).map(c=>c.value);
+ const count=checks.length;
+ countBadge.innerText=count;
+ document.getElementById('getSubCount').innerText=count;
+ document.getElementById('getCity').innerText=city?city.toUpperCase():'BALLARAT';
 
- document.getElementById('selectedCount').classList.toggle('hidden', count===0);
- document.getElementById('selectedCount').innerText = count + ' suburbs selected - ' + checks.join(', ');
+ // Progress bar
+ let pct=0;
+ if(count<=3) pct=(count/3)*33;
+ else if(count<=5) pct=33+((count-3)/2)*33;
+ else pct=66+((count-5)/5)*34;
+ progressBar.style.width=pct+"%";
+ if(count===0){ progressText.innerText="Select suburbs to unlock discounts"; }
 
- if(count===0){
-   calcEmpty.classList.remove('hidden');
-   calcBox.classList.add('hidden');
-   paySection.classList.add('hidden');
-   return;
- }
+ if(count===0){ calcEmpty.classList.remove('hidden'); calcBox.classList.add('hidden'); paySection.classList.add('hidden'); return; }
+ calcEmpty.classList.add('hidden'); calcBox.classList.remove('hidden'); paySection.classList.remove('hidden');
 
- calcEmpty.classList.add('hidden');
- calcBox.classList.remove('hidden');
- paySection.classList.remove('hidden');
+ const first=299, extraUnit=199, extraCount=Math.max(0,count-1);
+ let subtotal=first+(extraCount*extraUnit);
+ let discount=0, discountText="", save=0;
+ if(count>=10){ discount=subtotal*0.30; discountText="30% OFF MEGA (10 suburbs)"; }
+ else if(count>=5){ discount=subtotal*0.20; discountText="20% OFF (5+ suburbs)"; }
+ else if(count>=3){ discount=subtotal*0.10; discountText="10% OFF (3+ suburbs)"; }
+ save=Math.round(discount);
+ const total=Math.round(subtotal-discount);
+ const monthly=149+(extraCount*99);
 
- // Pricing: first $299 + extra $199
- const first = 299;
- const extraUnit = 199;
- const extraCount = Math.max(0, count-1);
- let subtotal = first + (extraCount * extraUnit);
+ document.getElementById('calcCity').innerText=city?city.toUpperCase():'-';
+ document.getElementById('calcTrade').innerText=trade||'-';
+ document.getElementById('calcCount').innerText=count;
+ document.getElementById('calcSubsShort').innerText=checks.slice(0,2).join(', ')+(count>2?' +'+(count-2)+' more':'');
+ document.getElementById('calcSubsFull').innerText=checks.join(', ');
+ document.getElementById('extraLabel').innerText=`Extra x ${extraCount} @ $199`;
+ document.getElementById('extraPrice').innerText='$'+(extraCount*extraUnit);
+ document.getElementById('subtotal').innerText='$'+subtotal;
+ document.getElementById('totalSetup').innerText='$'+total;
+ document.getElementById('payAmt').innerText='$'+total;
+ document.getElementById('monthly').innerText='$'+monthly+'/mo';
 
- // Discount
- let discount = 0;
- let discountText = '';
- if(count>=5){ discount = subtotal*0.20; discountText='20% OFF (5+ suburbs)'; }
- else if(count>=3){ discount = subtotal*0.10; discountText='10% OFF (3+ suburbs)'; }
-
- const total = Math.round(subtotal - discount);
-
- // Monthly: first 149 + extra 99
- const monthly = 149 + (extraCount*99);
-
- // Update DOM
- document.getElementById('calcCity').innerText = city? city.charAt(0).toUpperCase()+city.slice(1) : '-';
- document.getElementById('calcTrade').innerText = trade || '-';
- document.getElementById('calcSubs').innerText = count + ' ('+checks.join(', ')+')';
- document.getElementById('extraLabel').innerText = 'Extra x '+extraCount+' @ $199';
- document.getElementById('extraPrice').innerText = '$'+(extraCount*extraUnit);
- document.getElementById('subtotal').innerText = '$'+subtotal;
- document.getElementById('totalSetup').innerText = '$'+total;
- document.getElementById('payAmt').innerText = '$'+total;
- document.getElementById('payidAmt').innerText = '$'+total;
- document.getElementById('monthly').innerText = '$'+monthly+'/mo';
- document.getElementById('refCode').innerText = (city?city.toUpperCase():'CITY')+'-'+(trade?trade.toUpperCase():'TRADE')+'-'+count+'SUBS';
+ // upsell nudge
+ const upsell=document.getElementById('upsellNudge'), upsellText=document.getElementById('upsellText');
+ if(count<10){
+   const nextCount=count+1;
+   let nextSubtotal=first+(nextCount-1)*extraUnit;
+   let nextDiscount=0;
+   if(nextCount>=10) nextDiscount=nextSubtotal*0.30; else if(nextCount>=5) nextDiscount=nextSubtotal*0.20; else if(nextCount>=3) nextDiscount=nextSubtotal*0.10;
+   let nextTotal=Math.round(nextSubtotal-nextDiscount);
+   let diff=nextTotal-total;
+   if(count>=2 && diff<=200){
+     upsell.classList.remove('hidden');
+     upsellText.innerText=`💡 Add 1 more suburb for only $${diff} extra (after ${nextCount>=10?'30%':nextCount>=5?'20%':'10%'} OFF) and lock ${nextCount} suburbs!`;
+   } else { upsell.classList.add('hidden'); }
+ } else { upsell.classList.add('hidden'); }
 
  if(discount>0){
    document.getElementById('discountRow').classList.remove('hidden');
-   document.getElementById('discountText').innerText = discountText;
-   document.getElementById('discountAmt').innerText = '-$'+Math.round(discount);
+   document.getElementById('discountText').innerText=discountText;
+   document.getElementById('discountAmt').innerText='-$'+save;
+   document.getElementById('saveMsg').classList.remove('hidden');
+   document.getElementById('saveMsg').innerText=`You save $${save}! 🎉 ${discountText} applied`;
  } else {
    document.getElementById('discountRow').classList.add('hidden');
+   document.getElementById('saveMsg').classList.add('hidden');
  }
 
- // Stripe link - REPLACE with your real Stripe Payment Link
- // Create one Stripe Payment Link for each price? For now we use dynamic.
- // You should create Stripe links: e.g. https://buy.stripe.com/... and pass amount
- const stripeBase = 'https://buy.stripe.com/test_'; // REPLACE THIS WITH YOUR REAL LINK
- document.getElementById('stripeBtn').onclick = function(){
-   // Build message for Stripe metadata - for now redirect to WhatsApp if no Stripe
-   const msg = `Hi, I want to lock ${count} suburbs in ${city} for ${trade}. Suburbs: ${checks.join(', ')}. Biz: ${document.getElementById('biz').value}. Total setup $${total} + $${monthly}/mo.`;
-   // If you have Stripe Payment Link, put here:
-   // window.location.href = 'https://buy.stripe.com/YOUR_LINK?amount='+total;
-   // For now, go to WhatsApp with details
-   window.location.href = 'https://wa.me/61485990944?text='+encodeURIComponent(msg + ' - I will pay via Stripe $'+total);
+ document.getElementById('stripeBtn').onclick=function(){
+   const biz=document.getElementById('biz').value, name=document.getElementById('name').value, mobile=document.getElementById('mobile').value, email=document.getElementById('email').value;
+   if(!biz||!name||!mobile||!email||!city||!trade){alert('Fill Business Name, Your Name, Mobile, Email, City, Trade + tick at least 1 suburb');return;}
+   const lead={city,trade,suburbs:checks,total,monthly,biz,name,mobile,email,ts:new Date().toISOString()};
+   localStorage.setItem('lastLead',JSON.stringify(lead));
+   let url=STRIPE_LINK;
+   url += (url.includes('?')?'&':'?') + 'prefilled_email='+encodeURIComponent(email) + '&client_reference_id='+encodeURIComponent(city+'-'+trade+'-'+count);
+   window.location.href=url;
  };
-
- // WhatsApp PayID receipt link
- const waMsg = `Hi MapRankers, I just paid $${total} via PayID 0485 990 944 for ${count} suburbs in ${city.toUpperCase()} as ${trade}. Suburbs: ${checks.join(', ')}. Business: ${document.getElementById('biz').value}, Name: ${document.getElementById('name').value}, Mobile: ${document.getElementById('mobile').value}, GBP: ${document.getElementById('gbp').value}. Ref: ${document.getElementById('refCode').innerText}. Screenshot attached. Please verify and lock my suburbs. Monthly $${monthly}/mo starts after 30 days.`;
- document.getElementById('waPay').href = 'https://wa.me/61485990944?text='+encodeURIComponent(waMsg);
+ const waMsg=`Hi MapRankers, I paid $${total} via Stripe for ${count} suburbs in ${city.toUpperCase()} as ${trade}. Suburbs: ${checks.join(', ')}. Biz: ${document.getElementById('biz').value}, Name: ${document.getElementById('name').value}, Mobile: ${document.getElementById('mobile').value}, Email: ${document.getElementById('email').value}. Monthly $${monthly}/mo after 30 days. Please verify and lock.`;
+ document.getElementById('waAfter').href='https://wa.me/61485990944?text='+encodeURIComponent(waMsg);
 }
 
-citySel.addEventListener('change', function(){
- if(this.value) renderSuburbs(this.value);
- updateCalc();
- // preselect suburb from URL?suburb=xxx
- const urlSub = new URLSearchParams(window.location.search).get('suburb');
- if(urlSub){
-   setTimeout(()=>{
-     const match = Array.from(document.querySelectorAll('.subCheck')).find(c=>c.value.toLowerCase().includes(urlSub.toLowerCase()));
-     if(match){ match.checked=true; updateCalc(); }
-   },100);
- }
-});
-tradeSel.addEventListener('change', updateCalc);
-
-// URL params:?city=ballarat&suburb=Winter%20Valley
-window.addEventListener('load', ()=>{
- const params = new URLSearchParams(window.location.search);
- const c = params.get('city');
- const s = params.get('suburb');
+citySel.addEventListener('change',function(){ if(this.value) renderSuburbs(this.value); });
+tradeSel.addEventListener('change',updateCalc);
+window.addEventListener('load',()=>{
+ const p=new URLSearchParams(window.location.search);
+ const c=p.get('city');
  if(c && suburbsData[c.toLowerCase()]){ citySel.value=c.toLowerCase(); renderSuburbs(c.toLowerCase()); }
- if(s){ document.getElementById('selectedCount').innerText = 'Preselected: '+s; }
- // auto fill from index
- const cityFromQS = params.get('city') || '';
- if(cityFromQS) updateCalc();
 });
 </script>
 </body>
